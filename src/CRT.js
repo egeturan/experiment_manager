@@ -56,7 +56,7 @@ class CRT extends Component{
         return(
             <div>
                     <h1>Zihinsel Tepki Testi </h1>
-                
+                    
                     <Form onSubmit={this.handleSubmit} size="small">
                         <Segment stacked>
                         <Form inline className="forminput">   

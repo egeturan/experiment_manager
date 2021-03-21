@@ -5,15 +5,32 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import { Checkbox } from 'semantic-ui-react'
 import "./DilemmaPage.css";
 
 class DilemmaPage extends Component{
 
     state = {
         situation: [false, false, false, false, false, false, false],
-        dillemaNumber: 0
+        dillemaNumber: 0,
+        answer1: ""
     }
+
+    displayErrors = errors =>
+      errors.map((error, i) => <p key={i}>{error.message}</p>);
+  
+    handleChange = event => {
+      this.setState({ [event.target.name]: event.target.value });
+    };
+
+    handleSubmit = event => {
+        event.preventDefault();
+    }
+
+    handleInputError = (errors, inputName) => {
+        return errors.some(error => error.message.toLowerCase().includes(inputName))
+        ? "error"
+        : "";
+    };
 
     changeInValue = (args) => {
         console.log(args + 1);
@@ -31,7 +48,9 @@ class DilemmaPage extends Component{
     control_filled = (args) => {
         if(this.state.situation[0] || this.state.situation[1] || this.state.situation[2] || this.state.situation[3] || this.state.situation[4] || this.state.situation[5] || this.state.situation[6])
         {
-            this.props.submited(args);
+            if(this.state.answer1 != ""){
+                this.props.submited(args);
+            }
         }
     }
 
@@ -66,6 +85,9 @@ class DilemmaPage extends Component{
 
 
     render(){
+
+        const { answer1 } = this.state;
+
         return(
             <div className="DillemPage">
                 <h1> {this.props.number}. Hikaye </h1>
@@ -74,7 +96,7 @@ class DilemmaPage extends Component{
                 <p>{this.props.dilemma3} </p>
                 <Container className="containerEffective">
                 <h1>Ölçüt</h1>
-                <Row>
+                <Row className="row">
                     <Col>1 - Kesinlikle Kabul Edilemez. <InputGroup.Prepend  ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
                     <Col>2 <InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
                     <Col>3 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[2]} onClick={this.changeInValue.bind(this, 2)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
@@ -87,8 +109,12 @@ class DilemmaPage extends Component{
                 <div className="dilemma4">
                 <p>{this.props.dilemma4} </p>
                 <FormControl
-                    placeholder="         "
-                    aria-label="Amount (to the nearest dollar)"
+                    inline
+                    name="answer1"
+                    placeholder="     "
+                    onChange={this.handleChange}
+                    value={answer1}
+                    type="text"
                 />
                 <br/>
                 <div className="experiment"><Button variant="success" className="button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button></div>

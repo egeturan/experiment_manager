@@ -252,19 +252,17 @@ Teşekkürler.
             <ListGroup.Item>Bu deney “DİKKAT” deneyi olduğundan dolayı, kelimeler arasındaki geçiş hızlıdır. Verilerinizin daha doğru sonuç vermesi için lütfen elinizden geldiğince gelen uyaranlara hızlı cevap veriniz.  </ListGroup.Item>
             <ListGroup.Item>Cevap vermek için “SAĞ VE SOL YÖN TUŞLARI” nı kullanınız.  <img  src={ButtonImage} alt="fireSpot"/> </ListGroup.Item>
             </ListGroup>
+            <h1 className="h1">ÖRNEK</h1>
             <Row>
-            <Col>
-              <p>ÖRNEK: </p>
-            </Col>
-            <Col>
-            <h2>Doğru cevap: Sarı	</h2>
-            <img  src={Sample1} alt="fireSpot"/>
-            </Col>
+              <Col>
+              <h2>Doğru cevap: Sarı	</h2>
+              <img  src={Sample1} alt="fireSpot"/>
+              </Col>
 
-            <Col>
-            <h2>Doğru cevap: Turuncu</h2>
-            <img  src={Sample2} alt="fireSpot"/>
-            </Col>
+              <Col>
+              <h2>Doğru cevap: Turuncu</h2>
+              <img  src={Sample2} alt="fireSpot"/>
+              </Col>
             
             </Row>
             <Button variant="success" className="button12" onClick={this.nextPage}>Testi Başlat</Button>
@@ -306,7 +304,7 @@ Teşekkürler.
       movement = null;
     }else if(this.state.pageNumber === 23)
     {
-      screen = <div className="welcomeDilemma"><h4>Bölüm 4: Zihinsel Tepki Süresi Testi (6 dakika) </h4><br/>
+      screen = <div className="welcomeDilemma"><h1>Bölüm 4: Zihinsel Tepki Süresi Testi (6 dakika) </h1><br/>
       Bu bölümde karşınıza 3 kısa ve kolay soru çıkacak. Lütfen soruları dikkatli ve elinizden geldiği sürece hızlı yapınız. Eğer bu bölümü 6 dakikadan hızlı bitirirseniz, “enter” tuşuyla deneyi sonlandırabilirsiniz
       </div>;;
     }else if(this.state.pageNumber === 24)

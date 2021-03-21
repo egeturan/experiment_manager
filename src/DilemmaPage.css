@@ -23,4 +23,9 @@
 .DillemPage{
     text-align: center;
     font-size: 18px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.row{
+    margin-top: 4%;
 }

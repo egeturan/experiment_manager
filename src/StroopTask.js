@@ -162,9 +162,9 @@ class StroopTask extends React.Component {
         <Badge className="BoxR" style={{fontSize: "55px"}}>{this.state.colorsT[right]}</Badge>
     </tr>
   </div>
-    if(this.state.seconds < 10){
-      return <div className="CountD">{10 - this.state.seconds}</div>;
-    }else if(this.state.seconds < 100){
+    if(this.state.seconds < 5){
+      return <div className="CountD">{5 - this.state.seconds}</div>;
+    }else if(this.state.seconds < 10){
       return <div>{stroop}</div>;
     }else{
       return <div><Button variant="success" className="BoxM" onClick={this.props.submited}>Testi Tamamla</Button></div>;
