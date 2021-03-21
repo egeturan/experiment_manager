@@ -18,7 +18,7 @@ ReactDOM.render(
     <Router>
     <Switch>
       <Route exact path="/" component={PageManagerController} />
-      <Route exact path="/page" component={PageManager} />
+      <Route path="/page" component={PageManager} />
       <Route path="/registerUAD58097614" component={Register} />
       <Route path="/login" component={Login} />
     </Switch>
