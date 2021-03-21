@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import PageManager from './PageManager';
+import Register from "./Auth/Register";
+import Login from "./Auth/Login";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, {useCallback} from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import FullScreenApp from './FullScreenApp';
+import PageManagerController from './PageManagerController';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+    <Router>
+    <Switch>
+      <Route exact path="/" component={PageManagerController} />
+      <Route exact path="/page" component={PageManager} />
+      <Route path="/registerUAD58097614" component={Register} />
+      <Route path="/login" component={Login} />
+    </Switch>
+  </Router>
+  </div>
   );
 }
 
