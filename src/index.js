@@ -4,10 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Button from 'react-bootstrap/Button';
+import './App.css';
+import PageManager from './PageManager';
+import Register from "./Auth/Register";
+import Login from "./Auth/Login";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import PageManagerController from './PageManagerController';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <div>
+    <Router>
+    <Switch>
+      <Route exact path="/" component={PageManagerController} />
+      <Route exact path="/page" component={PageManager} />
+      <Route path="/registerUAD58097614" component={Register} />
+      <Route path="/login" component={Login} />
+    </Switch>
+  </Router>
+  </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
