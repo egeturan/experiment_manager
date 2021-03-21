@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Soundfile from "./assets/electro1.mp3";
+import Soundfile from "./assets/classic1.m4a";
 import Button from 'react-bootstrap/Button';
 import './Music.css'
 
@@ -38,8 +38,8 @@ class PlayClassicSound extends Component{
   }
 
   componentWillUnmount(){
-    this.timer = null;
     this.countUp = null;
+    clearInterval(this.timer);
   }
 
   startTimer = () => {
@@ -56,7 +56,7 @@ class PlayClassicSound extends Component{
       seconds: seconds,
     });
 
-    if(this.state.seconds == 15){
+    if(this.state.seconds == 10){
         this.start();
     }
     console.log(this.state.seconds)
@@ -126,8 +126,8 @@ class PlayClassicSound extends Component{
     render(){
         return(
             <div>
-              <h1>Müzik Arası – 7.14 dakika</h1>
-              <p>Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
+              <h1>Klasik Müzik Arası</h1>
+              <p className="music">Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
               {this.lookTime()}
               {this.screenstatus()}
               

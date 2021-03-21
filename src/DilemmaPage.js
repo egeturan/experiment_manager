@@ -9,11 +9,61 @@ import "./DilemmaPage.css";
 
 class DilemmaPage extends Component{
 
-    state = {
-        situation: [false, false, false, false, false, false, false],
+    constructor() {
+        super();
+        this.state = { time: {}, seconds: 0, situation: [false, false, false, false, false, false, false],
         dillemaNumber: 0,
-        answer1: ""
-    }
+        answer1: "" };
+        this.timer = 0;
+        this.startTimer = this.startTimer.bind(this);
+        this.countUp = this.countUp.bind(this);
+        this.finishTimer = this.finishTimer.bind(this);
+      }
+    
+      secondsToTime(secs){
+        let hours = Math.floor(secs / (60 * 60));
+    
+        let divisor_for_minutes = secs % (60 * 60);
+        let minutes = Math.floor(divisor_for_minutes / 60);
+    
+        let divisor_for_seconds = divisor_for_minutes % 60;
+        let seconds = Math.ceil(divisor_for_seconds);
+    
+        let obj = {
+          "h": hours,
+          "m": minutes,
+          "s": seconds
+        };
+        return obj;
+      }
+    
+      startTimer = () => {
+        if (this.timer == 0 && this.state.seconds >= 0) {
+          this.timer = setInterval(this.countUp, 1000);
+        }
+      }
+    
+      countUp() {
+        // Remove one second, set state so a re-render happens.
+        let seconds = this.state.seconds + 1;
+        this.setState({
+          time: this.secondsToTime(seconds),
+          seconds: seconds,
+        });
+        if(this.state.seconds === 5){
+            this.props.submited(seconds);
+        }
+      }
+  
+      finishTimer() {
+        let initial_time = 0;
+        this.timer = null;
+        this.setState({
+          time: this.secondsToTime(initial_time),
+          seconds: initial_time,
+          timer: 0
+        });
+      }
 
     displayErrors = errors =>
       errors.map((error, i) => <p key={i}>{error.message}</p>);
@@ -41,8 +91,10 @@ class DilemmaPage extends Component{
     }
 
     componentDidMount(){
-        let situation2 = [false, false, false, false, false, false, false];
-        this.setState({situation: situation2})
+        this.setState({ time: 0 });
+        if (this.timer == 0 && this.state.seconds >= 0) {
+            this.timer = setInterval(this.countUp, 1000);
+        }
     }
 
     control_filled = (args) => {
@@ -61,6 +113,8 @@ class DilemmaPage extends Component{
             situation: this.state.situation,
             dillemaNumber: this.state.dillemaNumber
           };
+
+          clearInterval(this.timer);
     
           /*
           axios.post(`http://localhost:8080/sendDilemma/`, data )
@@ -82,10 +136,7 @@ class DilemmaPage extends Component{
     }
 
     
-
-
     render(){
-
         const { answer1 } = this.state;
 
         return(
@@ -107,17 +158,17 @@ class DilemmaPage extends Component{
                 </Row>
                 </Container>
                 <div className="dilemma4">
-                <p>{this.props.dilemma4} </p>
-                <FormControl
-                    inline
-                    name="answer1"
-                    placeholder="     "
-                    onChange={this.handleChange}
-                    value={answer1}
-                    type="text"
-                />
-                <br/>
-                <div className="experiment"><Button variant="success" className="button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button></div>
+                    <p>{this.props.dilemma4} </p>
+                    <FormControl className="form"
+                        inline
+                        name="answer1"
+                        placeholder="     "
+                        onChange={this.handleChange}
+                        value={answer1}
+                        type="text"
+                    />
+                    <br/>
+                    <Button variant="success" className="Button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button>
                 </div>
                 
             </div>

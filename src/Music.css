@@ -6,3 +6,7 @@
   display: flex;
   justify-content: center;
 }
+
+.music{
+  font-size: 20px;
+}

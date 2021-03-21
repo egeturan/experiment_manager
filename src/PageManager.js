@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Timer from './Timer';
 import './PageManager.css';
 import DilemmaPage from './DilemmaPage';
 import StroopTask from './StroopTask';
@@ -12,12 +11,12 @@ import PlayElectronicSound from './PlayElectronicSound';
 import Panas from './Panas';
 import CRT from './CRT';
 import {withRouter} from 'react-router';
-import KeyboardEventHandler from 'react-keyboard-event-handler';
 import PlayElectronicSound2 from './PlayElectronicSound2';
 import PlayClassicSound2 from './PlayClassicSound2';
 import ButtonImage from'./assets/buttons.jpg';
 import Sample1 from'./assets/sampl1.jpg';
 import Sample2 from'./assets/sample1.jpg';
+import Bilkent from'./assets/bilkent.png';
 
 class PageManager extends React.Component {
   
@@ -30,7 +29,7 @@ class PageManager extends React.Component {
     musictype: 0,
     dilemmaCounter: 0,
     dilemma: ["Zeynep 5 yıldır Kadri ile beraber. Her ilişki gibi onlarınki de zaman zaman zorlaşıyor. Sonuç olarak Zeynep bu ilişkide olmaktan mutlu ve bu ilişkiyi sürdürmek istiyor. Kadri de Zeynep’i seviyor, Zeynep’le evlenmek istiyor.",
-    "Zeynep bir gün kendi bilgisayarından maillerine bakmak ister. Kadri’nin hesabının açık olduğunu görür. Özellikle bir mail Zeynep’in dikkatini çeker. Zeynep maili açtığında, erkek arkadaşı ile ilgili daha önce bilmediği yeni bir şey öğrenir. Kadri’in bir önceki partneri bir kadın değil, erkektir. Zeynep bu keşif sonrasında şaşkınlık ve kafa karışıklığı içinde Kadir’i terk eder.",
+    "Zeynep bir gün kendi bilgisayarından maillerine bakmak ister. Kadri’nin hesabının açık olduğunu görür. Özellikle bir mail Zeynep’in dikkatini çeker. Zeynep maili açtığında, erkek arkadaşı ile ilgili daha önce bilmediği yeni bir şey öğrenir. Kadri’in bir önceki partneri bir kadın değil, erkektir. Zeynep bu keşif sonrasında şaşkınlık ve kafa karışıklığı içinde Kadri’i terk eder.",
     "",
     "Kimin maili açıktır?",  
 
@@ -186,8 +185,14 @@ class PageManager extends React.Component {
     this.setState({pageNumber: this.state.pageNumber + 1})
   }
 
+  update(){
+    console.log("Updated");
+    this.setState({pageNumber: this.state.pageNumber})
+  }
+
   render() {
     let screen = null;
+    let dilemma = null;
     let inside = null;
 
     let movement = <div className="buttons">
@@ -200,28 +205,28 @@ class PageManager extends React.Component {
     {
        screen = <div><h2>Duygu, Biliş ve Ahlaki Karar Üzerine Bilişsel Yaklaşım Deneyine Hoşgeldiniz.  </h2>
        <p className="Intro">
-Bu deney toplamda dört bölümden oluşmaktadır. <br/>
-<br/>
-1. Genel Duygulanım Derecelendirmesi (10 dakika) <br/>
-  <li> Müzik arası (7 dakika) <br/> </li>
-2. Sürdürülebilir Dikkat deneyi (10 dakika) <br/>
-  <li> Müzik arası (7 dakika) <br/> </li>
-3. İkilem Yargı Sorguları (30 dk) <br/>
-4. Zihinsel Tepki Süresi Testi (6 dakika) <br/>
-<br/>
-Deney Toplamda: 70 dakika sürmektedir. <br/>
-<br/>
-Her bölümden sonra gelecek bölümün talimatları tekrardan ekranda belirecektir. Lütfen her bölümden sonra talimatları tekrar okuyunuz ve talimatlara göre bir sonraki bölümü yapmaya başlayınız. <br/>
-<br/>
-Her bölümün zaman limiti önceden yukarıdaki bilgilere uygun bir şekilde ayarlanmıştır. Müzik aralarından sonra başlayacak bölümün bilgilendirme sayfasına otamatik olarak yönlendirileceksiniz. Talimatları okuma sırasında her hangi bir zaman kısıtlaması olmaksızın, istediğiniz zaman bir sonraki bölüme geçebilirsiniz. <br/>
-<br/>
-Lütfen kulaklıklarınızı deney başlamadan önce ayarlayınız. Müziklerin daha dikkatli dinlenebilmesi için, lütfen müziği kulaklıklarınızla dinleyiniz. <br/>
-<br/>
-(ÖNEMLİ: DENEY SIRASINDA TELEFONUNUZU KAPATINIZ.)
-<br/>
-<br/>
-Teşekkürler.
-</p>
+        Bu deney toplamda dört bölümden oluşmaktadır. <br/>
+        <br/>
+        1. Genel Duygulanım Derecelendirmesi (10 dakika) <br/>
+          <li> Müzik arası (7 dakika) <br/> </li>
+        2. Sürdürülebilir Dikkat deneyi (10 dakika) <br/>
+          <li> Müzik arası (7 dakika) <br/> </li>
+        3. İkilem Yargı Sorguları (30 dk) <br/>
+        4. Zihinsel Tepki Süresi Testi (6 dakika) <br/>
+        <br/>
+        Deney Toplamda: 70 dakika sürmektedir. <br/>
+        <br/>
+        Her bölümden sonra gelecek bölümün talimatları tekrardan ekranda belirecektir. Lütfen her bölümden sonra talimatları tekrar okuyunuz ve talimatlara göre bir sonraki bölümü yapmaya başlayınız. <br/>
+        <br/>
+        Her bölümün zaman limiti önceden yukarıdaki bilgilere uygun bir şekilde ayarlanmıştır. Müzik aralarından sonra başlayacak bölümün bilgilendirme sayfasına otamatik olarak yönlendirileceksiniz. Talimatları okuma sırasında her hangi bir zaman kısıtlaması olmaksızın, istediğiniz zaman bir sonraki bölüme geçebilirsiniz. <br/>
+        <br/>
+        Lütfen kulaklıklarınızı deney başlamadan önce ayarlayınız. Müziklerin daha dikkatli dinlenebilmesi için, lütfen müziği kulaklıklarınızla dinleyiniz. <br/>
+        <br/>
+        (ÖNEMLİ: DENEY SIRASINDA TELEFONUNUZU KAPATINIZ.)
+        <br/>
+        <br/>
+        Teşekkürler.
+        </p>
 
       {/*<Timer val="ege" timeUpdate={this.updateTime}></Timer>{<h1>Time: h: {this.state.timer.h} m: {this.state.timer.m} s: {this.state.timer.s}*/}
           </div>;
@@ -251,20 +256,21 @@ Teşekkürler.
             <ListGroup.Item>Sizden istediğimiz gelen kelimenin ifade ettiği rengi şeçmeniz değil, yazının asıl rengini ( <b>YAZININ ANLAMI DEĞİL, RENGİ</b>) aşağıda belirecek olan iki seçenekten uygun olanı seçmeniz. </ListGroup.Item>
             <ListGroup.Item>Bu deney “DİKKAT” deneyi olduğundan dolayı, kelimeler arasındaki geçiş hızlıdır. Verilerinizin daha doğru sonuç vermesi için lütfen elinizden geldiğince gelen uyaranlara hızlı cevap veriniz.  </ListGroup.Item>
             <ListGroup.Item>Cevap vermek için “SAĞ VE SOL YÖN TUŞLARI” nı kullanınız.  <img  src={ButtonImage} alt="fireSpot"/> </ListGroup.Item>
-            </ListGroup>
-            <h1 className="h1">ÖRNEK</h1>
-            <Row>
+            <h1 className="n4">ÖRNEK</h1>
+            <Row className="row">
               <Col>
               <h2>Doğru cevap: Sarı	</h2>
-              <img  src={Sample1} alt="fireSpot"/>
+              <img  src={Sample1} alt="image"/>
               </Col>
 
               <Col>
               <h2>Doğru cevap: Turuncu</h2>
-              <img  src={Sample2} alt="fireSpot"/>
+              <img  src={Sample2} alt="image"/>
               </Col>
-            
             </Row>
+            </ListGroup>
+            
+  
             <Button variant="success" className="button12" onClick={this.nextPage}>Testi Başlat</Button>
             </div>;
       </div>;
@@ -273,7 +279,7 @@ Teşekkürler.
     else if(this.state.pageNumber === 5)
     {
       screen = <div className="StroopTask"><h1 bold>Biliş Dikkat Testi</h1><StroopTask className="stroop" submited={this.submited}></StroopTask></div>;
-      movement = null;
+      //movement = null;
     }
     else if(this.state.pageNumber === 6 && this.state.musictype === 1)
     {
@@ -300,10 +306,17 @@ Teşekkürler.
     }
     else if(this.state.pageNumber >= 8 && this.state.pageNumber <= 22)
     {
-      screen = <DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]}></DilemmaPage>;
+      if(this.state.pageNumber % 2 === 0){
+        screen = <DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]}></DilemmaPage>;
+        dilemma = null;
+      }else{
+        screen = null;
+        dilemma = <DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]}></DilemmaPage>;
+      }
       movement = null;
     }else if(this.state.pageNumber === 23)
     {
+      dilemma = null;
       screen = <div className="welcomeDilemma"><h1>Bölüm 4: Zihinsel Tepki Süresi Testi (6 dakika) </h1><br/>
       Bu bölümde karşınıza 3 kısa ve kolay soru çıkacak. Lütfen soruları dikkatli ve elinizden geldiği sürece hızlı yapınız. Eğer bu bölümü 6 dakikadan hızlı bitirirseniz, “enter” tuşuyla deneyi sonlandırabilirsiniz
       </div>;;
@@ -323,7 +336,7 @@ Teşekkürler.
           inside = 
         <div className="PageManager">
         {screen}
-        
+        {dilemma}
         {movement}
         </div>;
         
@@ -339,23 +352,24 @@ Teşekkürler.
       </p>  
       <p className="p2">Bu deneye sağlayacağınız gönüllü katılımınızdan dolayı, şimdiden teşekkür ederiz. 
       <br/>
-Bilimle Kalın. 
-</p>
+      Bilimle Kalın. 
+      </p>
       <p className="n1">
-      Bu deney;
-Irmak Oltay ve takım arkadaşlarının katkılarıyla hazırlanmıştır. 
+      Bu deney; Irmak Oltay ve takım arkadaşlarının katkılarıyla hazırlanmıştır. 
       </p>
       </Col>
 
 
       <Col xs={3}>
-      <Button variant="success" className="button1" onClick={this.login}>Giriş Yap</Button>
+      <img  src={Bilkent} width="40%" alt="image"/>
+      <br/>
+      <Button variant="success" className="buttonLogin" onClick={this.login}>Giriş Yap</Button>
       <p className="p3">
       Lütfen şifrenizi istenilen alanlara girerek doldurunuz.Kullanıcı adı alanını, kendi seçtiğiniz bir ad ile doldurunuz. Bu şekilde girdiğiniz şifre, kendinizin belirlediği kullanıcı adıyla değişecektir ve verileriniz havuza gizli bir şekilde düşecektir. 
       </p>
-<p className="p5">Giriş butonuna bastığınızda, deneyin "KULLANICI GİRİŞİ" ekranına yönlendirileceksiniz.
-Teşekkürler. 
-</p>
+      <p className="p5">Giriş butonuna bastığınızda, deneyin "KULLANICI GİRİŞİ" ekranına yönlendirileceksiniz.
+      Teşekkürler. 
+      </p>
       
 
       </Col>

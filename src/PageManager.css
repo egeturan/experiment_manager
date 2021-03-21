@@ -82,7 +82,7 @@
 }
 
 .Pmain{
-    margin-top: 5%;
+    margin-top: 4%;
 }
 
 .p1{
@@ -92,13 +92,13 @@
 
 .p2{
     font-size: 18px;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .p3{
     font-size: 16px;
     text-align: left;
-    margin-top: 100px;
+    margin-top: 5%;
 }
 
 .p5{
@@ -107,7 +107,7 @@
 }
 
 .n1{
-    margin-top: 5%;
+    margin-top: 2%;
     font-size: 18px;
 }
 
@@ -136,7 +136,21 @@
     text-align: center;
 }
 
-.h1{
+.n4{
+    text-align: center;
+    margin-top: 1%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0%;
+}
+
+.row{
+    margin-top: 0%;
+}
+
+.buttonLogin{
+    width: 40%;
+    height: 10%;
+    font-size: 10px;
+    margin-top: 10%;
 }

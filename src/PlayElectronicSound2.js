@@ -38,8 +38,8 @@ class PlayElectronicSound2 extends Component{
   }
 
   componentWillUnmount(){
-    this.timer = null;
     this.countUp = null;
+    clearInterval(this.timer);
   }
 
   startTimer = () => {
@@ -126,8 +126,8 @@ class PlayElectronicSound2 extends Component{
     render(){
         return(
             <div>
-              <h1>Müzik Arası – 7.14 dakika</h1>
-              <p>Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
+              <h1>Müzik Arası</h1>
+              <p className="music">Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
               {this.lookTime()}
               {this.screenstatus()}
               

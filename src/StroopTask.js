@@ -75,21 +75,23 @@ class StroopTask extends React.Component {
       username: ""
     };
       
-      axios.post(`http://localhost:8080/sendStroop/`, data )
-      .then(res => {
+    clearInterval(this.timer);
 
-        if(res.data.situation == 1)
-        {
-          
-          console.log("LoggedIn");
-          console.log("Token:"  + res.data.key);
+    axios.post(`http://localhost:8080/sendStroop/`, data )
+    .then(res => {
 
-        }
-        else
-        {
-          alert("Yanlış Şifre | Wrong Password")
-        }             
-      })
+      if(res.data.situation == 1)
+      {
+        
+        console.log("LoggedIn");
+        console.log("Token:"  + res.data.key);
+
+      }
+      else
+      {
+        alert("Yanlış Şifre | Wrong Password")
+      }             
+    })
       
 }
 
