@@ -1,0 +1,42 @@
+.Stroop{
+    margin-top: 5%;
+    text-align: center;
+    margin: auto;
+}
+
+.CountD{
+    text-align: center;
+    font-size: 80px;
+}
+
+.BoxM{
+    margin: auto;
+    padding: auto;
+    width :400px; /* or whatever width you want. */
+    max-width: 400px; /* or whatever width you want. */
+    background-color: white;
+}
+
+.BoxL{
+    margin: auto;
+    padding: 10px;
+    width: 400px; /* or whatever width you want. */
+    max-width: 400px; /* or whatever width you want. */
+    background-color: white;
+}
+
+.BoxR{
+    margin: auto;
+    padding: 10px;
+    width: 400px; /* or whatever width you want. */
+    max-width: 400px; /* or whatever width you want. */
+    background-color: white;
+}
+
+.button1{
+    margin: auto;
+    padding: auto;
+    width :400px; /* or whatever width you want. */
+    max-width: 400px; /* or whatever width you want. */
+    background-color: white;
+}

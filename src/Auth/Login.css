@@ -1,0 +1,26 @@
+.LoginGrid{
+    text-align: center;
+}
+
+.Login{
+    margin-top: 2%;
+}
+
+.button{
+    text-align: center;
+}
+
+.Grid{
+    width: 50%;
+    display: grid;
+    justify-content: center;
+}
+
+.Container{
+    width: auto;
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    margin: -25px 0 0 -25px;
+}
