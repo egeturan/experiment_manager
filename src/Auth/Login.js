@@ -58,7 +58,7 @@ class Login extends React.Component {
         {
           
           console.log("LoggedIn");
-          console.log("Token:"  + res.data.key);
+          //console.log("Token:"  + res.data.key);
           //this.props.history.push('/register');
 
           this.props.history.push({
