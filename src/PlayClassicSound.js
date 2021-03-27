@@ -61,7 +61,7 @@ class PlayClassicSound extends Component{
     }
     console.log(this.state.seconds)
 
-    if(this.state.seconds == 98){
+    if(this.state.seconds == 600){
       this.stop();
       this.timer = null;
       this.countUp = null;
@@ -115,10 +115,10 @@ class PlayClassicSound extends Component{
   }
 
   screenstatus(args) {
-    if(this.state.seconds < 15){
-      return <div className="time">{15 - this.state.seconds}</div>;
+    if(this.state.seconds < 10){
+      return <div className="time">{10 - this.state.seconds}</div>;
     }
-    else if(this.state.seconds > 100){
+    else if(this.state.seconds > 600){
       return <div className="experiment"><Button variant="success" className="button1" onClick={this.props.submited}>Deneye Devam Et</Button></div>;
     }
   }
@@ -126,7 +126,7 @@ class PlayClassicSound extends Component{
     render(){
         return(
             <div>
-              <h1>Klasik Müzik Arası</h1>
+              <h1>Müzik Arası Kategori 2</h1>
               <p className="music">Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
               {this.lookTime()}
               {this.screenstatus()}

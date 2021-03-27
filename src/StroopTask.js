@@ -5,14 +5,24 @@ import Badge from 'react-bootstrap/Badge';
 import './Stroop.css';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 import axios from 'axios';
+import Radium, {StyleRoot} from 'radium';
+import { fadeIn } from 'react-animations';
 
 const timing = 1.5;
+
+const styles = {
+  fadeIn: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(fadeIn, 'fadeIn'),
+    fontSize: "90px"
+  }
+}
 
 class StroopTask extends React.Component {
   constructor() {
     super();
     this.state = { time: {}, seconds: 0, colors: ["green", "blue", "purple", "red", "orange", "yellow"], colorsT: ["yeşil", "mavi", "mor", "kırmızı", "turuncu", "sarı"],
-     A: [], main: "", left: " ", right: "  ", mainColor: "   ", answer: "", stroopCount: 0, results: [], cong: ""};
+     A: [], main: "", left: " ", right: "  ", mainColor: "   ", answer: "", stroopCount: 0, results: [], cong: "",mainO: "", leftO: "", rightO: "", mainColorO: ""};
     this.timer = 0;
     this.startTimer = this.startTimer.bind(this);
     this.countUp = this.countUp.bind(this);
@@ -59,11 +69,10 @@ class StroopTask extends React.Component {
       seconds: seconds
     });
 
-    if(this.state.seconds > 10 && this.state.seconds < 100){
+    if(this.state.seconds > 5 && this.state.seconds < 1200){
       let congProb = this.getconGProb();
       this.showStroop(congProb);
     }
-
     
     //console.log(seconds);
   }
@@ -77,7 +86,7 @@ class StroopTask extends React.Component {
       
     clearInterval(this.timer);
 
-    axios.post(`http://localhost:8080/sendStroop/`, data )
+    axios.post(`https://cognitivexp.herokuapp.com/sendStroop/`, data )
     .then(res => {
 
       if(res.data.situation == 1)
@@ -119,7 +128,7 @@ class StroopTask extends React.Component {
   controlKey(args) {
     let arr = null;
     
-      if(this.state.seconds > 10)
+      if(this.state.seconds > 15)
       {
         if(args == 'left')
         {
@@ -151,22 +160,76 @@ class StroopTask extends React.Component {
       }
   }
 
+
+  returnM() {
+    const styles = {
+      fadeIn: {
+        animation: 'x 0.0001s',
+        animationName: Radium.keyframes(fadeIn, 'fadeIn'),
+        color : this.state.mainColor,
+        fontSize: "90px"
+      }
+    }
+    const mystyle = {
+      color : this.state.mainColor,
+      fontSize: "90px"
+    }
+    let main = this.state.colors.indexOf(this.state.main);
+    return <p style={mystyle}>{this.state.colorsT[main]}</p>;
+    
+  }
+
+  returnL() {
+    const styles = {
+      fadeIn: {
+        animation: 'x 0.0001s',
+        animationName: Radium.keyframes(fadeIn, 'fadeIn'),
+        fontSize: "90px"
+      }
+    }
+    const mystyle = {
+      fontSize: "90px"
+    }
+    let left = this.state.colors.indexOf(this.state.left);
+    return <p style={mystyle}>{this.state.colorsT[left]}</p>;
+  }
+
+
+  returnR() {
+    const styles = {
+      fadeIn: {
+        animation: 'x 0.0001s',
+        animationName: Radium.keyframes(fadeIn, 'fadeIn'),
+        fontSize: "90px"
+      }
+    }
+    const mystyle = {
+      fontSize: "90px"
+    }
+    let right = this.state.colors.indexOf(this.state.right);
+    return <p style={mystyle}>{this.state.colorsT[right]}</p>;
+  }
+
   lookTime(args) {
+
     let main = this.state.colors.indexOf(this.state.main);
     let left = this.state.colors.indexOf(this.state.left);
     let right = this.state.colors.indexOf(this.state.right);
     let stroop = <div className="Stroop"> 
     <tr>
-        <Badge className="BoxM" style={{color : this.state.mainColor, fontSize: "55px"}}>{this.state.colorsT[main]}</Badge>
+    {this.state.seconds >= 1 &&
+        <Badge className="BoxM" style={{}}>{this.returnM()}</Badge>
+    }
+        
     </tr>
     <tr>
-        <Badge className="BoxL" style={{fontSize: "55px"}}>{this.state.colorsT[left]}</Badge>
-        <Badge className="BoxR" style={{fontSize: "55px"}}>{this.state.colorsT[right]}</Badge>
+        <Badge className="BoxL">{this.returnL()}</Badge>
+        <Badge className="BoxM">{this.returnR()}</Badge>
     </tr>
   </div>
     if(this.state.seconds < 5){
       return <div className="CountD">{5 - this.state.seconds}</div>;
-    }else if(this.state.seconds < 10){
+    }else if(this.state.seconds < 1200){
       return <div>{stroop}</div>;
     }else{
       return <div><Button variant="success" className="BoxM" onClick={this.props.submited}>Testi Tamamla</Button></div>;
@@ -205,7 +268,11 @@ class StroopTask extends React.Component {
         right: rightColor,
         mainColor: secondColor,
         answer: secondColor,
-        cong: congProb
+        cong: congProb,
+        mainO: this.state.main,
+        leftO: this.state.left,
+        rightO: this.state.right,
+        mainColorO: this.state.mainColor
       });
 
     }else if(congProb == "cong"){
@@ -225,7 +292,11 @@ class StroopTask extends React.Component {
         right: rightColor,
         mainColor: firstColor,
         answer: firstColor,
-        cong: congProb
+        cong: congProb,
+        mainO: this.state.main,
+        leftO: this.state.left,
+        rightO: this.state.right,
+        mainColorO: this.state.mainColor
       });
     }
   }
@@ -245,7 +316,12 @@ class StroopTask extends React.Component {
     return (
       <div>
         <div>
-        {this.lookTime()}
+        <StyleRoot>
+      <div className="test" style={styles.bounce}>
+      {this.lookTime()}
+      </div>
+    </StyleRoot>
+        
         </div>
         <ComponentA></ComponentA>
       </div>

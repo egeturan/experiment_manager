@@ -152,6 +152,8 @@ class PageManager extends React.Component {
     {
         this.setState(this.props.history.location.state)
     }
+
+    this.setState({musictype: 2});
     
     
   }
@@ -203,7 +205,7 @@ class PageManager extends React.Component {
 
     if(this.state.pageNumber === 1)
     {
-       screen = <div><h2>Duygu, Biliş ve Ahlaki Karar Üzerine Bilişsel Yaklaşım Deneyine Hoşgeldiniz.  </h2>
+       screen = <div><h2>Giriş: Duygu, Biliş ve Ahlaki Karar Üzerine Bilişsel Yaklaşım Deneyine Hoşgeldiniz.  </h2>
        <p className="Intro">
         Bu deney toplamda dört bölümden oluşmaktadır. <br/>
         <br/>

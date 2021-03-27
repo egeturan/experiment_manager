@@ -87,7 +87,7 @@ class Panas extends Component{
           };
     
           /*
-          axios.post(`http://localhost:8080/sendPanas/`, data )
+          axios.post(`hhttps://cognitivexp.herokuapp.com/sendPanas/`, data )
           .then(res => {
     
             if(res.data.situation == 1)
@@ -197,7 +197,7 @@ class Panas extends Component{
             <ListGroup.Item>4: Biraz fazla hissettim.</ListGroup.Item>
             <ListGroup.Item>5: Baya yoğun ve fazla hissettim. </ListGroup.Item>
             </ListGroup>
-            <p className="i1">Not: Toplam 10 dakikanız vardır, önceden bitirirseniz “enter” tuşuyla geçebilirsiniz. Tüm sorulara cevap vermeden “enter” tuşuna basmanız işe yaramayacaktır. Lütfen tabloyu dikkatli bir şekilde ve gerçeği yansıtır şekilde doldurunuz. </p>
+            <p className="i1">Not: Toplam 10 dakikanız vardır, önceden bitirirseniz aşağıdaki tamamla tuşuyla geçebilirsiniz. Tüm sorulara cevap vermeden bu tuşa basmanız işe yaramayacaktır. Lütfen tabloyu dikkatli bir şekilde ve gerçeği yansıtır şekilde doldurunuz. </p>
             <Button variant="success" className="start" onClick={this.start}>Başla</Button>
             </div>;
         }else if(this.state.pageNumber === 2)

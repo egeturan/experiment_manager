@@ -117,7 +117,7 @@ class DilemmaPage extends Component{
           clearInterval(this.timer);
     
           /*
-          axios.post(`http://localhost:8080/sendDilemma/`, data )
+          axios.post(`https://cognitivexp.herokuapp.com/sendDilemma/`, data )
           .then(res => {
     
             if(res.data.situation == 1)

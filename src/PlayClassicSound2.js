@@ -56,7 +56,7 @@ class PlayClassicSound2 extends Component{
       seconds: seconds,
     });
 
-    if(this.state.seconds == 5){
+    if(this.state.seconds == 10){
         this.start();
     }
     console.log(this.state.seconds)
@@ -126,7 +126,7 @@ class PlayClassicSound2 extends Component{
     render(){
         return(
             <div>
-              <h1>Müzik Arası</h1>
+              <h1>Müzik Arası Kategori 2</h1>
               <p className="music">Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
               {this.lookTime()}
               {this.screenstatus()}
