@@ -61,10 +61,11 @@ class PlayClassicSound extends Component{
     }
     //console.log(this.state.seconds)
 
-    if(this.state.seconds == 600){
+    if(this.state.seconds == 495){
       this.stop();
       this.timer = null;
       this.countUp = null;
+      this.props.submited();
     }
   }
 

@@ -66,6 +66,14 @@ class Register extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  goMain(){
+    this.props.history.push({
+      pathname: '/',
+      state: {
+        pageNumber: 1
+    }})
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     if (this.isFormValid()) {
@@ -204,7 +212,7 @@ class Register extends React.Component {
             </Message>
           )}
           <Message>
-            Ana Sayfa
+          <Button variant="success" className="button12" onClick={this.goMain()}>Ana Sayfa</Button>
           </Message>
         </Grid.Column>
       </Grid>

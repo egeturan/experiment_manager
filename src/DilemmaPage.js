@@ -50,7 +50,7 @@ class DilemmaPage extends Component{
           time: this.secondsToTime(seconds),
           seconds: seconds,
         });
-        if(this.state.seconds === 5){
+        if(this.state.seconds === 150){
             this.props.submited(seconds);
         }
       }
@@ -148,7 +148,7 @@ class DilemmaPage extends Component{
                 <Container className="containerEffective">
                 <h1>Ölçüt</h1>
                 <Row className="row">
-                    <Col>1 - Kesinlikle Kabul Edilemez. <InputGroup.Prepend  ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
+                    <Col>1 - Kesinlikle Kabul Edilemez. <InputGroup.Prepend className="col" ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
                     <Col>2 <InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
                     <Col>3 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[2]} onClick={this.changeInValue.bind(this, 2)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
                     <Col>4 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[3]} onClick={this.changeInValue.bind(this, 3)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
