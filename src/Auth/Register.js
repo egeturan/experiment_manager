@@ -66,7 +66,7 @@ class Register extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  goMain(){
+  goMain(args){
     this.props.history.push({
       pathname: '/',
       state: {
@@ -93,6 +93,7 @@ class Register extends React.Component {
        if(res.data.situation === 1){
            console.log("Registered");
            this.setState({ errors: [], loading: false });     
+           alert("Registered");
 
         
       }else{
@@ -212,7 +213,7 @@ class Register extends React.Component {
             </Message>
           )}
           <Message>
-          <Button variant="success" className="button12" onClick={this.goMain()}>Ana Sayfa</Button>
+          <Button color="green" className="button12" onClick={this.goMain.bind(this, 1)}>Ana Sayfa</Button>
           </Message>
         </Grid.Column>
       </Grid>
