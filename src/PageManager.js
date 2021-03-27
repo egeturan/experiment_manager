@@ -147,13 +147,12 @@ class PageManager extends React.Component {
 
   componentDidMount() {
     console.log("Uploading");
-    console.log(this.props.history.location.state);
     if(this.props.history.location.state != undefined)
     {
         this.setState(this.props.history.location.state)
     }
 
-    this.setState({musictype: 2});
+    //this.setState({musictype: 2});
     
     
   }

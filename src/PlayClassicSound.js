@@ -59,7 +59,7 @@ class PlayClassicSound extends Component{
     if(this.state.seconds == 10){
         this.start();
     }
-    console.log(this.state.seconds)
+    //console.log(this.state.seconds)
 
     if(this.state.seconds == 600){
       this.stop();
