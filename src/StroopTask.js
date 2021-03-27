@@ -5,18 +5,8 @@ import Badge from 'react-bootstrap/Badge';
 import './Stroop.css';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 import axios from 'axios';
-import Radium, {StyleRoot} from 'radium';
-import { fadeIn } from 'react-animations';
 
 const timing = 1.5;
-
-const styles = {
-  fadeIn: {
-    animation: 'x 1s',
-    animationName: Radium.keyframes(fadeIn, 'fadeIn'),
-    fontSize: "90px"
-  }
-}
 
 class StroopTask extends React.Component {
   constructor() {
@@ -162,14 +152,6 @@ class StroopTask extends React.Component {
 
 
   returnM() {
-    const styles = {
-      fadeIn: {
-        animation: 'x 0.0001s',
-        animationName: Radium.keyframes(fadeIn, 'fadeIn'),
-        color : this.state.mainColor,
-        fontSize: "90px"
-      }
-    }
     const mystyle = {
       color : this.state.mainColor,
       fontSize: "90px"
@@ -180,13 +162,6 @@ class StroopTask extends React.Component {
   }
 
   returnL() {
-    const styles = {
-      fadeIn: {
-        animation: 'x 0.0001s',
-        animationName: Radium.keyframes(fadeIn, 'fadeIn'),
-        fontSize: "90px"
-      }
-    }
     const mystyle = {
       fontSize: "90px"
     }
@@ -196,13 +171,6 @@ class StroopTask extends React.Component {
 
 
   returnR() {
-    const styles = {
-      fadeIn: {
-        animation: 'x 0.0001s',
-        animationName: Radium.keyframes(fadeIn, 'fadeIn'),
-        fontSize: "90px"
-      }
-    }
     const mystyle = {
       fontSize: "90px"
     }
@@ -316,15 +284,11 @@ class StroopTask extends React.Component {
     return (
       <div>
         <div>
-        <StyleRoot>
-      <div className="test" style={styles.bounce}>
       {this.lookTime()}
       </div>
-    </StyleRoot>
         
-        </div>
         <ComponentA></ComponentA>
-      </div>
+        </div>
     );
   }
 }

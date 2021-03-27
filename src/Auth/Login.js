@@ -51,7 +51,7 @@ class Login extends React.Component {
 
       console.log(user);
 
-      axios.post(`https://cognitivexp.herokuapp.com/login/`, user )
+      axios.post(`https://cognitivee.herokuapp.com/login/`, user )
       .then(res => {
 
         if(res.data.situation == 1)
