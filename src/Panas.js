@@ -86,23 +86,18 @@ class Panas extends Component{
             situation: this.state.situation
           };
     
-          /*
-          axios.post(`hhttps://cognitivexp.herokuapp.com/sendPanas/`, data )
+          axios.post(`hhttps://congnitivee.herokuapp.com/sendPanas/`, data )
           .then(res => {
     
             if(res.data.situation == 1)
             {
               
-              console.log("LoggedIn");
-              console.log("Token:"  + res.data.key);
-    
             }
             else
             {
-              alert("Yanlış Şifre | Wrong Password")
+
             }             
           })
-          */
     }
 
     control_filled = () => {

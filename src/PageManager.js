@@ -101,7 +101,7 @@ class PageManager extends React.Component {
       "Sen ve 10 diğer dalgıç İkinci Dünya Savaşı’ndan kalma, gemi mayınlarını etkisiz hale getiren bir BM takımındasınız. Takımdan biri yaralandı ve sudaki kan birkaç köpek balığını yanınıza çekti. Elinde bir zıpkın var, ancak bir mil (şiş) var. Kanaması olan dalgıç koruma kafesine doğru yüzmekte. Sen ve diğer dalgıçlardan önce varacak. Köpek balıkları çok yaklaştı, yakında sana ve diğer dalgıçlara yetişecekler.",
       "Yaralı dalgıcı vurursan dalgıç ölecek, ve köpek balıkları durup onu yiyecekler, böylece sen ve diğer dalgıçlar kurtulacak.",
       "Köpek balıklarının yaralı dalgıcı yemesine izin verip diğer dalgıçlarla beraber koruma kafesine girer misin?",
-      "Bu hikayedeki hayvanın adı nedir? "
+      "Bu hikayedeki hayvanın türü nedir? "
     ]
   }
 
@@ -252,11 +252,11 @@ class PageManager extends React.Component {
             <h1>2. Bölüm: Dikkat Deneyi – Renk ve Kelime Karşıtlığı (10 dakika) </h1>
             <ListGroup>
             <ListGroup.Item>Bu bölümde karşınıza 6 adet renk kelimesi çıkacaktır. </ListGroup.Item>
-            <ListGroup.Item>Karşınıza çıkacak renkler: Kırmızı, Turuncu, Sarı, Yeşil, Mavi, Mor</ListGroup.Item>
-            <ListGroup.Item>Bu sayıların yazılı olduğu kelimelerin rengi bazen “yazan renkten” <b>FARKLI</b> ya da <b>AYNI</b> olacaktır.</ListGroup.Item>
+            <ListGroup.Item>Karşınıza çıkacak renkler: <b>Kırmızı, Turuncu, Sarı, Yeşil, Mavi, Mor</b></ListGroup.Item>
+            <ListGroup.Item>Bu sayıların yazılı olduğu kelimelerin rengi bazen <b>“YAZAN RENKTEN”</b> <b>FARKLI</b> ya da <b>AYNI</b> olacaktır.</ListGroup.Item>
             <ListGroup.Item>Sizden istediğimiz gelen kelimenin ifade ettiği rengi şeçmeniz değil, yazının asıl rengini ( <b>YAZININ ANLAMI DEĞİL, RENGİ</b>) aşağıda belirecek olan iki seçenekten uygun olanı seçmeniz. </ListGroup.Item>
             <ListGroup.Item>Bu deney “DİKKAT” deneyi olduğundan dolayı, kelimeler arasındaki geçiş hızlıdır. Verilerinizin daha doğru sonuç vermesi için lütfen elinizden geldiğince gelen uyaranlara hızlı cevap veriniz.  </ListGroup.Item>
-            <ListGroup.Item>Cevap vermek için “SAĞ VE SOL YÖN TUŞLARI” nı kullanınız.  <img  src={ButtonImage} alt="fireSpot"/> </ListGroup.Item>
+            <ListGroup.Item>Cevap vermek için <b>“SAĞ VE SOL YÖN OK TUŞLARI”</b> nı kullanınız.  <img  src={ButtonImage} alt="fireSpot"/> </ListGroup.Item>
             <h1 className="n4">ÖRNEK</h1>
             <Row className="row">
               <Col>
@@ -296,11 +296,11 @@ class PageManager extends React.Component {
         <ListGroup>
             <ListGroup.Item>Bu bölümde karşınıza toplamda 15 adet kısa hikaye çıkacaktır; </ListGroup.Item>
             <ListGroup.Item>11 adet kısa hikaye: Her hikayeyi okuduktan sonra, karşılaştığınız durumlarla ilgili hislerinizi yargılamanız istencektir. Bu yargılarınızı yedi “7” basamaklı bir puanlama sistemi ile göstereceksiniz. </ListGroup.Item>
-            <ListGroup.Item>1- Kesinlikle kabul edilemez / 7- Kesinlikle kabul edilir.</ListGroup.Item>
+            <ListGroup.Item> <b>1- Kesinlikle kabul edilemez / 7- Kesinlikle kabul edilir.</b></ListGroup.Item>
             <ListGroup.Item>1 ile 7 arasındaki sayıları kabul edilebilirlik ve edilemeyebilirlik arasındaki düşünce ve hissetme yoğunluğunuza göre seçiniz. </ListGroup.Item>
             <ListGroup.Item>4 adet kısa hikaye: Bu hikayelerin iki seçeneği olacaktır, lütfen bir seçeneği işaretleyiniz. </ListGroup.Item>
             <ListGroup.Item>Sorular karşınıza karışık bir şekilde çıkacaktır. </ListGroup.Item>
-            <ListGroup.Item>Not: Her soru için toplam 2 dakikanız vardır, eğer iki dakikadan önce işaretleme yaparsanız “enter” tuşuyla bir sonraki soruya geçiniz. </ListGroup.Item>
+            <ListGroup.Item><b>Not: </b> Her soru için toplam 2 dakikanız vardır, eğer iki dakikadan önce işaretleme yaparsanız "Devam Et" butonuya tuşuyla bir sonraki soruya geçiniz. Soruyu boş bırakmanız durumunda bu butona basmanız işe yaramayacaktır. </ListGroup.Item>
             <ListGroup.Item>Hazır olduğunuzda başla tuşuna basınız. </ListGroup.Item>
             </ListGroup>
       </div>;

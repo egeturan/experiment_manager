@@ -82,13 +82,11 @@ class StroopTask extends React.Component {
       if(res.data.situation == 1)
       {
         
-        console.log("LoggedIn");
-        console.log("Token:"  + res.data.key);
 
       }
       else
       {
-        alert("Yanlış Şifre | Wrong Password")
+
       }             
     })
       
