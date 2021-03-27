@@ -21,7 +21,7 @@ import Bilkent from'./assets/bilkent.png';
 class PageManager extends React.Component {
   
   state = {
-    auth: true,
+    auth: false,
     pageNumber: 1,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
