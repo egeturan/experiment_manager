@@ -79,7 +79,7 @@ class Register extends React.Component {
 
       console.log(user);
 
-      axios.post(`https://cognitivee.herokuapp.com/register_user/`, user )
+      axios.post(`https://congnitivee.herokuapp.com/register_user/`, user )
       .then(res => {
         console.log(res);
        if(res.data.situation === 1){

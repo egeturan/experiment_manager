@@ -76,7 +76,7 @@ class StroopTask extends React.Component {
       
     clearInterval(this.timer);
 
-    axios.post(`https://cognitivexp.herokuapp.com/sendStroop/`, data )
+    axios.post(`https://congnitivee.herokuapp.com/sendStroop/`, data )
     .then(res => {
 
       if(res.data.situation == 1)
