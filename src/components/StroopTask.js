@@ -86,8 +86,6 @@ class StroopTask extends React.Component {
   countUp2() {
     console.log("Timer 2")
 
-    
-
     let congProb = this.getconGProb();
     this.showStroop(congProb);
     stroopS = this.lookTime();
@@ -103,7 +101,8 @@ class StroopTask extends React.Component {
 
     const data = {
         token: this.state.token,
-        results: this.state.results
+        results: this.state.results,
+        numberOfStroop: this.state.results.length
       };
         
       axios.post(`http://localhost:8080/sendStroop/`, data )
