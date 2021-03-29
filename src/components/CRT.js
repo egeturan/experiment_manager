@@ -42,7 +42,7 @@ class CRT extends Component{
           };
     
 
-          axios.post(`http://localhost:8080/sendCRT/`, data )
+          axios.post(`https://congnitivee.herokuapp.com/sendCRT/`, data )
           .then(res => {
     
             if(res.data.situation == 1)
