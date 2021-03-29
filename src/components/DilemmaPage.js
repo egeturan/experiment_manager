@@ -130,10 +130,152 @@ class DilemmaPage extends Component{
         }
     }
 
-    componentWillUnmount(){
-        
+    decide(){
+      const { answer1 } = this.state;
+      if (this.props.number === 3 || this.props.number === 6 || this.props.number === 11 || this.props.number === 15)
+      {
+        if(this.props.number === 3)
+        {
+          return <div><h1> {this.props.number}. Hikaye </h1>
+          <p>{this.props.dilemma} </p>
+          <p>{this.props.dilemma2} </p>
+          <p>{this.props.dilemma3} </p>
+          <Container className="containerEffective">
+          <h1>Ölçüt</h1>
+          <Row className="row">
+              <Col><InputGroup.Prepend className="col" ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" />a.	Çocuğu arkada bırak ve öteki iki çocuğu kurtar.</InputGroup.Prepend></Col>
+              <Col><InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" />b.	Çocuğu geride bırakma ve hiçbir çocuğu kurtarama.</InputGroup.Prepend></Col>
+          </Row>
+          </Container>
+          <div className="dilemma4">
+              <p>{this.props.dilemma4} </p>
+              <FormControl className="form"
+                  inline
+                  name="answer1"
+                  placeholder="     "
+                  onChange={this.handleChange}
+                  value={answer1}
+                  type="text"
+              />
+              <br/>
+              <Button variant="success" className="Button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button>
+          </div></div>;
+        }
+        if(this.props.number === 6)
+        {
+          return <div><h1> {this.props.number}. Hikaye </h1>
+          <p>{this.props.dilemma} </p>
+          <p>{this.props.dilemma2} </p>
+          <p>{this.props.dilemma3} </p>
+          <h1>Ölçüt</h1>
+              <Row>
+              <Col><InputGroup.Prepend className="col" > <InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" />a.	Üçüncü çocuğu geride bırak. Kendini ve iki çocuğu kurtar.</InputGroup.Prepend>  </Col>
+              <Col> <InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" />b.	Üçüncü çocuğun sana tutunmasına izin ver ve kimseyi kurtarama.</InputGroup.Prepend></Col>
+              </Row>
+          <div className="dilemma4">
+              <p>{this.props.dilemma4} </p>
+              <FormControl className="form"
+                  inline
+                  name="answer1"
+                  placeholder="     "
+                  onChange={this.handleChange}
+                  value={answer1}
+                  type="text"
+              />
+              <br/>
+              <Button variant="success" className="Button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button>
+          </div></div>;
+        }
+        if(this.props.number === 11)
+        {
+          return <div><h1> {this.props.number}. Hikaye </h1>
+          <p>{this.props.dilemma} </p>
+          <p>{this.props.dilemma2} </p>
+          <p>{this.props.dilemma3} </p>
+          <Container className="containerEffective">
+          <h1>Ölçüt</h1>
+          <Row className="row">
+          <Col><InputGroup.Prepend><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button" />a.	Köy konseyine haber ver. Kendini ve köyü kurtar.</InputGroup.Prepend></Col>
+          <Col><InputGroup.Prepend ><InputGroup.Radio  checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button" />b.	Virüslü adamın köye ulaşmasına izin ver ve onu kurtar.</InputGroup.Prepend></Col>    
+          </Row>
+          </Container>
+          <div className="dilemma4">
+              <p>{this.props.dilemma4} </p>
+              <FormControl className="form"
+                  inline
+                  name="answer1"
+                  placeholder="     "
+                  onChange={this.handleChange}
+                  value={answer1}
+                  type="text"
+              />
+              <br/>
+              <Button variant="success" className="Button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button>
+          </div></div>;
+          
+        }
+        if(this.props.number === 15)
+        {
+          return<div><h1> {this.props.number}. Hikaye </h1>
+        <p>{this.props.dilemma} </p>
+        <p>{this.props.dilemma2} </p>
+        <p>{this.props.dilemma3} </p>
+        <Container className="containerEffective">
+        <h1>Ölçüt</h1>
+        <Row className="row">
+          <Col><InputGroup.Prepend className="col" ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" />a. Yaralı dalgıcı vur. Kendini ve gruptaki diğer dalgıçları kurtar.</InputGroup.Prepend></Col>
+          <Col><InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" />b.	Yaralı dalgıcın kafese ulaşmasına izin ver ve sadece bir dalgıcı kurtar.</InputGroup.Prepend></Col>
+        </Row>
+        </Container>
+        <div className="dilemma4">
+            <p>{this.props.dilemma4} </p>
+            <FormControl className="form"
+                inline
+                name="answer1"
+                placeholder="     "
+                onChange={this.handleChange}
+                value={answer1}
+                type="text"
+            />
+            <br/>
+            <Button variant="success" className="Button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button>
+        </div></div>;
+        }
+      }else{
+        return <div><h1> {this.props.number}. Hikaye </h1>
+        <p>{this.props.dilemma} </p>
+        <p>{this.props.dilemma2} </p>
+        <p>{this.props.dilemma3} </p>
+        <Container className="containerEffective">
+        <h1>Ölçüt</h1>
+        <Row className="row">
+            <Col>1 - Kesinlikle Kabul Edilemez. <InputGroup.Prepend className="col" ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
+            <Col>2 <InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
+            <Col>3 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[2]} onClick={this.changeInValue.bind(this, 2)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
+            <Col>4 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[3]} onClick={this.changeInValue.bind(this, 3)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
+            <Col>5 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[4]} onClick={this.changeInValue.bind(this, 4)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
+            <Col>6 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[5]} onClick={this.changeInValue.bind(this, 5)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
+            <Col>7 - Kesinlikle Kabul Edilir. <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[6]} onClick={this.changeInValue.bind(this, 6)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
+        </Row>
+        </Container>
+        <div className="dilemma4">
+            <p>{this.props.dilemma4} </p>
+            <FormControl className="form"
+                inline
+                name="answer1"
+                placeholder="     "
+                onChange={this.handleChange}
+                value={answer1}
+                type="text"
+            />
+            <br/>
+            <Button variant="success" className="Button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button>
+        </div></div>
+      }
+    }
 
-          clearInterval(this.timer);
+    componentWillUnmount(){
+      clearInterval(this.timer);
     }
 
     
@@ -142,35 +284,8 @@ class DilemmaPage extends Component{
 
         return(
             <div className="DillemPage">
-                <h1> {this.props.number}. Hikaye </h1>
-                <p>{this.props.dilemma} </p>
-                <p>{this.props.dilemma2} </p>
-                <p>{this.props.dilemma3} </p>
-                <Container className="containerEffective">
-                <h1>Ölçüt</h1>
-                <Row className="row">
-                    <Col>1 - Kesinlikle Kabul Edilemez. <InputGroup.Prepend className="col" ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
-                    <Col>2 <InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
-                    <Col>3 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[2]} onClick={this.changeInValue.bind(this, 2)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
-                    <Col>4 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[3]} onClick={this.changeInValue.bind(this, 3)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
-                    <Col>5 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[4]} onClick={this.changeInValue.bind(this, 4)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
-                    <Col>6 <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[5]} onClick={this.changeInValue.bind(this, 5)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
-                    <Col>7 - Kesinlikle Kabul Edilir. <InputGroup.Prepend className="col"  ><InputGroup.Radio  checked={this.state.situation[6]} onClick={this.changeInValue.bind(this, 6)} aria-label="Radio button for following text input" /></InputGroup.Prepend></Col>
-                </Row>
-                </Container>
-                <div className="dilemma4">
-                    <p>{this.props.dilemma4} </p>
-                    <FormControl className="form"
-                        inline
-                        name="answer1"
-                        placeholder="     "
-                        onChange={this.handleChange}
-                        value={answer1}
-                        type="text"
-                    />
-                    <br/>
-                    <Button variant="success" className="Button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button>
-                </div>
+              {this.decide()}
+                
                 
             </div>
         );

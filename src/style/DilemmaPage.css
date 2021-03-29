@@ -17,6 +17,7 @@
 }
 
 .dilemma4{
+    margin-top: 5%;
     width: 36%;
     text-align: center;
     margin-left: auto;
@@ -32,4 +33,11 @@
 
 .row{
     margin-top: 4%;
+}
+
+.double{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
