@@ -1,8 +1,9 @@
 import React, {useCallback} from 'react';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import PageManager from './PageManager';
-import './FullScreenApp.css';
 import Button from 'react-bootstrap/Button';
+//CSS
+import './style/FullScreenApp.css';
 
 function FullScreenApp() {
   const handle = useFullScreenHandle();

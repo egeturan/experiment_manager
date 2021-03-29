@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import './CRT.css';
-import Row from 'react-bootstrap/Row';
 import {
     Form,
     Segment,
     Button
   } from "semantic-ui-react";
+  import axios from 'axios';
+  //CSS
+  import '../style/CRT.css';
 
 class CRT extends Component{
 
@@ -28,6 +29,34 @@ class CRT extends Component{
         event.preventDefault();
     }
 
+    componentDidMount(){
+        this.setState({token: this.props.token });
+    }
+
+    componentWillUnmount(){
+        const data = {
+            token: this.state.token,
+            answer1: this.state.answer1,
+            answer2: this.state.answer2,
+            answer3: this.state.answer3
+          };
+    
+
+          axios.post(`http://localhost:8080/sendCRT/`, data )
+          .then(res => {
+    
+            if(res.data.situation == 1)
+            {
+              
+    
+            }
+            else
+            {
+              
+            }             
+          })
+    }
+
     handleInputError = (errors, inputName) => {
         return errors.some(error => error.message.toLowerCase().includes(inputName))
         ? "error"
@@ -44,9 +73,6 @@ class CRT extends Component{
             this.props.submited(answer1);
             alert("Deney Başarılı bir şekilde tamamlandı");
         }
-        console.log(answer1);
-        console.log(answer2);
-        console.log(answer3);
     }
 
     render(){

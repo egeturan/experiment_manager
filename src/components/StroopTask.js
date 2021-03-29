@@ -1,22 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
-import './Stroop.css';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 import axios from 'axios';
+// CSS
+import '../style/Stroop.css';
 
 const timing = 1.5;
+
+let stroopS = null;
 
 class StroopTask extends React.Component {
   constructor() {
     super();
     this.state = { time: {}, seconds: 0, colors: ["green", "blue", "purple", "red", "orange", "yellow"], colorsT: ["yeşil", "mavi", "mor", "kırmızı", "turuncu", "sarı"],
-     A: [], main: "", left: " ", right: "  ", mainColor: "   ", answer: "", stroopCount: 0, results: [], cong: "",mainO: "", leftO: "", rightO: "", mainColorO: ""};
+     A: [], main: "", left: " ", right: "  ", mainColor: "   ", answer: "", stroopCount: 0, results: [], cong: "",mainO: "", leftO: "", rightO: "", mainColorO: "", token: "", dilemmaCount: 0, busy: false};
     this.timer = 0;
+    this.timer2 = 0;
     this.startTimer = this.startTimer.bind(this);
+    this.startTimer2 = this.startTimer2.bind(this);
     this.countUp = this.countUp.bind(this);
+    this.countUp2 = this.countUp2.bind(this);
     this.finishTimer = this.finishTimer.bind(this);
+    this.refresher = 0;
   }
 
   secondsToTime(secs){
@@ -38,7 +44,7 @@ class StroopTask extends React.Component {
 
   componentDidMount() {
     //let timeLeftVar = this.secondsToTime(this.state.seconds);
-    this.setState({ time: 0 });
+    this.setState({ time: 0, token: this.props.token });
     this.startTimer();
   }
 
@@ -46,6 +52,13 @@ class StroopTask extends React.Component {
     console.log("Timer Started")
     if (this.timer == 0 && this.state.seconds >= 0) {
       this.timer = setInterval(this.countUp, 750);
+    }
+  }
+
+  startTimer2 = () => {
+    if (this.state.seconds >= 0) {
+      console.log("Timer Started")
+      this.timer2 = setInterval(this.countUp2, 500);
     }
   }
 
@@ -59,38 +72,54 @@ class StroopTask extends React.Component {
       seconds: seconds
     });
 
-    if(this.state.seconds > 5 && this.state.seconds < 1200){
+
+
+    if(this.state.seconds <= 10){
       let congProb = this.getconGProb();
       this.showStroop(congProb);
+      stroopS = this.lookTime();
     }
     
-    //console.log(seconds);
+    console.log(seconds);
+  }
+
+  countUp2() {
+    console.log("Timer 2")
+
+    
+
+    let congProb = this.getconGProb();
+    this.showStroop(congProb);
+    stroopS = this.lookTime();
+    this.setState({busy: false});
+
+    clearInterval(this.timer2);
+
   }
 
   componentWillUnmount()
   {
-    const data = {
-      results: this.state.results,
-      username: ""
-    };
-      
     clearInterval(this.timer);
 
-    axios.post(`https://congnitivee.herokuapp.com/sendStroop/`, data )
-    .then(res => {
-
-      if(res.data.situation == 1)
-      {
+    const data = {
+        token: this.state.token,
+        results: this.state.results
+      };
         
+      axios.post(`http://localhost:8080/sendStroop/`, data )
+      .then(res => {
+  
+        if(res.data.situation == 1)
+        {
+          
+        }
+        else
+        {
+  
+        }             
+      })
 
-      }
-      else
-      {
-
-      }             
-    })
-      
-}
+  }
 
   finishTimer() {
     let initial_time = 0;
@@ -116,36 +145,44 @@ class StroopTask extends React.Component {
   controlKey(args) {
     let arr = null;
     
-      if(this.state.seconds > 15)
+    if(this.state.seconds >= 10 && this.state.busy === false)
+    {
+      this.setState({busy: true});
+      if(args == 'left')
       {
-        if(args == 'left')
-        {
-          //console.log(args);
-          if(this.state.mainColor == this.state.left){
-            arr = this.state.results;
-            arr.push([this.state.cong, 'T', this.state.seconds])
-          }else{
-            arr = this.state.results;
-            arr.push([this.state.cong, 'F', this.state.seconds])
-          }
-        }
-        else if(args == 'right')
-        {
-          //console.log(args);
-          if(this.state.mainColor == this.state.right){
-            arr = this.state.results;
-            arr.push([this.state.cong, 'T', this.state.seconds])
-          }else{
-            arr = this.state.results;
-            arr.push([this.state.cong, 'F', this.state.seconds])
-          }
+        //console.log(args);
+        if(this.state.mainColor == this.state.left){
+          arr = this.state.results;
+          arr.push([this.state.cong, 'T'])
         }else{
-          console.log("error");
+          arr = this.state.results;
+          arr.push([this.state.cong, 'F'])
         }
-
-        this.setState({results: arr});
-        console.log(arr)
       }
+      else if(args == 'right')
+      {
+        //console.log(args);
+        if(this.state.mainColor == this.state.right){
+          arr = this.state.results;
+          arr.push([this.state.cong, 'T'])
+        }else{
+          arr = this.state.results;
+          arr.push([this.state.cong, 'F'])
+        }
+      }else{
+        console.log("error");
+      }
+
+      stroopS = null;
+
+      this.setState({results: arr});
+      console.log(arr)
+      this.startTimer2();
+
+      
+
+    }
+
   }
 
 
@@ -183,7 +220,7 @@ class StroopTask extends React.Component {
     let right = this.state.colors.indexOf(this.state.right);
     let stroop = <div className="Stroop"> 
     <tr>
-    {this.state.seconds >= 1 &&
+    {this.state.seconds >= 0 &&
         <Badge className="BoxM" style={{}}>{this.returnM()}</Badge>
     }
         
@@ -193,8 +230,8 @@ class StroopTask extends React.Component {
         <Badge className="BoxM">{this.returnR()}</Badge>
     </tr>
   </div>
-    if(this.state.seconds < 5){
-      return <div className="CountD">{5 - this.state.seconds}</div>;
+    if(this.state.seconds < 10){
+      return <div className="CountD">{10 - this.state.seconds}</div>;
     }else if(this.state.seconds < 1200){
       return <div>{stroop}</div>;
     }else{
@@ -276,15 +313,12 @@ class StroopTask extends React.Component {
         onKeyEvent={(key, e) => this.controlKey(key)} />
     </div>);
 
-
-
     
     return (
       <div>
         <div>
-      {this.lookTime()}
-      </div>
-        
+        {stroopS}
+        </div>
         <ComponentA></ComponentA>
         </div>
     );

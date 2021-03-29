@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import Table from 'react-bootstrap/Table';
 import InputGroup from 'react-bootstrap/InputGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
-import "./Panas.css";
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+//CSS
+import "../style/Panas.css";
 
 class Panas extends Component{
 
@@ -53,17 +54,16 @@ class Panas extends Component{
             [true,true,true,true,true],
             [true,true,true,true,true]
         ],
-        pageNumber: 1
+        pageNumber: 1,
+        token: ""
     }
 
     handleClick = (args) => {
-        console.log(args.row);
-        console.log(args.column);
+        //console.log(args.row);
+        //console.log(args.column);
         //clicked to row args[0] and answer args[2];
         let current_situation = this.state.situation;
         let line = [];
-        
-
         
         for(let i = 0; i < 5; i++)
         {
@@ -77,27 +77,12 @@ class Panas extends Component{
             }
         }
         current_situation[args.row] = line; 
-        console.log(current_situation);
+        //console.log(current_situation);
         this.setState({situation: current_situation});
     }
 
-    componentWillUnmount(){
-        const data = {
-            situation: this.state.situation
-          };
-    
-          axios.post(`hhttps://congnitivee.herokuapp.com/sendPanas/`, data )
-          .then(res => {
-    
-            if(res.data.situation == 1)
-            {
-              
-            }
-            else
-            {
-
-            }             
-          })
+    componentDidMount(){
+        this.setState({token: this.props.token });
     }
 
     control_filled = () => {
@@ -107,7 +92,7 @@ class Panas extends Component{
             for(let j = 0; j < 5; j++)
             {
                 let element = this.state.situation[i][j];
-                console.log("element is: " + element);
+                //console.log("element is: " + element);
                 if(element == false)
                 {
                     total++;
@@ -116,12 +101,31 @@ class Panas extends Component{
         }
         if(total === 20)
         {
+            const data = {
+                token: this.state.token,
+                situation: this.state.situation
+              };
+    
+              console.log(this.state.situation);
+        
+              axios.post(`http://localhost:8080/sendPanas/`, data )
+              .then(res => {
+        
+                if(res.data.situation == 1)
+                {
+                  
+                }
+                else
+                {
+    
+                }             
+              })
             let answer1 = "";
             this.props.submited(answer1);
         }else{
             
         }
-        console.log(total);
+        //console.log(total);
 
     }
 

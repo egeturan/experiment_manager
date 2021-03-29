@@ -3,20 +3,21 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './PageManager.css';
-import DilemmaPage from './DilemmaPage';
-import StroopTask from './StroopTask';
-import PlayClassicSound from './PlayClassicSound';
-import PlayElectronicSound from './PlayElectronicSound';
-import Panas from './Panas';
-import CRT from './CRT';
+import DilemmaPage from './components/DilemmaPage';
+import StroopTask from './components/StroopTask';
+import PlayClassicSound from './Music/PlayClassicSound';
+import PlayElectronicSound from './Music/PlayElectronicSound';
+import Panas from './components/Panas';
+import CRT from './components/CRT';
 import {withRouter} from 'react-router';
-import PlayElectronicSound2 from './PlayElectronicSound2';
-import PlayClassicSound2 from './PlayClassicSound2';
+import PlayElectronicSound2 from './Music/PlayElectronicSound2';
+import PlayClassicSound2 from './Music/PlayClassicSound2';
 import ButtonImage from'./assets/buttons.jpg';
 import Sample1 from'./assets/sampl1.jpg';
 import Sample2 from'./assets/sample1.jpg';
 import Bilkent from'./assets/bilkent.png';
+//CSS
+import './style/PageManager.css';
 
 class PageManager extends React.Component {
   
@@ -151,9 +152,6 @@ class PageManager extends React.Component {
     {
         this.setState(this.props.history.location.state)
     }
-
-    //this.setState({musictype: 2});
-    
     
   }
 
@@ -200,8 +198,6 @@ class PageManager extends React.Component {
     <Button variant="dark" className="button2" onClick={this.nextPage}>Deneye Başla</Button>
     </div>;
 
-    {console.log(this.state.musictype)}
-
     if(this.state.pageNumber === 1)
     {
        screen = <div><h2>Giriş: Duygu, Biliş ve Ahlaki Karar Üzerine Bilişsel Yaklaşım Deneyine Hoşgeldiniz.  </h2>
@@ -234,7 +230,7 @@ class PageManager extends React.Component {
     }
     else if(this.state.pageNumber === 2)
     {
-      screen = <div><Panas submited={this.submited}></Panas>
+      screen = <div><Panas submited={this.submited} token={this.state.token}></Panas>
       </div>;
       //movement = null;
     }
@@ -279,7 +275,7 @@ class PageManager extends React.Component {
     }
     else if(this.state.pageNumber === 5)
     {
-      screen = <div className="StroopTask"><h1 bold>Biliş Dikkat Testi</h1><StroopTask className="stroop" submited={this.submited}></StroopTask></div>;
+      screen = <div className="StroopTask"><h1 bold>Biliş Dikkat Testi</h1><StroopTask className="stroop" submited={this.submited}  token={this.state.token}></StroopTask></div>;
       //movement = null;
     }
     else if(this.state.pageNumber === 6 && this.state.musictype === 1)
@@ -308,11 +304,11 @@ class PageManager extends React.Component {
     else if(this.state.pageNumber >= 8 && this.state.pageNumber <= 22)
     {
       if(this.state.pageNumber % 2 === 0){
-        screen = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]}></DilemmaPage></div>;
+        screen = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
         dilemma = null;
       }else{
         screen = null;
-        dilemma = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]}></DilemmaPage></div>;
+        dilemma = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
       }
       movement = null;
     }else if(this.state.pageNumber === 23)
@@ -323,7 +319,7 @@ class PageManager extends React.Component {
       </div>;;
     }else if(this.state.pageNumber === 24)
     {
-      screen = <CRT submited={this.submited}></CRT>;
+      screen = <CRT submited={this.submited} token={this.state.token}></CRT>;
       movement = null;
     }else if(this.state.pageNumber === 25)
     {
@@ -381,7 +377,6 @@ class PageManager extends React.Component {
 
     return (
         <div className="mainDiv">
-          {console.log(this.props.bt.enter)}
         {inside}
         </div>
     )

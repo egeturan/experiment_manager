@@ -5,7 +5,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import "./DilemmaPage.css";
+import axios from 'axios';
+//CSS
+import "../style/DilemmaPage.css";
+
 
 class DilemmaPage extends Component{
 
@@ -13,7 +16,7 @@ class DilemmaPage extends Component{
         super();
         this.state = { time: {}, seconds: 0, situation: [false, false, false, false, false, false, false],
         dillemaNumber: 0,
-        answer1: "" };
+        answer1: "", token: "" };
         this.timer = 0;
         this.startTimer = this.startTimer.bind(this);
         this.countUp = this.countUp.bind(this);
@@ -91,7 +94,7 @@ class DilemmaPage extends Component{
     }
 
     componentDidMount(){
-        this.setState({ time: 0 });
+        this.setState({ time: 0, token: this.props.token });
         if (this.timer == 0 && this.state.seconds >= 0) {
             this.timer = setInterval(this.countUp, 1000);
         }
@@ -101,38 +104,36 @@ class DilemmaPage extends Component{
         if(this.state.situation[0] || this.state.situation[1] || this.state.situation[2] || this.state.situation[3] || this.state.situation[4] || this.state.situation[5] || this.state.situation[6])
         {
             if(this.state.answer1 != ""){
+                const data = {
+                  token: this.state.token,
+                  dilemma: this.state.situation,
+                  dillemmaNumber: this.props.number,
+                  dilemmaText: this.state.answer1
+                };
+      
+                
+                axios.post(`http://localhost:8080/sendDilemma/`, data )
+                .then(res => {
+          
+                  if(res.data.situation == 1)
+                  {
+                    
+          
+                  }
+                  else
+                  {
+                    
+                  }             
+                })
                 this.props.submited(args);
             }
         }
     }
 
     componentWillUnmount(){
-        let situation2 = [false, false, false, false, false, false, false];
-        this.setState({situation: situation2})
-        const data = {
-            situation: this.state.situation,
-            dillemaNumber: this.state.dillemaNumber
-          };
+        
 
           clearInterval(this.timer);
-    
-          /*
-          axios.post(`https://cognitivexp.herokuapp.com/sendDilemma/`, data )
-          .then(res => {
-    
-            if(res.data.situation == 1)
-            {
-              
-              console.log("LoggedIn");
-              console.log("Token:"  + res.data.key);
-    
-            }
-            else
-            {
-              alert("Yanlış Şifre | Wrong Password")
-            }             
-          })
-          */
     }
 
     

@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import Soundfile from "./assets/electro2.mp3";
+import Soundfile from "../assets/classic1.m4a";
 import Button from 'react-bootstrap/Button';
-import './Music.css'
+//CSS
+import '../style/Music.css'
 
-class PlayElectronicSound2 extends Component{
+class PlayClassicSound extends Component{
 
   constructor() {
     super();
@@ -59,9 +60,9 @@ class PlayElectronicSound2 extends Component{
     if(this.state.seconds == 10){
         this.start();
     }
-    console.log(this.state.seconds)
+    //console.log(this.state.seconds)
 
-    if(this.state.seconds == 400){
+    if(this.state.seconds == 495){
       this.stop();
       this.timer = null;
       this.countUp = null;
@@ -127,7 +128,7 @@ class PlayElectronicSound2 extends Component{
     render(){
         return(
             <div>
-              <h1>Müzik Arası Kategori 1</h1>
+              <h1>Müzik Arası Kategori 2</h1>
               <p className="music">Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
               {this.lookTime()}
               {this.screenstatus()}
@@ -138,4 +139,4 @@ class PlayElectronicSound2 extends Component{
 
 }
 
-export default PlayElectronicSound2;
+export default PlayClassicSound;

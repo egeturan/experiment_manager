@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import Soundfile from "./assets/classic2.m4a";
+import Soundfile from "../assets/electro1.mp3";
 import Button from 'react-bootstrap/Button';
-import './Music.css'
+//CSS
+import '../style/Music.css'
 
-class PlayClassicSound2 extends Component{
+class PlayElectronicSound extends Component{
 
   constructor() {
     super();
@@ -57,16 +58,16 @@ class PlayClassicSound2 extends Component{
     });
 
     if(this.state.seconds == 10){
-      this.start();
-  }
-  //console.log(this.state.seconds)
+        this.start();
+    }
+    console.log(this.state.seconds)
 
-  if(this.state.seconds == 400){
-    this.stop();
-    this.timer = null;
-    this.countUp = null;
-    this.props.submited();
-  }
+    if(this.state.seconds == 400){
+      this.stop();
+      this.timer = null;
+      this.countUp = null;
+      this.props.submited();
+    }
   }
 
   finishTimer() {
@@ -119,7 +120,7 @@ class PlayClassicSound2 extends Component{
     if(this.state.seconds < 10){
       return <div className="time">{10 - this.state.seconds}</div>;
     }
-    else if(this.state.seconds > 10){
+    else if(this.state.seconds > 600){
       return <div className="experiment"><Button variant="success" className="button1" onClick={this.props.submited}>Deneye Devam Et</Button></div>;
     }
   }
@@ -127,7 +128,7 @@ class PlayClassicSound2 extends Component{
     render(){
         return(
             <div>
-              <h1>Müzik Arası Kategori 2</h1>
+              <h1>Müzik Arası Kategori 1</h1>
               <p className="music">Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
               {this.lookTime()}
               {this.screenstatus()}
@@ -138,4 +139,4 @@ class PlayClassicSound2 extends Component{
 
 }
 
-export default PlayClassicSound2;
+export default PlayElectronicSound;

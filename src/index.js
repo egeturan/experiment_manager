@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Button from 'react-bootstrap/Button';
-import './App.css';
 import PageManager from './PageManager';
 import Register from "./Auth/Register";
 import Login from "./Auth/Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import PageManagerController from './PageManagerController';
+//CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style/index.css';
+import './style/App.css';
 
 ReactDOM.render(
   <React.StrictMode>
