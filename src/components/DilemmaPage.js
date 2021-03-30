@@ -112,11 +112,11 @@ class DilemmaPage extends Component{
                 };
       
                 
-                axios.post(`http://34.67.185.165:8080/sendDilemma/`, data )
+                axios.post(`https://congnitivee.herokuapp.com/sendDilemma/`, data )
                 .then(res => {
           
                   console.log(res.data.situation);
-                             
+
                 })
                 this.props.submited(args);
             }
