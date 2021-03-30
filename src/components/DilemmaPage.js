@@ -115,15 +115,8 @@ class DilemmaPage extends Component{
                 axios.post(`http://34.67.185.165:8080/sendDilemma/`, data )
                 .then(res => {
           
-                  if(res.data.situation == 1)
-                  {
-                    
-          
-                  }
-                  else
-                  {
-                    
-                  }             
+                  console.log(res.data.situation);
+                             
                 })
                 this.props.submited(args);
             }

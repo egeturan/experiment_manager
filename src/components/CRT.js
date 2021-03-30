@@ -44,16 +44,9 @@ class CRT extends Component{
 
           axios.post(`http://34.67.185.165:8080/sendCRT/`, data )
           .then(res => {
-    
-            if(res.data.situation == 1)
-            {
-              
-    
-            }
-            else
-            {
-              
-            }             
+            
+            console.log(res.data.situation);
+          
           })
     }
 

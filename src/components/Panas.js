@@ -111,14 +111,8 @@ class Panas extends Component{
               axios.post(`http://34.67.185.165:8080/sendPanas/`, data )
               .then(res => {
         
-                if(res.data.situation == 1)
-                {
-                  
-                }
-                else
-                {
-    
-                }             
+                console.log(res.data.situation);
+                            
               })
             let answer1 = "";
             this.props.submited(answer1);
