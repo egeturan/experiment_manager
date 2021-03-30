@@ -48,6 +48,7 @@ class StroopTask extends React.Component {
   componentDidMount() {
     //let timeLeftVar = this.secondsToTime(this.state.seconds);
     this.setState({ time: 0, token: this.props.token });
+    stroopS = this.lookTime();
     this.startTimer();
   }
 
@@ -83,14 +84,13 @@ class StroopTask extends React.Component {
     });
 
 
-
-    if(this.state.seconds <= 10){
+    if(this.state.seconds <= 15){
       let congProb = this.getconGProb();
       this.showStroop(congProb);
       stroopS = this.lookTime();
     }
 
-    if(this.state.seconds === 10){
+    if(this.state.seconds === 15){
       this.startTimer3();
     }
     
@@ -164,7 +164,7 @@ class StroopTask extends React.Component {
   controlKey(args) {
     let arr = null;
     
-    if(this.state.seconds >= 10 && this.state.busy === false)
+    if(this.state.seconds >= 15 && this.state.busy === false)
     {
       this.setState({busy: true});
       if(args == 'left')
@@ -234,9 +234,6 @@ class StroopTask extends React.Component {
 
   lookTime(args) {
 
-    let main = this.state.colors.indexOf(this.state.main);
-    let left = this.state.colors.indexOf(this.state.left);
-    let right = this.state.colors.indexOf(this.state.right);
     let stroop = <div className="Stroop"> 
     <tr>
     {this.state.seconds >= 0 &&
@@ -249,9 +246,9 @@ class StroopTask extends React.Component {
         <Badge className="BoxM">{this.returnR()}</Badge>
     </tr>
   </div>
-    if(this.state.seconds < 10){
-      return <div className="CountD">{10 - this.state.seconds}</div>;
-    }else if(this.state.seconds < 1200){
+    if(this.state.seconds < 15){
+      return <div className="CountD">{15 - this.state.seconds}</div>;
+    }else if(this.state.seconds < 20){
       return <div>{stroop}</div>;
     }else{
       return <div><Button variant="success" className="BoxM" onClick={this.props.submited}>Testi Tamamla</Button></div>;

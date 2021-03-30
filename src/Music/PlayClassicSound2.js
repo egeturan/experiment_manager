@@ -62,11 +62,12 @@ class PlayClassicSound2 extends Component{
   }
   //console.log(this.state.seconds)
 
-    if(this.state.seconds === 20){
+    if(this.state.seconds === 12){
       this.stop();
-      this.timer = null;
       this.countUp = null;
-      this.props.submited();
+      clearInterval(this.timer);
+      this.props.submited("asfsd");
+      this.timer = null;
     }
   }
 
@@ -116,7 +117,7 @@ class PlayClassicSound2 extends Component{
     if(this.state.seconds < 10){
       return <div className="time">{10 - this.state.seconds}</div>;
     }
-    else if(this.state.seconds > 600){
+    else if(this.state.seconds > 433){
       return <div className="experiment"><Button variant="success" className="button1" onClick={this.props.submited}>Deneye Devam Et</Button></div>;
     }
   }

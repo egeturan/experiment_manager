@@ -190,7 +190,7 @@ class PageManager extends React.Component {
     let inside = null;
 
     let movement = <div className="buttons">
-    <Button variant="dark" className="button2" onClick={this.nextPage}>Deneye Başla</Button>
+    <Button variant="success" className="button2" onClick={this.nextPage}><p className="p2">Deneye Başla</p></Button>
     </div>;
 
     if(this.state.pageNumber === 1)
@@ -273,14 +273,16 @@ class PageManager extends React.Component {
     else if(this.state.pageNumber === 5)
     {
       screen = <div className="StroopTask"><h1 bold>Biliş Dikkat Testi</h1><StroopTask className="stroop" submited={this.submited}  token={this.state.token}></StroopTask></div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 6 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound2 submited={this.submited}></PlayElectronicSound2></div>;
+      movement = null;
     }else if(this.state.pageNumber === 6 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound2 submited={this.submited}></PlayClassicSound2></div>;
+      movement = null;
     }
     else if(this.state.pageNumber === 7)
     {
@@ -297,6 +299,7 @@ class PageManager extends React.Component {
             <ListGroup.Item>Hazır olduğunuzda başla tuşuna basınız. </ListGroup.Item>
             </ListGroup>
       </div>;
+      movement = <Button variant="success" className="button12" onClick={this.nextPage}><p className="p2">Devam</p></Button>
     }
     else if(this.state.pageNumber >= 8 && this.state.pageNumber <= 22)
     {
@@ -312,7 +315,7 @@ class PageManager extends React.Component {
     {
       dilemma = null;
       screen = <div className="welcomeDilemma"><h1>Bölüm 4: Zihinsel Tepki Süresi Testi (6 dakika) </h1><br/>
-      Bu bölümde karşınıza 3 kısa ve kolay soru çıkacak. Lütfen soruları dikkatli ve elinizden geldiği sürece hızlı yapınız. Eğer bu bölümü 6 dakikadan hızlı bitirirseniz, “enter” tuşuyla deneyi sonlandırabilirsiniz
+      Bu bölümde karşınıza 3 kısa ve kolay soru çıkacak. Lütfen soruları dikkatli ve elinizden geldiği sürece hızlı yapınız. Eğer bu bölümü 6 dakikadan hızlı bitirirseniz, "Deneyi Bitir" butonuna basarak deneyi sonlandırabilirsiniz
       </div>;
     }else if(this.state.pageNumber === 24)
     {

@@ -64,7 +64,6 @@ class CRT extends Component{
         }else
         {
             this.props.submited(answer1);
-            alert("Deney Başarılı bir şekilde tamamlandı");
         }
     }
 
@@ -129,7 +128,7 @@ class CRT extends Component{
                             style={{marginTop: "4%", width: "10%", float:"right"}}
                             onClick={this.controlInputs}
                         >
-                            Submit
+                            Deneyi Bitir
                         </Button>
             
                         </Segment>
