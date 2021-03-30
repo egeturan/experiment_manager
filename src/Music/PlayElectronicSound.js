@@ -57,16 +57,17 @@ class PlayElectronicSound extends Component{
       seconds: seconds,
     });
 
-    if(this.state.seconds == 10){
+    if(this.state.seconds === 10){
         this.start();
     }
     console.log(this.state.seconds)
 
-    if(this.state.seconds == 400){
+    if(this.state.seconds === 20){
       this.stop();
-      this.timer = null;
       this.countUp = null;
-      this.props.submited();
+      clearInterval(this.timer);
+      this.props.submited("asfsd");
+      this.timer = null;
     }
   }
 
@@ -112,10 +113,6 @@ class PlayElectronicSound extends Component{
     }
   }
 
-  lookTime(args) {
-
-  }
-
   screenstatus(args) {
     if(this.state.seconds < 10){
       return <div className="time">{10 - this.state.seconds}</div>;
@@ -130,7 +127,6 @@ class PlayElectronicSound extends Component{
             <div>
               <h1>Müzik Arası Kategori 1</h1>
               <p className="music">Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
-              {this.lookTime()}
               {this.screenstatus()}
               
             </div>

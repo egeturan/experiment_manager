@@ -64,9 +64,10 @@ class PlayClassicSound extends Component{
 
     if(this.state.seconds == 495){
       this.stop();
-      this.timer = null;
       this.countUp = null;
-      this.props.submited();
+      clearInterval(this.timer);
+      this.props.submited("asfsd");
+      this.timer = null;
     }
   }
 
@@ -112,10 +113,6 @@ class PlayClassicSound extends Component{
     }
   }
 
-  lookTime(args) {
-
-  }
-
   screenstatus(args) {
     if(this.state.seconds < 10){
       return <div className="time">{10 - this.state.seconds}</div>;
@@ -130,7 +127,6 @@ class PlayClassicSound extends Component{
             <div>
               <h1>Müzik Arası Kategori 2</h1>
               <p className="music">Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
-              {this.lookTime()}
               {this.screenstatus()}
               
             </div>

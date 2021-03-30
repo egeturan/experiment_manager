@@ -57,17 +57,17 @@ class PlayClassicSound2 extends Component{
       seconds: seconds,
     });
 
-    if(this.state.seconds == 10){
+    if(this.state.seconds === 10){
       this.start();
   }
   //console.log(this.state.seconds)
 
-  if(this.state.seconds == 400){
-    this.stop();
-    this.timer = null;
-    this.countUp = null;
-    this.props.submited();
-  }
+    if(this.state.seconds === 20){
+      this.stop();
+      this.timer = null;
+      this.countUp = null;
+      this.props.submited();
+    }
   }
 
   finishTimer() {
@@ -112,10 +112,6 @@ class PlayClassicSound2 extends Component{
     }
   }
 
-  lookTime(args) {
-
-  }
-
   screenstatus(args) {
     if(this.state.seconds < 10){
       return <div className="time">{10 - this.state.seconds}</div>;
@@ -130,9 +126,7 @@ class PlayClassicSound2 extends Component{
             <div>
               <h1>Müzik Arası Kategori 2</h1>
               <p className="music">Lütfen kulaklıklarınızla dinleyiniz ve dikkatinizi müzikten başka bir şeye odaklamayınız. </p>
-              {this.lookTime()}
-              {this.screenstatus()}
-              
+              {this.screenstatus()}              
             </div>
         );
     }

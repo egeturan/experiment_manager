@@ -22,12 +22,12 @@ import './style/PageManager.css';
 class PageManager extends React.Component {
   
   state = {
-    auth: false,
+    auth: true,
     pageNumber: 1,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
     token: "111111",
-    musictype: 0,
+    musictype: 1,
     dilemmaCounter: 0,
     dilemma: ["Zeynep 5 yıldır Kadri ile beraber. Her ilişki gibi onlarınki de zaman zaman zorlaşıyor. Sonuç olarak Zeynep bu ilişkide olmaktan mutlu ve bu ilişkiyi sürdürmek istiyor. Kadri de Zeynep’i seviyor, Zeynep’le evlenmek istiyor.",
     "Zeynep bir gün kendi bilgisayarından maillerine bakmak ister. Kadri’nin hesabının açık olduğunu görür. Özellikle bir mail Zeynep’in dikkatini çeker. Zeynep maili açtığında, erkek arkadaşı ile ilgili daha önce bilmediği yeni bir şey öğrenir. Kadri’in bir önceki partneri bir kadın değil, erkektir. Zeynep bu keşif sonrasında şaşkınlık ve kafa karışıklığı içinde Kadri’i terk eder.",
@@ -184,11 +184,6 @@ class PageManager extends React.Component {
     this.setState({pageNumber: this.state.pageNumber + 1})
   }
 
-  update(){
-    console.log("Updated");
-    this.setState({pageNumber: this.state.pageNumber})
-  }
-
   render() {
     let screen = null;
     let dilemma = null;
@@ -232,7 +227,7 @@ class PageManager extends React.Component {
     {
       screen = <div><Panas submited={this.submited} token={this.state.token}></Panas>
       </div>;
-      movement = null;
+      //movement = null;
     }
     else if(this.state.pageNumber === 3 && this.state.musictype === 1)
     {
