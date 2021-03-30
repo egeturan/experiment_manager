@@ -62,7 +62,7 @@ class PlayElectronicSound2 extends Component{
     }
     console.log(this.state.seconds)
 
-    if(this.state.seconds == 12){
+    if(this.state.seconds == 365){
       this.stop();
       this.countUp = null;
       clearInterval(this.timer);

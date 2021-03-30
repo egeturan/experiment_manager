@@ -248,7 +248,7 @@ class StroopTask extends React.Component {
   </div>
     if(this.state.seconds < 15){
       return <div className="CountD">{15 - this.state.seconds}</div>;
-    }else if(this.state.seconds < 20){
+    }else if(this.state.seconds < 600){
       return <div>{stroop}</div>;
     }else{
       return <div><Button variant="success" className="BoxM" onClick={this.props.submited}>Testi Tamamla</Button></div>;

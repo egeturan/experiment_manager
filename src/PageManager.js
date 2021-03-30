@@ -227,7 +227,7 @@ class PageManager extends React.Component {
     {
       screen = <div><Panas submited={this.submited} token={this.state.token}></Panas>
       </div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 3 && this.state.musictype === 1)
     {
@@ -236,7 +236,7 @@ class PageManager extends React.Component {
     }else if(this.state.pageNumber === 3 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound submited={this.submited}></PlayClassicSound></div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 4)
     {
