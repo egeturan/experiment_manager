@@ -22,7 +22,7 @@ import './style/PageManager.css';
 class PageManager extends React.Component {
   
   state = {
-    auth: false,
+    auth: true,
     pageNumber: 1,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
@@ -232,14 +232,16 @@ class PageManager extends React.Component {
     {
       screen = <div><Panas submited={this.submited} token={this.state.token}></Panas>
       </div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 3 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound submited={this.submited}></PlayElectronicSound></div>;
+      movement = null;
     }else if(this.state.pageNumber === 3 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound submited={this.submited}></PlayClassicSound></div>;
+      //movement = null;
     }
     else if(this.state.pageNumber === 4)
     {
@@ -285,7 +287,7 @@ class PageManager extends React.Component {
     {
       screen = <div><PlayClassicSound2 submited={this.submited}></PlayClassicSound2></div>;
     }
-    else if(this.state.pageNumber == 7)
+    else if(this.state.pageNumber === 7)
     {
       screen = <div className="welcomeDilemma">
         <h1>Bölüm 3: İkilem Yargı Soruları </h1>
@@ -316,7 +318,7 @@ class PageManager extends React.Component {
       dilemma = null;
       screen = <div className="welcomeDilemma"><h1>Bölüm 4: Zihinsel Tepki Süresi Testi (6 dakika) </h1><br/>
       Bu bölümde karşınıza 3 kısa ve kolay soru çıkacak. Lütfen soruları dikkatli ve elinizden geldiği sürece hızlı yapınız. Eğer bu bölümü 6 dakikadan hızlı bitirirseniz, “enter” tuşuyla deneyi sonlandırabilirsiniz
-      </div>;;
+      </div>;
     }else if(this.state.pageNumber === 24)
     {
       screen = <CRT submited={this.submited} token={this.state.token}></CRT>;

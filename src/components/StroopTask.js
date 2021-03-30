@@ -14,13 +14,16 @@ class StroopTask extends React.Component {
   constructor() {
     super();
     this.state = { time: {}, seconds: 0, colors: ["green", "blue", "purple", "red", "orange", "yellow"], colorsT: ["yeşil", "mavi", "mor", "kırmızı", "turuncu", "sarı"],
-     A: [], main: "", left: " ", right: "  ", mainColor: "   ", answer: "", stroopCount: 0, results: [], cong: "",mainO: "", leftO: "", rightO: "", mainColorO: "", token: "", dilemmaCount: 0, busy: false};
+     A: [], main: "", left: " ", right: "  ", mainColor: "   ", answer: "", stroopCount: 0, results: [], cong: "",mainO: "", leftO: "", rightO: "", mainColorO: "", token: "", dilemmaCount: 0, busy: false, seconds2: 0};
     this.timer = 0;
     this.timer2 = 0;
+    this.timer3 = 0;
     this.startTimer = this.startTimer.bind(this);
     this.startTimer2 = this.startTimer2.bind(this);
+    this.startTimer3 = this.startTimer3.bind(this);
     this.countUp = this.countUp.bind(this);
     this.countUp2 = this.countUp2.bind(this);
+    this.countUp3 = this.countUp3.bind(this);
     this.finishTimer = this.finishTimer.bind(this);
     this.refresher = 0;
   }
@@ -49,7 +52,7 @@ class StroopTask extends React.Component {
   }
 
   startTimer = () => {
-    console.log("Timer Started")
+    //console.log("Timer Started")
     if (this.timer == 0 && this.state.seconds >= 0) {
       this.timer = setInterval(this.countUp, 750);
     }
@@ -57,8 +60,15 @@ class StroopTask extends React.Component {
 
   startTimer2 = () => {
     if (this.state.seconds >= 0) {
-      console.log("Timer Started")
+      //console.log("Timer Started")
       this.timer2 = setInterval(this.countUp2, 500);
+    }
+  }
+
+  startTimer3 = () => {
+    if (this.state.seconds2 >= 0) {
+      //console.log("Timer 3 Started")
+      this.timer3 = setInterval(this.countUp3, 10);
     }
   }
 
@@ -79,13 +89,16 @@ class StroopTask extends React.Component {
       this.showStroop(congProb);
       stroopS = this.lookTime();
     }
+
+    if(this.state.seconds === 10){
+      this.startTimer3();
+    }
     
-    console.log(seconds);
+    //console.log(seconds);
   }
 
   countUp2() {
     console.log("Timer 2")
-
     let congProb = this.getconGProb();
     this.showStroop(congProb);
     stroopS = this.lookTime();
@@ -95,9 +108,22 @@ class StroopTask extends React.Component {
 
   }
 
+  countUp3() {
+    //console.log("Timer 3")
+    let seconds = this.state.seconds2 + 10;
+    
+    //console.log("Stroop Count " + stroopC)
+    this.setState({
+      seconds2: seconds
+    });
+    
+  }
+
   componentWillUnmount()
   {
     clearInterval(this.timer);
+    clearInterval(this.timer2);
+    clearInterval(this.timer3);
 
     const data = {
         token: this.state.token,
@@ -105,7 +131,7 @@ class StroopTask extends React.Component {
         numberOfStroop: this.state.results.length
       };
         
-      axios.post(`https://congnitivee.herokuapp.com/sendStroop/`, data )
+      axios.post(`http://34.67.185.165:8080/sendStroop/`, data )
       .then(res => {
   
         if(res.data.situation == 1)
@@ -152,10 +178,10 @@ class StroopTask extends React.Component {
         //console.log(args);
         if(this.state.mainColor == this.state.left){
           arr = this.state.results;
-          arr.push([this.state.cong, 'T'])
+          arr.push([this.state.cong, 'T', this.state.seconds2 + ""])
         }else{
           arr = this.state.results;
-          arr.push([this.state.cong, 'F'])
+          arr.push([this.state.cong, 'F', this.state.seconds2 + ""])
         }
       }
       else if(args == 'right')
@@ -163,22 +189,22 @@ class StroopTask extends React.Component {
         //console.log(args);
         if(this.state.mainColor == this.state.right){
           arr = this.state.results;
-          arr.push([this.state.cong, 'T'])
+          arr.push([this.state.cong, 'T', this.state.seconds2 + ""])
         }else{
           arr = this.state.results;
-          arr.push([this.state.cong, 'F'])
+          arr.push([this.state.cong, 'F', this.state.seconds2 + ""])
         }
       }else{
         console.log("error");
       }
-
+      
+      clearInterval(this.timer3);
       stroopS = null;
 
-      this.setState({results: arr});
+      this.setState({results: arr, seconds2: 0});
       console.log(arr)
       this.startTimer2();
-
-      
+      this.startTimer3();
 
     }
 
