@@ -62,7 +62,7 @@ class PlayClassicSound extends Component{
     }
     //console.log(this.state.seconds)
 
-    if(this.state.seconds == 468){
+    if(this.state.seconds == 483){
       this.stop();
       this.countUp = null;
       clearInterval(this.timer);
@@ -117,7 +117,7 @@ class PlayClassicSound extends Component{
     if(this.state.seconds < 10){
       return <div className="time">{10 - this.state.seconds}</div>;
     }
-    else if(this.state.seconds > 469){
+    else if(this.state.seconds > 484){
       return <div className="experiment"><Button variant="success" className="button1" onClick={this.props.submited}>Deneye Devam Et</Button></div>;
     }
   }
