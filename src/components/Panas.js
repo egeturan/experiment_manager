@@ -190,7 +190,7 @@ class Panas extends Component{
             <ListGroup.Item>4: Biraz fazla hissettim.</ListGroup.Item>
             <ListGroup.Item>5: Baya yoğun ve fazla hissettim. </ListGroup.Item>
             </ListGroup>
-            <p className="i2">Not 1: Ekranınız küçük ise tam ekran modu bu bölüm için mümkün olmayacaktır. Lütfen Bu bölümü tam ekran modunda yapmayınız.</p>
+            <p className="i2">Not 1: Ekranınız küçük ise tam ekran modu bu bölüm için mümkün olmayacaktır. Lütfen bu bölümü tam ekran modunda yapmayınız.</p>
             <p className="i1">Not 2: Toplam 10 dakikanız vardır, önceden bitirirseniz aşağıdaki tamamla tuşuyla geçebilirsiniz. Tüm sorulara cevap vermeden bu tuşa basmanız işe yaramayacaktır. Lütfen tabloyu dikkatli bir şekilde ve gerçeği yansıtır şekilde doldurunuz. </p>
             <Button variant="success" className="start" onClick={this.start}>Başla</Button>
             </div>;

@@ -253,8 +253,9 @@ class PageManager extends React.Component {
             <ListGroup.Item>Bu sayıların yazılı olduğu kelimelerin rengi bazen <b>“YAZAN RENKTEN”</b> <b>FARKLI</b> ya da <b>AYNI</b> olacaktır.</ListGroup.Item>
             <ListGroup.Item>Sizden istediğimiz gelen kelimenin ifade ettiği rengi şeçmeniz değil, yazının asıl rengine göre ( <b>YAZININ ANLAMI DEĞİL, RENGİ</b>) aşağıda belirecek olan iki seçenekten uygun olanı seçmeniz. </ListGroup.Item>
             <ListGroup.Item>Bu deney “DİKKAT” deneyi olduğundan dolayı gelen uyaranlara <b>(yani yenilenen renkler)</b> elinizden geldiğince hızlı cevap veriniz. Verilerin daha doğru sonuç vermesi için parmağınızı hızlı bir şekilde basıp çekmeniz gerekmektedir. <b>(Basılı tutmayınız)</b>  </ListGroup.Item>
-            <ListGroup.Item>Bu bir dikakt deneyi olduğu için size zor gelmesi demek herkese zor gelmesi demektir. Hatalarınızdan dolayı moralinizi bozmadan devam ediniz. </ListGroup.Item>
+            <ListGroup.Item>Bu bir dikkat deneyi olduğu için size zor gelmesi demek herkese zor gelmesi demektir. Hatalarınızdan dolayı moralinizi bozmadan deneye devam ediniz. </ListGroup.Item>
             <ListGroup.Item>Cevap vermek için <b>“SAĞ VE SOL YÖN OK TUŞLARI”</b> nı kullanınız.  <img  src={ButtonImage} alt="fireSpot"/> </ListGroup.Item>
+            <ListGroup.Item>Testi Başlat butonuna bastıktan sonra karşınıza çıkacak olan yeni sayfayı "Tam Ekranı Aç" butonuna(Sağ Üstte) deney başlamadan önce tıklayınız. Deneye başlamadan önce 15 saniye geri sayım olacaktır. </ListGroup.Item>
             <h1 className="n4">ÖRNEK</h1>
             <Row className="row">
               <Col>

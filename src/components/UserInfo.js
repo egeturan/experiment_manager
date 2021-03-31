@@ -115,6 +115,7 @@ class UserInfo extends React.Component {
                     <option>Eğitim Durumunuz</option>
                     <option>İlkOkul Mezunu</option>
                     <option>Lise Mezunu</option>
+                    <option>Lisans Öğrencisi</option>
                     <option>Üniversite Mezunu</option>
                     <option>Yüksek Öğretim</option>
               </Form.Input>
@@ -128,8 +129,8 @@ class UserInfo extends React.Component {
                 type="musicType"
               >
                     <option value="-1">Müzik Tercihiniz (Elektronik ya da Klasik müzikten birini seçiniz</option>
-                    <option value="1"> 1</option>
-                    <option value="2"> 2</option>
+                    <option value="1">Elektronik Müzik</option>
+                    <option value="2">Klasik Müzik</option>
               </Form.Input>
 
               <Button
