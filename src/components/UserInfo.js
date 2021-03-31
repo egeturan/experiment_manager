@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import 'semantic-ui-css/semantic.min.css';
 import Button2 from 'react-bootstrap/Button';
+import '../style/UserInfo.css';
 
 import {
   Grid,
@@ -50,13 +51,17 @@ class UserInfo extends React.Component {
       
       })
       
+      console.log(dataI);
+      this.props.submited("fasda");
+    }else{
+        alert("Tüm alanları doldurunuz.");
     }
 
+    
     this.setState({ errors: [], loading: false });
-    this.props.submited("fasda");
   };
 
-  isFormValid = ({ age, sex }) => age && sex;
+  isFormValid = ({ age, sex, education, musicType }) => age && sex && education && musicType;
 
   handleInputError = (errors, inputName) => {
     return errors.some(error => error.message.toLowerCase().includes(inputName))
@@ -79,9 +84,7 @@ class UserInfo extends React.Component {
               <Form.Input
                 fluid
                 name="age"
-                icon="mail"
-                iconPosition="left"
-                placeholder="Kullanıcı Adı Belirleyiniz"
+                placeholder="Yaşınızı Giriniz"
                 onChange={this.handleChange}
                 value={age}
                 className={this.handleInputError(errors, "age")}
@@ -89,63 +92,58 @@ class UserInfo extends React.Component {
               />
 
               <Form.Input
-                fluid
+                as="select"
                 name="sex"
-                icon="lock"
-                iconPosition="left"
-                placeholder="Cinsiyet"
                 onChange={this.handleChange}
                 value={sex}
-                className={this.handleInputError(errors, "sex")}
+                className="form"
                 type="sex"
-              />
+              >
+                <option>Cinsiyet</option>
+                <option>Kadın</option>
+                <option>Erkek</option>
+            </Form.Input>
 
             <Form.Input
-                fluid
+                as="select"
                 name="education"
-                icon="lock"
-                iconPosition="left"
-                placeholder="Eğitim Durumu"
                 onChange={this.handleChange}
                 value={education}
-                className={this.handleInputError(errors, "sex")}
-                type="sex"
-              />
+                className="form"
+                type="education"
+              >
+                    <option>Eğitim Durumunuz</option>
+                    <option>İlkOkul Mezunu</option>
+                    <option>Lise Mezunu</option>
+                    <option>Üniversite Mezunu</option>
+                    <option>Yüksek Öğretim</option>
+              </Form.Input>
 
             <Form.Input
-                fluid
-                name="musicType"
-                icon="lock"
-                iconPosition="left"
-                placeholder="Müzik Türü"
+                as="select"
+                name = "musicType"
                 onChange={this.handleChange}
                 value={musicType}
-                className={this.handleInputError(errors, "sex")}
-                type="sex"
-              />
+                className="form"
+                type="musicType"
+              >
+                    <option value="-1">Müzik Tercihiniz (Elektronik ya da Klasik müzikten birini seçiniz</option>
+                    <option value="1"> 1</option>
+                    <option value="2"> 2</option>
+              </Form.Input>
 
               <Button
                 disabled={loading}
                 className={loading ? "loading" : ""}
                 color="green"
-                fluid
                 size="large"
+                className="button"
                 style={{marginTop: "1px"}}              >
                 Tamamla
               </Button>
  
             </Segment>
           </Form>
-          {errors.length > 0 && (
-            <Message error>
-              <h3>Error</h3>
-              {this.displayErrors(errors)}
-            </Message>
-          )}
-          <Message>
-          
-          </Message>
-
         </Grid.Column>
 
       </Grid>
