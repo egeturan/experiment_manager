@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import DilemmaPage from './components/DilemmaPage';
 import StroopTask from './components/StroopTask';
+import UserInfo from './components/UserInfo';
 import PlayClassicSound from './Music/PlayClassicSound';
 import PlayElectronicSound from './Music/PlayElectronicSound';
 import Panas from './components/Panas';
@@ -23,7 +24,7 @@ class PageManager extends React.Component {
   
   state = {
     auth: false,
-    pageNumber: 1,
+    pageNumber: 0,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
     token: "111111",
@@ -192,37 +193,38 @@ class PageManager extends React.Component {
     let movement = <div className="buttons">
     <Button variant="success" className="button2" onClick={this.nextPage}><p className="p2">Deneye Başla</p></Button>
     </div>;
-
+    if(this.state.pageNumber === 0){
+      screen = <div><h2>Giriş: Duygu, Biliş ve Ahlaki Karar Üzerine Bilişsel Yaklaşım Deneyine Hoşgeldiniz.  </h2>
+      <p className="Intro">
+       Bu deney toplamda dört bölümden oluşmaktadır. <br/>
+       <br/>
+       1. Genel Duygulanım Derecelendirmesi (10 dakika) <br/>
+         <li> Müzik arası (7 dakika) <br/> </li>
+       2. Sürdürülebilir Dikkat deneyi (10 dakika) <br/>
+         <li> Müzik arası (7 dakika) <br/> </li>
+       3. İkilem Yargı Sorguları (30 dk) <br/>
+       4. Zihinsel Tepki Süresi Testi (6 dakika) <br/>
+       <br/>
+       Deney Toplamda: 70 dakika sürmektedir. <br/>
+       <br/>
+       Her bölümden sonra gelecek bölümün talimatları tekrardan ekranda belirecektir. Lütfen her bölümden sonra talimatları tekrar okuyunuz ve talimatlara göre bir sonraki bölümü yapmaya başlayınız. <br/>
+       <br/>
+       Her bölümün zaman limiti önceden yukarıdaki bilgilere uygun bir şekilde ayarlanmıştır. Müzik aralarından sonra başlayacak bölümün bilgilendirme sayfasına otamatik olarak yönlendirileceksiniz. Talimatları okuma sırasında her hangi bir zaman kısıtlaması olmaksızın, istediğiniz zaman bir sonraki bölüme geçebilirsiniz. <br/>
+       <br/>
+       Lütfen kulaklıklarınızı deney başlamadan önce ayarlayınız. Müziklerin daha dikkatli dinlenebilmesi için, lütfen müziği kulaklıklarınızla dinleyiniz. <br/>
+       <br/>
+       (ÖNEMLİ: DENEY SIRASINDA TELEFONUNUZU KAPATINIZ.)
+       <br/>
+       (ÖNEMLİ: TAM EKRANDAN KLAVYENİZİN "ESC" TUŞUNA BASARAK ÇIKABİLİRSİNİZ.)
+       <br/>
+       Teşekkürler.
+       </p>
+     {/*<Timer val="ege" timeUpdate={this.updateTime}></Timer>{<h1>Time: h: {this.state.timer.h} m: {this.state.timer.m} s: {this.state.timer.s}*/}
+         </div>;
+    }
     if(this.state.pageNumber === 1)
     {
-       screen = <div><h2>Giriş: Duygu, Biliş ve Ahlaki Karar Üzerine Bilişsel Yaklaşım Deneyine Hoşgeldiniz.  </h2>
-       <p className="Intro">
-        Bu deney toplamda dört bölümden oluşmaktadır. <br/>
-        <br/>
-        1. Genel Duygulanım Derecelendirmesi (10 dakika) <br/>
-          <li> Müzik arası (7 dakika) <br/> </li>
-        2. Sürdürülebilir Dikkat deneyi (10 dakika) <br/>
-          <li> Müzik arası (7 dakika) <br/> </li>
-        3. İkilem Yargı Sorguları (30 dk) <br/>
-        4. Zihinsel Tepki Süresi Testi (6 dakika) <br/>
-        <br/>
-        Deney Toplamda: 70 dakika sürmektedir. <br/>
-        <br/>
-        Her bölümden sonra gelecek bölümün talimatları tekrardan ekranda belirecektir. Lütfen her bölümden sonra talimatları tekrar okuyunuz ve talimatlara göre bir sonraki bölümü yapmaya başlayınız. <br/>
-        <br/>
-        Her bölümün zaman limiti önceden yukarıdaki bilgilere uygun bir şekilde ayarlanmıştır. Müzik aralarından sonra başlayacak bölümün bilgilendirme sayfasına otamatik olarak yönlendirileceksiniz. Talimatları okuma sırasında her hangi bir zaman kısıtlaması olmaksızın, istediğiniz zaman bir sonraki bölüme geçebilirsiniz. <br/>
-        <br/>
-        Lütfen kulaklıklarınızı deney başlamadan önce ayarlayınız. Müziklerin daha dikkatli dinlenebilmesi için, lütfen müziği kulaklıklarınızla dinleyiniz. <br/>
-        <br/>
-        (ÖNEMLİ: DENEY SIRASINDA TELEFONUNUZU KAPATINIZ.)
-        <br/>
-        (ÖNEMLİ: TAM EKRANDAN KLAVYENİZİN "ESC" TUŞUNA BASARAK ÇIKABİLİRSİNİZ.)
-        <br/>
-        Teşekkürler.
-        </p>
-
-      {/*<Timer val="ege" timeUpdate={this.updateTime}></Timer>{<h1>Time: h: {this.state.timer.h} m: {this.state.timer.m} s: {this.state.timer.s}*/}
-          </div>;
+        screen = <UserInfo submited={this.submited} token={this.state.token}></UserInfo>;
     }
     else if(this.state.pageNumber === 2)
     {

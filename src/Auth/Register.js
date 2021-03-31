@@ -85,7 +85,7 @@ class Register extends React.Component {
         password: this.state.password
       };
 
-      console.log(user);
+      //console.log(user);
 
       axios.post(`https://congnitivee.herokuapp.com/register_user/`, user )
       .then(res => {

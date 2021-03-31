@@ -1,8 +1,6 @@
 import React from "react";
 import axios from 'axios';
 import 'semantic-ui-css/semantic.min.css';
-import './Login.css';
-import {withRouter} from 'react-router';
 import Button2 from 'react-bootstrap/Button';
 
 import {
@@ -16,11 +14,13 @@ import {
 } from "semantic-ui-react";
 import { Container } from "react-bootstrap";
 
-class Login extends React.Component {
+class UserInfo extends React.Component {
   
   state = {
-    username: "",
-    password: "",
+    age: "",
+    sex: "",
+    education: "",
+    musicType: "",
     errors: [],
     loading: false
   };
@@ -32,60 +32,31 @@ class Login extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  goToHome = () => {
-
-    this.props.history.push({
-      pathname: '/'
-    })
-    
-  }
-
   handleSubmit = event => {
     event.preventDefault();
     if (this.isFormValid(this.state)) {
       this.setState({ errors: [], loading: true });
-      const user = {
-        username: this.state.username,
-        password: this.state.password
+      const dataI = {
+        age: this.state.age,
+        sex: this.state.sex,
+        education: this.state.education,
+        musicType: this.state.musicType
       };
 
       //console.log(user);
 
-      axios.post(`https://congnitivee.herokuapp.com/login/`, user )
+      axios.post(`https://congnitivee.herokuapp.com/userInfo/`, dataI )
       .then(res => {
-
-        if(res.data.situation == 1)
-        {
-          
-          console.log("LoggedIn");
-          //console.log("Token:"  + res.data.key);
-          //this.props.history.push('/register');
-
-          this.props.history.push({
-            pathname: '/',
-            state: {
-              auth: true,
-              pageNumber: 1,
-              timer: {h: 0, m: 0, s: 0},
-              userName: res.data.userName,
-              token: res.data.key,
-              musictype: res.data.musictype
-            }
-          })
-
-        }
-        else
-        {
-          alert("Yanlış Şifre | Wrong Password")
-        }             
+      
       })
       
     }
 
     this.setState({ errors: [], loading: false });
+    this.props.submited("fasda");
   };
 
-  isFormValid = ({ username, password }) => username && password;
+  isFormValid = ({ age, sex }) => age && sex;
 
   handleInputError = (errors, inputName) => {
     return errors.some(error => error.message.toLowerCase().includes(inputName))
@@ -94,49 +65,73 @@ class Login extends React.Component {
   };
 
   render() {
-    const { username, password, errors, loading } = this.state;
+    const { age, sex, education, musicType, errors, loading } = this.state;
 
     return (
       <Container className="Container">
       <Grid className="Grid">
         <Grid.Column  className="GridColumn">
           <Header as="h1" icon color="violet" textAlign="center">
-            Deneye başlamak üzeresiniz. <br/> Kendinize bir kullanıcı adı belirleyiniz.
+            Lütfen Aşağıdaki Bilgileri Doldurunuz
           </Header>
           <Form onSubmit={this.handleSubmit} size="large">
             <Segment stacked>
               <Form.Input
                 fluid
-                name="username"
+                name="age"
                 icon="mail"
                 iconPosition="left"
                 placeholder="Kullanıcı Adı Belirleyiniz"
                 onChange={this.handleChange}
-                value={username}
-                className={this.handleInputError(errors, "username")}
-                type="username"
+                value={age}
+                className={this.handleInputError(errors, "age")}
+                type="age"
               />
 
               <Form.Input
                 fluid
-                name="password"
+                name="sex"
                 icon="lock"
                 iconPosition="left"
-                placeholder="Şifre"
+                placeholder="Cinsiyet"
                 onChange={this.handleChange}
-                value={password}
-                className={this.handleInputError(errors, "password")}
-                type="password"
+                value={sex}
+                className={this.handleInputError(errors, "sex")}
+                type="sex"
+              />
+
+            <Form.Input
+                fluid
+                name="education"
+                icon="lock"
+                iconPosition="left"
+                placeholder="Eğitim Durumu"
+                onChange={this.handleChange}
+                value={education}
+                className={this.handleInputError(errors, "sex")}
+                type="sex"
+              />
+
+            <Form.Input
+                fluid
+                name="musicType"
+                icon="lock"
+                iconPosition="left"
+                placeholder="Müzik Türü"
+                onChange={this.handleChange}
+                value={musicType}
+                className={this.handleInputError(errors, "sex")}
+                type="sex"
               />
 
               <Button
                 disabled={loading}
                 className={loading ? "loading" : ""}
-                color="violet"
+                color="green"
                 fluid
                 size="large"
                 style={{marginTop: "1px"}}              >
-                Giriş Yap
+                Tamamla
               </Button>
  
             </Segment>
@@ -148,11 +143,8 @@ class Login extends React.Component {
             </Message>
           )}
           <Message>
-          Lütfen şifrenizi istenilen alanlara girerek doldurunuz. Kullanıcı adı alanını, kendi seçtiğiniz bir ad ile doldurunuz. Bu şekilde girdiğiniz şifre, kendinizin belirlediği kullanıcı adıyla değişecektir ve verileriniz havuza gizli bir şekilde düşecektir.
+          
           </Message>
-          <Button2 className="button" variant="success" onClick={this.goToHome}>
-            Ana Sayfaya Dön
-          </Button2>
 
         </Grid.Column>
 
@@ -162,4 +154,4 @@ class Login extends React.Component {
   }
 }
 
-export default withRouter(Login);
+export default UserInfo;
