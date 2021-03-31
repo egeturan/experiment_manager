@@ -30,11 +30,11 @@ class PageManager extends React.Component {
     musictype: 1,
     dilemmaCounter: 0,
     dilemma: ["Zeynep 5 yıldır Kadri ile beraber. Her ilişki gibi onlarınki de zaman zaman zorlaşıyor. Sonuç olarak Zeynep bu ilişkide olmaktan mutlu ve bu ilişkiyi sürdürmek istiyor. Kadri de Zeynep’i seviyor, Zeynep’le evlenmek istiyor.",
-    "Zeynep bir gün kendi bilgisayarından maillerine bakmak ister. Kadri’nin hesabının açık olduğunu görür. Özellikle bir mail Zeynep’in dikkatini çeker. Zeynep maili açtığında, erkek arkadaşı ile ilgili daha önce bilmediği yeni bir şey öğrenir. Kadri’in bir önceki partneri bir kadın değil, erkektir. Zeynep bu keşif sonrasında şaşkınlık ve kafa karışıklığı içinde Kadri’i terk eder.",
+    "Zeynep bir gün kendi bilgisayarından maillerine bakmak ister. Kadri’nin hesabının açık olduğunu görür. Özellikle bir mail Zeynep’in dikkatini çeker. Zeynep maili açtığında, erkek arkadaşı ile ilgili daha önce bilmediği yeni bir şey öğrenir. Kadri’nin bir önceki partneri bir kadın değil, erkektir. Zeynep bu keşif sonrasında şaşkınlık ve kafa karışıklığı içinde Kadri’yi terk eder.",
     "",
     "Kimin maili açıktır?",  
 
-    "Bulut 9 aydır işsizdir ve son işindeyken biriktirdiği bütün parasını bittirdi. Pek de geniş olmayan bir apartman dairesinde yaşıyor. Hayvanları çok seviyor, bir köpek ve iki balık besliyor.",
+    "Bulut 9 aydır işsizdir ve son işindeyken biriktirdiği bütün parasını bitirdi. Pek de geniş olmayan bir apartman dairesinde yaşıyor. Ayrıca hayvanları çok seviyor, bir köpek ve iki balık besliyor.",
       "Bütün erzakları tükenen Bulut, artık yemek için para bulamaz hale gelir. Sonraki üç gün de aç kalınca, evcil balıklarını yemeye karar verir. Beslediği iki balığı tıpkı marketten alınmış balık gibi temizleyip pişirir. Birini kendisine, diğerini köpeğine servis eder.",
       "",
       "Bulut ikinci balığı kime servis etti?",
@@ -44,7 +44,7 @@ class PageManager extends React.Component {
       "Üçüncü çocuğu geride bırakıp ölmesine izin vererek kıyıya dönüp diğer iki çocuğu kurtaracak mısın?",
       "Kayık gezisi nerede geçmektedir? ",
 
-      "Büşra bir yüzücü, uzun zamandır milli takıma girmesini sağlayacak bir yarışmaya hazırlanıyor. Bu hayatındaki en önemli yarışma, ve 10 dakika içinde başlayacak. Profesyonel yüzücüler için tasarlanmış, giymesi neredeyse 20 dakika alan özel bir mayo giyiyor. Bu yüzden de yarışmadan önce son kez tuvalete gitmesi demek yarışı kaçırabileceği anlamına geliyor.",
+      "Büşra bir yüzücü, uzun zamandır milli takıma girmesini sağlayacak bir yarışmaya hazırlanıyor. Bu hayatındaki en önemli yarışma, ve 10 dakika içinde başlayacak. Profesyonel yüzücüler için tasarlanmış, giyilmesi neredeyse 20 dakika alan özel bir mayo giyiyor. Bu yüzden de yarışmadan önce son kez tuvalete gitmesi demek yarışı kaçırabileceği anlamına geliyor.",
       "Büşra yarışma stresini üzerinden atmak için rahatlamak zorunda hisseder ve bunun yolu da tuvaletini yapmaktır. Havuzun kenarına oturur, devridaim giderinin tam üzerine tuvaletini yapar ve havuzu kirletmeden işin içinden çıkabileceğini düşünür.",
       "",
       "Büşra’nın yaptığı spor nedir?",
@@ -247,8 +247,9 @@ class PageManager extends React.Component {
             <ListGroup.Item>Bu bölümde karşınıza 6 adet renk kelimesi çıkacaktır. </ListGroup.Item>
             <ListGroup.Item>Karşınıza çıkacak renkler: <b>Kırmızı, Turuncu, Sarı, Yeşil, Mavi, Mor</b></ListGroup.Item>
             <ListGroup.Item>Bu sayıların yazılı olduğu kelimelerin rengi bazen <b>“YAZAN RENKTEN”</b> <b>FARKLI</b> ya da <b>AYNI</b> olacaktır.</ListGroup.Item>
-            <ListGroup.Item>Sizden istediğimiz gelen kelimenin ifade ettiği rengi şeçmeniz değil, yazının asıl rengini ( <b>YAZININ ANLAMI DEĞİL, RENGİ</b>) aşağıda belirecek olan iki seçenekten uygun olanı seçmeniz. </ListGroup.Item>
-            <ListGroup.Item>Bu deney “DİKKAT” deneyi olduğundan dolayı, kelimeler arasındaki geçiş hızlıdır. Verilerinizin daha doğru sonuç vermesi için lütfen elinizden geldiğince gelen uyaranlara hızlı cevap veriniz.  </ListGroup.Item>
+            <ListGroup.Item>Sizden istediğimiz gelen kelimenin ifade ettiği rengi şeçmeniz değil, yazının asıl rengine göre ( <b>YAZININ ANLAMI DEĞİL, RENGİ</b>) aşağıda belirecek olan iki seçenekten uygun olanı seçmeniz. </ListGroup.Item>
+            <ListGroup.Item>Bu deney “DİKKAT” deneyi olduğundan dolayı gelen uyaranlara <b>(yani yenilenen renkler)</b> elinizden geldiğince hızlı cevap veriniz. Verilerin daha doğru sonuç vermesi için parmağınızı hızlı bir şekilde basıp çekmeniz gerekmektedir. <b>(Basılı tutmayınız)</b>  </ListGroup.Item>
+            <ListGroup.Item>Bu bir dikakt deneyi olduğu için size zor gelmesi demek herkese zor gelmesi demektir. Hatalarınızdan dolayı moralinizi bozmadan devam ediniz. </ListGroup.Item>
             <ListGroup.Item>Cevap vermek için <b>“SAĞ VE SOL YÖN OK TUŞLARI”</b> nı kullanınız.  <img  src={ButtonImage} alt="fireSpot"/> </ListGroup.Item>
             <h1 className="n4">ÖRNEK</h1>
             <Row className="row">
@@ -296,7 +297,7 @@ class PageManager extends React.Component {
             <ListGroup.Item>4 adet kısa hikaye: Bu hikayelerin iki seçeneği olacaktır, lütfen bir seçeneği işaretleyiniz. </ListGroup.Item>
             <ListGroup.Item>Sorular karşınıza karışık bir şekilde çıkacaktır. </ListGroup.Item>
             <ListGroup.Item><b>Not: </b> Her soru için toplam 2 dakikanız vardır, eğer iki dakikadan önce işaretleme yaparsanız "Devam Et" butonuya tuşuyla bir sonraki soruya geçiniz. Soruyu boş bırakmanız durumunda bu butona basmanız işe yaramayacaktır. </ListGroup.Item>
-            <ListGroup.Item>Hazır olduğunuzda başla tuşuna basınız. </ListGroup.Item>
+            <ListGroup.Item>Hazır olduğunuzda "Devam" butonuna basınız. </ListGroup.Item>
             </ListGroup>
       </div>;
       movement = <Button variant="success" className="button12" onClick={this.nextPage}><p className="p2">Devam</p></Button>
