@@ -216,6 +216,7 @@ class PageManager extends React.Component {
         <br/>
         (ÖNEMLİ: DENEY SIRASINDA TELEFONUNUZU KAPATINIZ.)
         <br/>
+        (ÖNEMLİ: TAM EKRANDAN KLAVYENİZİN "ESC" TUŞUNA BASARAK ÇIKABİLİRSİNİZ.)
         <br/>
         Teşekkürler.
         </p>
@@ -232,7 +233,7 @@ class PageManager extends React.Component {
     else if(this.state.pageNumber === 3 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound submited={this.submited}></PlayElectronicSound></div>;
-      movement = null;
+      //movement = null;
     }else if(this.state.pageNumber === 3 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound submited={this.submited}></PlayClassicSound></div>;
@@ -296,7 +297,7 @@ class PageManager extends React.Component {
             <ListGroup.Item>1 ile 7 arasındaki sayıları kabul edilebilirlik ve edilemeyebilirlik arasındaki düşünce ve hissetme yoğunluğunuza göre seçiniz. </ListGroup.Item>
             <ListGroup.Item>4 adet kısa hikaye: Bu hikayelerin iki seçeneği olacaktır, lütfen bir seçeneği işaretleyiniz. </ListGroup.Item>
             <ListGroup.Item>Sorular karşınıza karışık bir şekilde çıkacaktır. </ListGroup.Item>
-            <ListGroup.Item><b>Not: </b> Her soru için toplam 2 dakikanız vardır, eğer iki dakikadan önce işaretleme yaparsanız "Devam Et" butonuya tuşuyla bir sonraki soruya geçiniz. Soruyu boş bırakmanız durumunda bu butona basmanız işe yaramayacaktır. </ListGroup.Item>
+            <ListGroup.Item><b>Not: </b> Her soru için toplam 2 dakikanız vardır, eğer iki dakikadan önce işaretleme yaparsanız "Devam Et" butonuya bir sonraki soruya geçiniz. Soruyu boş bırakmanız durumunda bu butona basmanız işe yaramayacaktır. </ListGroup.Item>
             <ListGroup.Item>Hazır olduğunuzda "Devam" butonuna basınız. </ListGroup.Item>
             </ListGroup>
       </div>;

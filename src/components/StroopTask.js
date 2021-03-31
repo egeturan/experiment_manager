@@ -93,12 +93,16 @@ class StroopTask extends React.Component {
     if(this.state.seconds === 15){
       this.startTimer3();
     }
+
+    if(this.state.seconds === 600){
+      stroopS = this.lookTime();
+    }
     
     //console.log(seconds);
   }
 
   countUp2() {
-    console.log("Timer 2")
+    //console.log("Timer 2")
     let congProb = this.getconGProb();
     this.showStroop(congProb);
     stroopS = this.lookTime();
@@ -196,7 +200,7 @@ class StroopTask extends React.Component {
       stroopS = null;
 
       this.setState({results: arr, seconds2: 0});
-      console.log(arr)
+      //console.log(arr)
       this.startTimer2();
       this.startTimer3();
 
