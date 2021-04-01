@@ -18,6 +18,7 @@ import { Container } from "react-bootstrap";
 class UserInfo extends React.Component {
   
   state = {
+    token: "",
     age: "",
     sex: "",
     education: "",
@@ -29,6 +30,11 @@ class UserInfo extends React.Component {
   displayErrors = errors =>
     errors.map((error, i) => <p key={i}>{error.message}</p>);
 
+  componentDidMount() {
+    //let timeLeftVar = this.secondsToTime(this.state.seconds);
+    this.setState({ token: this.props.token });
+  }
+
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -38,6 +44,7 @@ class UserInfo extends React.Component {
     if (this.isFormValid(this.state)) {
       this.setState({ errors: [], loading: true });
       const dataI = {
+        token: this.state.token,
         age: this.state.age,
         sex: this.state.sex,
         education: this.state.education,
@@ -46,6 +53,8 @@ class UserInfo extends React.Component {
 
       //console.log(user);
 
+      
+      //axios.post(`http://localhost:8080/userInfo/`, dataI )
       axios.post(`https://congnitivee.herokuapp.com/userInfo/`, dataI )
       .then(res => {
       
@@ -60,6 +69,7 @@ class UserInfo extends React.Component {
     
     this.setState({ errors: [], loading: false });
   };
+  
 
   isFormValid = ({ age, sex, education, musicType }) => age && sex && education && musicType;
 
@@ -116,7 +126,7 @@ class UserInfo extends React.Component {
                     <option>İlkOkul Mezunu</option>
                     <option>Lise Mezunu</option>
                     <option>Lisans Öğrencisi</option>
-                    <option>Üniversite Mezunu</option>
+                    <option>Lisans Mezunu</option>
                     <option>Yüksek Öğretim</option>
               </Form.Input>
 
@@ -128,9 +138,9 @@ class UserInfo extends React.Component {
                 className="form"
                 type="musicType"
               >
-                    <option value="-1">Müzik Tercihiniz (Elektronik ya da Klasik müzikten birini seçiniz</option>
-                    <option value="1">Elektronik Müzik</option>
-                    <option value="2">Klasik Müzik</option>
+                    <option >Müzik Tercihiniz</option>
+                    <option >Elektronik Müzik</option>
+                    <option >Klasik Müzik</option>
               </Form.Input>
 
               <Button

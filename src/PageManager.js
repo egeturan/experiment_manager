@@ -358,7 +358,10 @@ class PageManager extends React.Component {
       Bilimle Kalın. 
       </p>
       <p className="n1">
-      Bu deney; Irmak Oltay ve takım arkadaşlarının katkılarıyla hazırlanmıştır. 
+      Bu deney; Irmak Oltay tarafından hazırlanmış, Ege Turan tarafından yazılımı geliştirilmiş ve Professor Ausaf Ahmed Farooqui danışmanlığında hazırlanmıştır. 
+      </p>
+      <p className="n1">
+       
       </p>
       </Col>
 

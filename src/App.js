@@ -1,6 +1,7 @@
 import PageManager from './PageManager';
 import Register from "./Auth/Register";
 import Login from "./Auth/Login";
+import RemoveUser from "./Auth/RemoveUser";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, {useCallback} from 'react';
 import PageManagerController from './PageManagerController';

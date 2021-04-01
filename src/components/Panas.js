@@ -108,6 +108,8 @@ class Panas extends Component{
     
               console.log(this.state.situation);
         
+              
+              //axios.post(`http://localhost:8080/sendPanas/`, data )
               axios.post(`https://congnitivee.herokuapp.com/sendPanas/`, data )
               .then(res => {
         

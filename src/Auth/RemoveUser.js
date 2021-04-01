@@ -11,13 +11,9 @@ import {
 } from "semantic-ui-react";
 import {withRouter} from 'react-router'
 
-class Register extends React.Component {
+class RemoveUser extends React.Component {
   state = {
-    username: "",
-    musictype: "",
-    email: "",
     password: "",
-    passwordConfirmation: "",
     errors: [],
     loading: false
   };
@@ -39,25 +35,16 @@ class Register extends React.Component {
     }
   };
 
-  isFormEmpty = ({ username, musictype, email, password, passwordConfirmation }) => {
+  isFormEmpty = ({ password }) => {
     return (
-      !username.length ||
-      !musictype.length ||
-      !email.length ||
-      !password.length ||
-      !passwordConfirmation.length
+      !password.length 
     );
   };
 
-  isPasswordValid = ({ password, passwordConfirmation }) => {
-    if (password.length < 6 || passwordConfirmation.length < 6) {
-      return false;
-    } else if (password !== passwordConfirmation) {
-      return false;
-    } else {
-      return true;
-    }
-  };
+  componentDidMount() {
+    //let timeLeftVar = this.secondsToTime(this.state.seconds);
+    console.log("Ege");
+  }
 
   displayErrors = errors =>
     errors.map((error, i) => <p key={i}>{error.message}</p>);
@@ -79,37 +66,28 @@ class Register extends React.Component {
     if (this.isFormValid()) {
       this.setState({ errors: [], loading: true });
       const user = {
-        username: this.state.username,
-        musictype: this.state.musictype,
-        email: this.state.email,
         password: this.state.password
       };
 
       //console.log(user);
 
-      
-      //axios.post(`http://localhost:8080/register_user/`, user )
-      axios.post(`https://congnitivee.herokuapp.com/register_user/`, user )
+      //axios.post(`https://congnitivee.herokuapp.com/remove_user/`, user )
+      axios.post(`http://localhost:8080/remove_user/`, user )
       .then(res => {
         //console.log(res);
        if(res.data.situation === 1){
-           console.log("Registered");
            this.setState({ errors: [], loading: false });     
-           alert("Registered");
+           alert("Removed");
 
         
       }else{
-        alert("Not registered");   
+        alert("Not removed");   
         this.setState({ errors: [], loading: false });         
       }
         
       })
     }
 
-  };
-
-  saveUser = createdUser => {
-    return false;
   };
 
   handleInputError = (errors, inputName) => {
@@ -120,11 +98,7 @@ class Register extends React.Component {
 
   render() {
     const {
-      username,
-      musictype,
-      email,
       password,
-      passwordConfirmation,
       errors,
       loading
     } = this.state;
@@ -135,44 +109,10 @@ class Register extends React.Component {
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h1" icon color="orange" textAlign="center">
             <Icon name="coffee" color="orange" />
-            Yeni kullanıcı kaydet
+            Şifre Sil
           </Header>
           <Form onSubmit={this.handleSubmit} size="large">
             <Segment stacked>
-              <Form.Input
-                fluid
-                name="username"
-                icon="user"
-                iconPosition="left"
-                placeholder="Name"
-                onChange={this.handleChange}
-                value={username}
-                type="text"
-              />
-
-            <Form.Input
-                fluid
-                name="musictype"
-                icon="user"
-                iconPosition="left"
-                placeholder="musictype"
-                onChange={this.handleChange}
-                value={musictype}
-                type="text"
-              />
-
-              <Form.Input
-                fluid
-                name="email"
-                icon="mail"
-                iconPosition="left"
-                placeholder="Email Address"
-                onChange={this.handleChange}
-                value={email}
-                className={this.handleInputError(errors, "email")}
-                type="email"
-              />
-
               <Form.Input
                 fluid
                 name="password"
@@ -185,18 +125,6 @@ class Register extends React.Component {
                 type="password"
               />
 
-              <Form.Input
-                fluid
-                name="passwordConfirmation"
-                icon="repeat"
-                iconPosition="left"
-                placeholder="Re-Password"
-                onChange={this.handleChange}
-                value={passwordConfirmation}
-                className={this.handleInputError(errors, "password")}
-                type="password"
-              />
-
               <Button
                 disabled={loading}
                 className={loading ? "loading" : ""}
@@ -204,16 +132,10 @@ class Register extends React.Component {
                 fluid
                 size="large"
               >
-                Kaydet
+                Sil
               </Button>
             </Segment>
           </Form>
-          {errors.length > 0 && (
-            <Message error>
-              <h3>Error</h3>
-              {this.displayErrors(errors)}
-            </Message>
-          )}
           <Message>
           <Button color="green" className="button12" onClick={this.goMain.bind(this, 1)}>Ana Sayfa</Button>
           </Message>
@@ -225,4 +147,4 @@ class Register extends React.Component {
 }
 
 
-export default withRouter(Register);
+export default withRouter(RemoveUser);
