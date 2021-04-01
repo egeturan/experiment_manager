@@ -66,7 +66,7 @@ class Login extends React.Component {
             pathname: '/',
             state: {
               auth: true,
-              pageNumber: 1,
+              pageNumber: 0,
               timer: {h: 0, m: 0, s: 0},
               userName: res.data.userName,
               token: res.data.key,

@@ -193,6 +193,8 @@ class PageManager extends React.Component {
     let movement = <div className="buttons">
     <Button variant="success" className="button2" onClick={this.nextPage}><p className="p2">Deneye Başla</p></Button>
     </div>;
+
+
     if(this.state.pageNumber === 0){
       screen = <div><h2>Giriş: Duygu, Biliş ve Ahlaki Karar Üzerine Bilişsel Yaklaşım Deneyine Hoşgeldiniz.  </h2>
       <p className="Intro">
