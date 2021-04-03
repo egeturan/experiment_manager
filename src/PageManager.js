@@ -233,16 +233,16 @@ class PageManager extends React.Component {
     {
       screen = <div><Panas submited={this.submited} token={this.state.token}></Panas>
       </div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 3 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound submited={this.submited}></PlayElectronicSound></div>;
-      //movement = null;
+      movement = null;
     }else if(this.state.pageNumber === 3 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound submited={this.submited}></PlayClassicSound></div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 4)
     {
@@ -276,21 +276,21 @@ class PageManager extends React.Component {
             <Button variant="success" className="button12" onClick={this.nextPage}>Testi Başlat</Button>
             </div>;
       </div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 5)
     {
       screen = <div className="StroopTask"><h1 bold>Biliş Dikkat Testi</h1><StroopTask className="stroop" submited={this.submited}  token={this.state.token}></StroopTask></div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 6 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound2 submited={this.submited}></PlayElectronicSound2></div>;
-      //movement = null;
+      movement = null;
     }else if(this.state.pageNumber === 6 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound2 submited={this.submited}></PlayClassicSound2></div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 7)
     {
@@ -318,7 +318,7 @@ class PageManager extends React.Component {
         screen = null;
         dilemma = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
       }
-      //movement = null;
+      movement = null;
     }else if(this.state.pageNumber === 23)
     {
       dilemma = null;
@@ -328,7 +328,7 @@ class PageManager extends React.Component {
     }else if(this.state.pageNumber === 24)
     {
       screen = <CRT submited={this.submited} token={this.state.token}></CRT>;
-      //movement = null;
+      movement = null;
     }else if(this.state.pageNumber === 25)
     {
       screen = <div className="endmessage"><h1>Deneyimiz bitmiştir. Katılımınız için teşekkür ederiz.</h1> <p>Aklınıza takılan herhangi bir soru için tereddüt etmeden deneyi yürüten Irmak Oltay’ a mail atabilirsiniz. 
