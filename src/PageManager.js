@@ -23,7 +23,7 @@ import './style/PageManager.css';
 class PageManager extends React.Component {
   
   state = {
-    auth: true,
+    auth: false,
     pageNumber: 0,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
