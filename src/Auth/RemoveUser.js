@@ -71,8 +71,8 @@ class RemoveUser extends React.Component {
 
       //console.log(user);
 
-      //axios.post(`https://congnitivee.herokuapp.com/remove_user/`, user )
-      axios.post(`http://localhost:8080/remove_user/`, user )
+      //axios.post(`http://localhost:8080/remove_user/`, user )
+      axios.post(`https://congnitivee.herokuapp.com/remove_user/`, user )
       .then(res => {
         //console.log(res);
        if(res.data.situation === 1){

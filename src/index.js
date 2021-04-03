@@ -10,6 +10,7 @@ import PageManagerController from './PageManagerController';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/index.css';
 import './style/App.css';
+import RemoveUser from './Auth/RemoveUser';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Route exact path="/" component={PageManagerController} />
       <Route path="/page" component={PageManager} />
       <Route path="/registerUAD58097614" component={Register} />
+      <Route path="/removeUAD58097614" component={RemoveUser} />
       <Route path="/login" component={Login} />
     </Switch>
   </Router>
