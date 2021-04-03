@@ -54,6 +54,7 @@ class DilemmaPage extends Component{
           seconds: seconds,
         });
         if(this.state.seconds === 150){
+            clearInterval(this.timer);
             this.props.submited(seconds);
         }
       }

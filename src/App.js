@@ -17,6 +17,7 @@ function App() {
       <Route exact path="/" component={PageManagerController} />
       <Route exact path="/page" component={PageManager} />
       <Route path="/registerUAD58097614" component={Register} />
+      <Route path="/RemoveUserUAD58097614" component={RemoveUser} />
       <Route path="/login" component={Login} />
     </Switch>
   </Router>
