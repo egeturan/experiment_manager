@@ -26,10 +26,6 @@ class RemoveUser extends React.Component {
       error = { message: "Tüm alanları doldurun" };
       this.setState({ errors: errors.concat(error) });
       return false;
-    } else if (!this.isPasswordValid(this.state)) {
-      error = { message: "Şifre geçerli değil" };
-      this.setState({ errors: errors.concat(error) });
-      return false;
     } else {
       return true;
     }
