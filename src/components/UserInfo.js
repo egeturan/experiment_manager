@@ -138,7 +138,7 @@ class UserInfo extends React.Component {
                 className="form"
                 type="musicType"
               >
-                    <option >Müzik Tercihiniz</option>
+                    <option >Hangi müzik tarzını daha çok sever ve dinlersiniz (bu tercihiniz, karşınıza çıkacak müziği etkilemeyecektir.)</option>
                     <option >Elektronik Müzik</option>
                     <option >Klasik Müzik</option>
               </Form.Input>

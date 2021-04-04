@@ -139,8 +139,10 @@ class DilemmaPage extends Component{
           <Container className="containerEffective">
           <h1>Ölçüt</h1>
           <Row className="row">
-              <Col><InputGroup.Prepend className="col" ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" />a.	Çocuğu arkada bırak ve öteki iki çocuğu kurtar.</InputGroup.Prepend></Col>
-              <Col><InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" />b.	Çocuğu geride bırakma ve hiçbir çocuğu kurtarama.</InputGroup.Prepend></Col>
+              <Col><InputGroup.Prepend className="col" ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" />
+              a.	Bir çocuğu arkada bırak ve öteki iki çocuğu kurtar.</InputGroup.Prepend></Col>
+              <Col><InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" />
+              b.	Çocuğu geride bırakma ve hiçbir çocuğu kurtarama.</InputGroup.Prepend></Col>
           </Row>
           </Container>
           <div className="dilemma4">

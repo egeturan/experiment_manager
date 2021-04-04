@@ -107,7 +107,7 @@ class CRT extends Component{
                         </Form>
 
                         <Form inline className="forminput">
-                        Gölde bir nilüfer yaprağı parçaları var. Hergün yaprak parçalarının sayısı iki katına çıkıyor.
+                        Birinci günde gölde bir nilüfer yaprağı bulunuyor. Hergün yaprak parçalarının sayısı iki katına çıkıyor.
                         Eğer nilüfer yapraklarının tüm gölü kaplaması 48 gün sürüyorsa, yaprakların gölün yarısını kaplaması kaç gün sürer?
                         <Form.Input
                             inline
