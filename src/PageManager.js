@@ -207,8 +207,6 @@ class PageManager extends React.Component {
        3. İkilem Yargı Sorguları (30 dk) <br/>
        4. Zihinsel Tepki Süresi Testi (6 dakika) <br/>
        <br/>
-       Deney Toplamda: 70 dakika sürmektedir. <br/>
-       <br/>
        Her bölümden sonra gelecek bölümün talimatları tekrardan ekranda belirecektir. Lütfen her bölümden sonra talimatları tekrar okuyunuz ve talimatlara göre bir sonraki bölümü yapmaya başlayınız. <br/>
        <br/>
        Her bölümün zaman limiti önceden yukarıdaki bilgilere uygun bir şekilde ayarlanmıştır. Müzik aralarından sonra başlayacak bölümün bilgilendirme sayfasına otamatik olarak yönlendirileceksiniz. Talimatları okuma sırasında her hangi bir zaman kısıtlaması olmaksızın, istediğiniz zaman bir sonraki bölüme geçebilirsiniz. <br/>
