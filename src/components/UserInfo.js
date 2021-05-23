@@ -55,7 +55,7 @@ class UserInfo extends React.Component {
 
       
       //axios.post(`http://localhost:8080/userInfo/`, dataI )
-      axios.post(`https://congnitivee.herokuapp.com/userInfo/`, dataI )
+      axios.post(`https://cognitivee.herokuapp.com/userInfo/`, dataI )
       .then(res => {
       
       })
