@@ -10,13 +10,18 @@ import {
 
 class CRT extends Component{
 
-    state = {
-        answer1: "",
+    constructor() {
+        super();
+        this.state = { time: {}, seconds: 0, answer1: "",
         answer2: "",
         answer3: "",
-        errors: [],
-        loading: false
-      };
+        token: "" };
+
+        this.timer = 0;
+        this.startTimer = this.startTimer.bind(this);
+        this.countUp = this.countUp.bind(this);
+        this.finishTimer = this.finishTimer.bind(this);
+      }
     
     displayErrors = errors =>
       errors.map((error, i) => <p key={i}>{error.message}</p>);
@@ -34,22 +39,81 @@ class CRT extends Component{
     }
 
     componentWillUnmount(){
+
         const data = {
             token: this.state.token,
             answer1: this.state.answer1,
             answer2: this.state.answer2,
-            answer3: this.state.answer3
+            answer3: this.state.answer3,
+            time: this.state.seconds
           };
-    
 
-          
+          clearInterval(this.timer);
+                     
           //axios.post(`http://localhost:8080/sendCRT/`, data )
-          axios.post(`https://congnitivee.herokuapp.com/sendCRT/`, data )
+          axios.post(`http://localhost:8080/sendCRT/`, data )
+          //axios.post(`https://congnitivee.herokuapp.com/sendCRT/`, data )
           .then(res => {
+
+            if(res.data.situation === 1){
+                alert("Deney Başarılı Şekilde Tamamlandı. Araştırma Süreci sonunda bilgilendirme maili alacaksınız.")
+            }
             
             console.log("Result is:" + res.data.situation);
           
           })
+
+          clearInterval(this.timer);
+    }
+
+    secondsToTime(secs){
+        let hours = Math.floor(secs / (60 * 60));
+    
+        let divisor_for_minutes = secs % (60 * 60);
+        let minutes = Math.floor(divisor_for_minutes / 60);
+    
+        let divisor_for_seconds = divisor_for_minutes % 60;
+        let seconds = Math.ceil(divisor_for_seconds);
+    
+        let obj = {
+          "h": hours,
+          "m": minutes,
+          "s": seconds
+        };
+        return obj;
+      }
+    
+      startTimer = () => {
+        if (this.timer == 0 && this.state.seconds >= 0) {
+          this.timer = setInterval(this.countUp, 1000);
+        }
+      }
+    
+      countUp() {
+        // Remove one second, set state so a re-render happens.
+        let seconds = this.state.seconds + 1;
+        this.setState({
+          time: this.secondsToTime(seconds),
+          seconds: seconds,
+        });
+        console.log(seconds);
+      }
+  
+      finishTimer() {
+        let initial_time = 0;
+        this.timer = null;
+        this.setState({
+          time: this.secondsToTime(initial_time),
+          seconds: initial_time,
+          timer: 0
+        });
+      }
+
+      componentDidMount(){
+        this.setState({ time: 0, token: this.props.token });
+        if (this.timer == 0 && this.state.seconds >= 0) {
+            this.timer = setInterval(this.countUp, 1000);
+        }
     }
 
     handleInputError = (errors, inputName) => {

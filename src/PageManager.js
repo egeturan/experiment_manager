@@ -17,14 +17,16 @@ import ButtonImage from'./assets/buttons.png';
 import Sample1 from'./assets/sampl1.jpg';
 import Sample2 from'./assets/sample1.jpg';
 import Bilkent from'./assets/bilkent.png';
+import GeoLocation from './GeoLocation';
+
 //CSS
 import './style/PageManager.css';
 
 class PageManager extends React.Component {
   
   state = {
-    auth: false,
-    pageNumber: 0,
+    auth: true,
+    pageNumber: 24,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
     token: "111111",
@@ -207,6 +209,8 @@ class PageManager extends React.Component {
        3. İkilem Yargı Sorguları (30 dk) <br/>
        4. Zihinsel Tepki Süresi Testi (6 dakika) <br/>
        <br/>
+       </p>
+       <p className="Intro">
        Her bölümden sonra gelecek bölümün talimatları tekrardan ekranda belirecektir. Lütfen her bölümden sonra talimatları tekrar okuyunuz ve talimatlara göre bir sonraki bölümü yapmaya başlayınız. <br/>
        <br/>
        Her bölümün zaman limiti önceden yukarıdaki bilgilere uygun bir şekilde ayarlanmıştır. Müzik aralarından sonra başlayacak bölümün bilgilendirme sayfasına otamatik olarak yönlendirileceksiniz. Talimatları okuma sırasında her hangi bir zaman kısıtlaması olmaksızın, istediğiniz zaman bir sonraki bölüme geçebilirsiniz. <br/>
@@ -240,7 +244,7 @@ class PageManager extends React.Component {
     }else if(this.state.pageNumber === 3 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound submited={this.submited}></PlayClassicSound></div>;
-      movement = null;
+     // movement = null;
     }
     else if(this.state.pageNumber === 4)
     {
@@ -274,21 +278,21 @@ class PageManager extends React.Component {
             <Button variant="success" className="button12" onClick={this.nextPage}>Testi Başlat</Button>
             </div>;
       </div>;
-      movement = null;
+     // movement = null;
     }
     else if(this.state.pageNumber === 5)
     {
       screen = <div className="StroopTask"><h1 bold>Biliş Dikkat Testi</h1><StroopTask className="stroop" submited={this.submited}  token={this.state.token}></StroopTask></div>;
-      movement = null;
+     // movement = null;
     }
     else if(this.state.pageNumber === 6 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound2 submited={this.submited}></PlayElectronicSound2></div>;
-      movement = null;
+      ////movement = null;
     }else if(this.state.pageNumber === 6 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound2 submited={this.submited}></PlayClassicSound2></div>;
-      movement = null;
+     // movement = null;
     }
     else if(this.state.pageNumber === 7)
     {
@@ -305,7 +309,7 @@ class PageManager extends React.Component {
             <ListGroup.Item>Hazır olduğunuzda "Devam" butonuna basınız. </ListGroup.Item>
             </ListGroup>
       </div>;
-      movement = <Button variant="success" className="button12" onClick={this.nextPage}><p className="p2">Devam</p></Button>
+      //movement = <Button variant="success" className="button12" onClick={this.nextPage}><p className="p2">Devam</p></Button>
     }
     else if(this.state.pageNumber >= 8 && this.state.pageNumber <= 22)
     {
@@ -316,7 +320,7 @@ class PageManager extends React.Component {
         screen = null;
         dilemma = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
       }
-      movement = null;
+     // movement = null;
     }else if(this.state.pageNumber === 23)
     {
       dilemma = null;
@@ -326,21 +330,22 @@ class PageManager extends React.Component {
     }else if(this.state.pageNumber === 24)
     {
       screen = <CRT submited={this.submited} token={this.state.token}></CRT>;
-      movement = null;
+     // movement = null;
     }else if(this.state.pageNumber === 25)
     {
       screen = <div className="endmessage"><h1>Deneyimiz bitmiştir. Katılımınız için teşekkür ederiz.</h1> <p>Aklınıza takılan herhangi bir soru için tereddüt etmeden deneyi yürüten Irmak Oltay’ a mail atabilirsiniz. 
       </p> <p>Mail: oltayyirmak@gmail.com</p></div>;
-      movement = null;
+     // movement = null;
     }
 
     if(this.state.auth === true)
     {
-          inside = 
+        inside = 
         <div className="PageManager">
         {screen}
         {dilemma}
         {movement}
+        <GeoLocation></GeoLocation>
         </div>;
         
     }else if(this.state.auth === false)
@@ -361,11 +366,8 @@ class PageManager extends React.Component {
       Bu deney; Irmak Oltay tarafından hazırlanmış, Ege Turan tarafından yazılımı geliştirilmiş ve Professor Ausaf Ahmed Farooqui danışmanlığında hazırlanmıştır. 
       </p>
       <p className="n1">
-       
       </p>
       </Col>
-
-
       <Col xs={3}>
       <img  src={Bilkent} width="40%" alt="image"/>
       <br/>
@@ -376,12 +378,9 @@ class PageManager extends React.Component {
       <p className="p5">Giriş butonuna bastığınızda, deneyin "KULLANICI GİRİŞİ" ekranına yönlendirileceksiniz.
       Teşekkürler. 
       </p>
-      
-
       </Col>
       </Row>
-
-      </div>
+      </div>;
     }
 
     return (

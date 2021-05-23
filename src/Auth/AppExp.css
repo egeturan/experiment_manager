@@ -1,0 +1,64 @@
+.password{
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.reCaptcha{
+    text-align: center;
+    left: 40%;
+}
+
+.passwordText{
+    font-size: xxx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: tomato;
+    text-align: center;
+}
+
+.passwordTextCopy{
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightseagreen;
+    text-align: center;
+}
+
+.buttonTextCopy{
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.modalCopy{
+    margin-top: 5%;
+    text-align: center;
+}
+
+.modalFooter{
+    margin-top: 10%;
+}
+
+.info{
+    margin-top: 5%;
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.reCAPTCHA{
+    margin-top: 10%;
+}
+
+.buttonA{
+    width: 40%;
+    height: auto;
+}
+
+.defaultText{
+    color:green;
+}
+
+.mainPageText{
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}

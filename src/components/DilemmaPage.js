@@ -85,7 +85,7 @@ class DilemmaPage extends Component{
         ? "error"
         : "";
     };
-
+    
     changeInValue = (args) => {
         console.log(args + 1);
         let situation2 = [false, false, false, false, false, false, false];
@@ -101,6 +101,10 @@ class DilemmaPage extends Component{
         }
     }
 
+    componentWillUnmount(){
+      clearInterval(this.timer);
+    }
+
     control_filled = (args) => {
         if(this.state.situation[0] || this.state.situation[1] || this.state.situation[2] || this.state.situation[3] || this.state.situation[4] || this.state.situation[5] || this.state.situation[6])
         {
@@ -109,10 +113,9 @@ class DilemmaPage extends Component{
                   token: this.state.token,
                   dilemma: this.state.situation,
                   dillemmaNumber: this.props.number,
-                  dilemmaText: this.state.answer1
+                  dilemmaText: this.state.answer1,
+                  time: this.state.seconds
                 };
-      
-                
                 
                 //axios.post(`http://localhost:8080/sendDilemma/`, data )
                 axios.post(`https://congnitivee.herokuapp.com/sendDilemma/`, data )
@@ -270,10 +273,6 @@ class DilemmaPage extends Component{
             <Button variant="success" className="Button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button>
         </div></div>
       }
-    }
-
-    componentWillUnmount(){
-      clearInterval(this.timer);
     }
 
     
