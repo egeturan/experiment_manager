@@ -287,21 +287,21 @@ class PageManager extends React.Component {
             <Button variant="success" className="button12" onClick={this.nextPage}>Testi Başlat</Button>
             </div>;
       </div>;
-     // movement = null;
+     movement = null;
     }
     else if(this.state.pageNumber === 5)
     {
       screen = <div className="StroopTask"><h1 bold>Biliş Dikkat Testi</h1><StroopTask className="stroop" submited={this.submited}  token={this.state.token}></StroopTask></div>;
-     // movement = null;
+     movement = null;
     }
     else if(this.state.pageNumber === 6 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound2 submited={this.submited}></PlayElectronicSound2></div>;
-      ////movement = null;
+      movement = null;
     }else if(this.state.pageNumber === 6 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound2 submited={this.submited}></PlayClassicSound2></div>;
-     // movement = null;
+     movement = null;
     }
     else if(this.state.pageNumber === 7)
     {
@@ -335,7 +335,7 @@ class PageManager extends React.Component {
         }
       }
 
-     // movement = null;
+     movement = null;
     }else if(this.state.pageNumber === 25)
     {
       dilemma = null;
@@ -345,12 +345,12 @@ class PageManager extends React.Component {
     }else if(this.state.pageNumber === 26)
     {
       screen = <CRT submited={this.submited} token={this.state.token}></CRT>;
-     // movement = null;
+      movement = null;
     }else if(this.state.pageNumber === 27)
     {
       screen = <div className="endmessage"><h1>Deneyimiz bitmiştir. Katılımınız için teşekkür ederiz.</h1> <p>Aklınıza takılan herhangi bir soru için tereddüt etmeden deneyi yürüten Irmak Oltay’ a mail atabilirsiniz. 
       </p> <p>Mail: oltayyirmak@gmail.com</p></div>;
-     // movement = null;
+      movement = null;
     }
 
     if(this.state.auth === true)
