@@ -121,7 +121,8 @@ class DilemmaExceptional extends Component{
             };
             console.log(data);
             //axios.post(`http://localhost:8080/sendDillemmaExceptional/`, data )
-            axios.post(`http://localhost:8080/sendExp/`, data )
+            //axios.post(`http://localhost:8080/sendExp/`, data )
+            axios.post(`https://congnitivee.herokuapp.com/sendExp/`, data )
             .then(res => {
                 console.log(res.data.situation);
             })
