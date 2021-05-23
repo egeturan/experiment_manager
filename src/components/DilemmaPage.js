@@ -16,7 +16,7 @@ class DilemmaPage extends Component{
         super();
         this.state = { time: {}, seconds: 0, situation: [false, false, false, false, false, false, false],
         dillemaNumber: 0,
-        answer1: "", token: "" };
+        answer1: "", token: "", flag: false};
         this.timer = 0;
         this.startTimer = this.startTimer.bind(this);
         this.countUp = this.countUp.bind(this);
@@ -95,7 +95,12 @@ class DilemmaPage extends Component{
     }
 
     componentDidMount(){
-        this.setState({ time: 0, token: this.props.token });
+        if (this.props.number === 3 || this.props.number === 6 || this.props.number === 11 || this.props.number === 15 || this.props.number === 4)
+        {
+          this.setState({ time: 0, token: this.props.token, flag: true});
+        }else{
+          this.setState({ time: 0, token: this.props.token });
+        }
         if (this.timer == 0 && this.state.seconds >= 0) {
             this.timer = setInterval(this.countUp, 1000);
         }
@@ -131,7 +136,7 @@ class DilemmaPage extends Component{
 
     decide(){
       const { answer1 } = this.state;
-      if (this.props.number === 3 || this.props.number === 6 || this.props.number === 11 || this.props.number === 15)
+      if (this.props.number === 3 || this.props.number === 6 || this.props.number === 11 || this.props.number === 15 || this.props.number === 16 || this.props.number === 4)
       {
         if(this.props.number === 3)
         {
@@ -164,7 +169,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 6)
         {
-          return <div><h1> {this.props.number}. Hikaye </h1>
+          return <div><h1> {this.props.number}. Trolley- Otobüs şoförü (Personal, Accidential) </h1>
           <p>{this.props.dilemma} </p>
           <p>{this.props.dilemma2} </p>
           <p>{this.props.dilemma3} </p>
@@ -189,7 +194,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 11)
         {
-          return <div><h1> {this.props.number}. Hikaye </h1>
+          return <div><h1> {this.props.number}. Ebola </h1>
           <p>{this.props.dilemma} </p>
           <p>{this.props.dilemma2} </p>
           <p>{this.props.dilemma3} </p>
@@ -217,7 +222,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 15)
         {
-          return<div><h1> {this.props.number}. Hikaye </h1>
+          return<div><h1> {this.props.number}. Köpek Balığı </h1>
         <p>{this.props.dilemma} </p>
         <p>{this.props.dilemma2} </p>
         <p>{this.props.dilemma3} </p>
@@ -226,6 +231,60 @@ class DilemmaPage extends Component{
         <Row className="row">
           <Col><InputGroup.Prepend className="col" ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" />a. Yaralı dalgıcı vur. Kendini ve gruptaki diğer dalgıçları kurtar.</InputGroup.Prepend></Col>
           <Col><InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" />b.	Yaralı dalgıcın kafese ulaşmasına izin ver ve sadece bir dalgıcı kurtar.</InputGroup.Prepend></Col>
+        </Row>
+        </Container>
+        <div className="dilemma4">
+            <p>{this.props.dilemma4} </p>
+            <FormControl className="form"
+                inline
+                name="answer1"
+                placeholder="     "
+                onChange={this.handleChange}
+                value={answer1}
+                type="text"
+            />
+            <br/>
+            <Button variant="success" className="Button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button>
+        </div></div>;
+        }
+        if(this.props.number === 16)
+        {
+          return<div><h1> {this.props.number}. Şizofreni </h1>
+        <p>{this.props.dilemma} </p>
+        <p>{this.props.dilemma2} </p>
+        <p>{this.props.dilemma3} </p>
+        <Container className="containerEffective">
+        <h1>Ölçüt</h1>
+        <Row className="row">
+          <Col><InputGroup.Prepend className="col" ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" />a. Annenin, çocuklarını doyurmak için babalarını öldüren şizofreni adamdan para almasını değerlendiriniz.</InputGroup.Prepend></Col>
+          <Col><InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" />b.	Annenin, çocuklarının babasını öldüren şizofreni adama aşık olmasını değerlendiriniz. </InputGroup.Prepend></Col>
+        </Row>
+        </Container>
+        <div className="dilemma4">
+            <p>{this.props.dilemma4} </p>
+            <FormControl className="form"
+                inline
+                name="answer1"
+                placeholder="     "
+                onChange={this.handleChange}
+                value={answer1}
+                type="text"
+            />
+            <br/>
+            <Button variant="success" className="Button1" onClick={this.control_filled.bind(this, 1)}>Devam Et</Button>
+        </div></div>;
+        }
+        if(this.props.number === 4)
+        {
+          return<div><h1> {this.props.number}. Ağlayan Bebek </h1>
+        <p>{this.props.dilemma} </p>
+        <p>{this.props.dilemma2} </p>
+        <p>{this.props.dilemma3} </p>
+        <Container className="containerEffective">
+        <h1>Ölçüt</h1>
+        <Row className="row">
+          <Col><InputGroup.Prepend className="col" ><InputGroup.Radio onClick={this.changeInValue.bind(this, 0)} checked={this.state.situation[0]} aria-label="Radio button for following text input" />a. Diğer çocukları kurtarmak için ağlayan öksüz bebeğin ağzını kapa.</InputGroup.Prepend></Col>
+          <Col><InputGroup.Prepend className="col"  ><InputGroup.Radio checked={this.state.situation[1]} onClick={this.changeInValue.bind(this, 1)} aria-label="Radio button for following text input" />b.	Ağlayan öksüz bebeğin ağzını kapama ve askerler sizi bulsun. </InputGroup.Prepend></Col>
         </Row>
         </Container>
         <div className="dilemma4">

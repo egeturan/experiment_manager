@@ -27,7 +27,7 @@
 .DillemPage{
     text-align: center;
     font-size: 18px;
-    font-family: 'Nunito', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     width: 90%;
 }
 
@@ -40,4 +40,15 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.defaultText{
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.defaultHeader{
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
 }

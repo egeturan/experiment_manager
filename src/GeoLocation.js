@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const GeoLocation = () => {
-    const [details, setDetails] = useState(null);
-
-    var ipLocation = require('ip-location');
+    const [details, setDetails] = useState("176.42.16.170");
+    const [metadata, setMetadata] = useState(null);
 
     const getUserGeolocationDetails = () => {
+        
+    };
+
+    useEffect(() => {
         fetch(
             "https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572"
         )
             .then(response => response.json())
             .then(data => setDetails(data));
+    });
 
-            ipLocation(details.IPv4, function (err, data) {
-              console.log(data)
-            })
-    };
+    useEffect(() => {
+        fetch(
+            "https://tools.keycdn.com/geo.json?host={" + details.IPv4 + "}"
+        ).then(response => response.json())
+        .then(data => setMetadata(data));
+
+        setMetadata(metadata);
+      });
+
 
     return (
         <>
@@ -23,8 +32,6 @@ const GeoLocation = () => {
                 <div className="col text-center">
                     <h2>Find my IP and Location</h2>
                     <p className="mt-3">
-                        {getUserGeolocationDetails()}
-
                         <div className="row justify-content-center mt-3">
                             <div className="col-lg-6 text-center text-dark">
                                 {details && (

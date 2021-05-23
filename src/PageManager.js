@@ -21,12 +21,13 @@ import GeoLocation from './GeoLocation';
 
 //CSS
 import './style/PageManager.css';
+import DilemmaExceptional from './components/DilemmaExceptional';
 
 class PageManager extends React.Component {
   
   state = {
-    auth: true,
-    pageNumber: 24,
+    auth: false,
+    pageNumber: 0,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
     token: "111111",
@@ -47,10 +48,10 @@ class PageManager extends React.Component {
       "Üçüncü çocuğu geride bırakıp kıyıya dönüp diğer iki çocuğu kurtaracak mısın?",
       "Kayık gezisi nerede geçmektedir? ",
 
-      "Büşra başarılı bir yüzücü ve uzun zamandır milli takıma girmesini sağlayacak bir yarışmaya hazırlanıyor. Bu onun hayatındaki en önemli yarışma, ve 10 dakika içinde başlayacak. Profesyonel yüzücüler için tasarlanmış, giyilmesi 20 dakika süren özel bir mayoyu çoktan giymiş ve yarışma sırasında bekliyor. Bu yüzden de yarışmadan önce son kez tuvalete gitmesi demek yarışı kaçırabileceği anlamına geliyor.",
-      "Büşra yarışma stresini üzerinden atmak için rahatlamak zorunda hisseder ve bunun yolu da tuvaletini yapmaktan geçmektedir. Büşra bu yarışı kaçırmamak için havuzun kenarına oturur ve devridaim giderinin tam üzerine tuvaletini yapar. Böylelikle havuzu kirletmeden işin içinden çıkabileceğini düşünür.",
+      "Düşman askerleri köyünüzü ele geçirdi. Tüm yetişkinleri hayatta bırakıp tüm çocukları öldürme emri aldılar. Kalabalık bir çocuk grubuyla birlikte büyük bir evin bodrumuna sığındınız. Dışardan, değerli eşya arayışında eve yaklaşan askerlerin sesini duyuyorsunuz. Çocuklardan biri, öksüz bir bebek, yüksek sesle ağlamaya başlıyor. Sesi kesmek için ağzını kapatıyorsun. Eğer elini elini bebeğin ağzından çekersen bebeğin ağlaması askerlerin dikkatini çekecek ve tüm çocukları öldürecekler fakat seni hayatta bırakacaklar. Diğer çocukları kurtarmak için öksüz çocuğu boğman gerekecek. ",
       "",
-      "Büşra’nın yaptığı spor nedir?",
+      "",
+      "",
       
       "Barış bir haftalık İstanbul seyahati için AirBnB uygulamasından bir daire kiralar. AirBnB uygulaması ile insanlar kendi evlerini içindeki eşyalarla birlikte başkalarına kiraya verebilirler. Ev sahipleri ayrıca, kiracının eşyaları için de uygun alan yaratırlar.",
       "Barış kiraladığı eve giriş yaptıktan sonra, dairenin sahibinin nasıl biri olduğunu merak eder. Etrafı biraz gezince, gizemli bir sandık bulur. Üzerindeki örtüyü kaldırınca, sandığın kilitli olduğunu görür. Sandığı açmaması gerektiğini anlar, bu sırada mutfakta bu kilide uyabilecek bir anahtar gördüğünü anımsar. Kilidi o anahtarla açmayı dener ve kilit açılır. Sandığın içinden sadece eski kitaplar çıkar.",
@@ -105,7 +106,17 @@ class PageManager extends React.Component {
       "Sen ve 10 diğer dalgıç İkinci Dünya Savaşı’ndan kalma, gemi mayınlarını etkisiz hale getiren bir BM takımındasınız. Takımdan biri yaralandı ve sudaki kan birkaç köpek balığını yanınıza çekti. Elinde bir zıpkın var, ancak bir mil (şiş) var. Kanaması olan dalgıç koruma kafesine doğru yüzmekte. Sen ve diğer dalgıçlardan önce varacak. Köpek balıkları çok yaklaştı, yakında sana ve diğer dalgıçlara yetişecekler.",
       "Yaralı dalgıcı vurursan dalgıç ölecek, ve köpek balıkları durup onu yiyecekler, böylece sen ve diğer dalgıçlar kurtulacak.",
       "Köpek balıklarının yaralı dalgıcı yemesine izin verip diğer dalgıçlarla beraber koruma kafesine girer misin?",
-      "Bu hikayedeki hayvanın türü nedir? "
+      "Bu hikayedeki hayvanın türü nedir? ",
+
+      "6 çocuklu ve annenin çalışmasına olanak olmayan, dolayısıyla babanın kazandığı parayla geçinen bir aile var. Bir gün, aile babası sokakta eve doğru yürürken, A isimli bir adam, onu takip etmeye başlar ve aile babasının her gece onu öldürmeye çalıştığını iddia eder. Sonrasında, A kişisi, aile babasının onu öldürmek için takip eden bir katil olduğunu düşünerek aile babasını öldürür. Aile babasını öldüren bu adama şizofren teşhisi konur ve akıl hastanesine gönderilir. Aile, annenin çalışamaz oluşundan dolayı ciddi bir çıkmaza girer, yemek veya diğer temel ihtiyaçlarını karşılayamaz duruma gelir.",
+      "A kişisi, aslında adamın onu takip etmek gibi bir niyeti olmadığını kavradığında acı çeker ve pişman olur, tüm parasını ölen adamın ailesine bağışlar. Öncesinde, anne bu kanlı parayı kabul etmez fakat sonrasında adamı akıl hastanesinde ziyarete gider. Daha sonra parayı kabul eder ve sık sık A kişisini ziyarete gider. Bir süre sonra, A kişisinin ciddi akıl sağlığı sorunları olmasına rağmen gerçekten iyi bir insan olduğuna inanır ve ona aşık olur.",
+      "",
+      "Babalarını öldüren adamın hasalığı nedir?",
+
+      "Büşra başarılı bir yüzücü ve uzun zamandır milli takıma girmesini sağlayacak bir yarışmaya hazırlanıyor. Bu onun hayatındaki en önemli yarışma, ve 10 dakika içinde başlayacak. Profesyonel yüzücüler için tasarlanmış, giyilmesi 20 dakika süren özel bir mayoyu çoktan giymiş ve yarışma sırasında bekliyor. Bu yüzden de yarışmadan önce son kez tuvalete gitmesi demek yarışı kaçırabileceği anlamına geliyor.",
+      "Büşra yarışma stresini üzerinden atmak için rahatlamak zorunda hisseder ve bunun yolu da tuvaletini yapmaktan geçmektedir. Büşra bu yarışı kaçırmamak için havuzun kenarına oturur ve devridaim giderinin tam üzerine tuvaletini yapar. Böylelikle havuzu kirletmeden işin içinden çıkabileceğini düşünür.",
+      "",
+      "Büşra’nın yaptığı spor nedir?"
     ]
   }
 
@@ -273,8 +284,6 @@ class PageManager extends React.Component {
               </Col>
             </Row>
             </ListGroup>
-            
-  
             <Button variant="success" className="button12" onClick={this.nextPage}>Testi Başlat</Button>
             </div>;
       </div>;
@@ -311,27 +320,33 @@ class PageManager extends React.Component {
       </div>;
       //movement = <Button variant="success" className="button12" onClick={this.nextPage}><p className="p2">Devam</p></Button>
     }
-    else if(this.state.pageNumber >= 8 && this.state.pageNumber <= 22)
+    else if(this.state.pageNumber >= 8 && this.state.pageNumber <= 24)
     {
-      if(this.state.pageNumber % 2 === 0){
-        screen = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
+      if(this.state.pageNumber === 23){
+        screen = <div><DilemmaExceptional number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaExceptional></div>;
         dilemma = null;
       }else{
-        screen = null;
-        dilemma = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
+        if(this.state.pageNumber % 2 === 0){
+          screen = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
+          dilemma = null;
+        }else{
+          screen = null;
+          dilemma = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
+        }
       }
+
      // movement = null;
-    }else if(this.state.pageNumber === 23)
+    }else if(this.state.pageNumber === 25)
     {
       dilemma = null;
       screen = <div className="welcomeDilemma"><h1>Bölüm 4: Zihinsel Tepki Süresi Testi (6 dakika) </h1><br/>
       Bu bölümde karşınıza 3 kısa ve kolay soru çıkacak. Lütfen soruları dikkatli ve elinizden geldiği sürece hızlı yapınız. Eğer bu bölümü 6 dakikadan hızlı bitirirseniz, "Deneyi Bitir" butonuna basarak deneyi sonlandırabilirsiniz
       </div>;
-    }else if(this.state.pageNumber === 24)
+    }else if(this.state.pageNumber === 26)
     {
       screen = <CRT submited={this.submited} token={this.state.token}></CRT>;
      // movement = null;
-    }else if(this.state.pageNumber === 25)
+    }else if(this.state.pageNumber === 27)
     {
       screen = <div className="endmessage"><h1>Deneyimiz bitmiştir. Katılımınız için teşekkür ederiz.</h1> <p>Aklınıza takılan herhangi bir soru için tereddüt etmeden deneyi yürüten Irmak Oltay’ a mail atabilirsiniz. 
       </p> <p>Mail: oltayyirmak@gmail.com</p></div>;
@@ -345,7 +360,6 @@ class PageManager extends React.Component {
         {screen}
         {dilemma}
         {movement}
-        <GeoLocation></GeoLocation>
         </div>;
         
     }else if(this.state.auth === false)

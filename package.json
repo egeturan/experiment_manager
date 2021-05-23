@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "ip-location": "^1.0.1",
+    "public-ip": "^4.0.3",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.2",
     "react-copy-to-clipboard": "^5.0.3",
