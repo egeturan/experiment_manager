@@ -18,6 +18,7 @@ import Sample1 from'./assets/sampl1.jpg';
 import Sample2 from'./assets/sample1.jpg';
 import Bilkent from'./assets/bilkent.png';
 import GeoLocation from './GeoLocation';
+import axios from 'axios';
 
 //CSS
 import './style/PageManager.css';
@@ -196,6 +197,24 @@ class PageManager extends React.Component {
 
   submited = (args) => {
     this.setState({pageNumber: this.state.pageNumber + 1})
+  }
+
+  visitedHome = (args) => {
+    console.log('********');
+    //axios.post(`http://localhost:8080/applyForAttending/`, user )
+    axios.get(`http://localhost:8080/site_visited/`)
+      .then(res => {
+        const persons = res.data;
+        if(res.data.situation === 1)
+        {
+            console.log(res.data.visited);
+        }
+        else
+        {
+            alert('error');
+        }
+        
+      })
   }
 
   render() {
@@ -392,6 +411,7 @@ class PageManager extends React.Component {
       <p className="p5">Giriş butonuna bastığınızda, deneyin "KULLANICI GİRİŞİ" ekranına yönlendirileceksiniz.
       Teşekkürler. 
       </p>
+      {this.visitedHome()}
       </Col>
       </Row>
       </div>;
