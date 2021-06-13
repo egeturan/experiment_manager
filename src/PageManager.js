@@ -27,8 +27,8 @@ import DilemmaExceptional from './components/DilemmaExceptional';
 class PageManager extends React.Component {
   
   state = {
-    auth: true,
-    pageNumber: 23,
+    auth: false,
+    pageNumber: 0,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
     token: "111111",
@@ -341,10 +341,13 @@ class PageManager extends React.Component {
     }
     else if(this.state.pageNumber >= 8 && this.state.pageNumber <= 24)
     {
-      if(this.state.pageNumber === 23){
+      if(this.state.pageNumber === 23)
+      {
         screen = <div><DilemmaExceptional number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaExceptional></div>;
         dilemma = null;
-      }else{
+      }
+      else
+      {
         if(this.state.pageNumber % 2 === 0){
           screen = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
           dilemma = null;
