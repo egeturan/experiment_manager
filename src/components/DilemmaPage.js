@@ -124,8 +124,8 @@ class DilemmaPage extends Component{
                 };
                 
                 console.log(data);
-                axios.post(`http://localhost:8080/sendDilemma/`, data )
-                //axios.post(`https://cognitivee.herokuapp.com/sendDilemma/`, data )
+                //axios.post(`http://localhost:8080/sendDilemma/`, data )
+                axios.post(`https://cognitivee.herokuapp.com/sendDilemma/`, data )
                 .then(res => {
           
                   console.log(res.data.situation);

@@ -199,10 +199,9 @@ class PageManager extends React.Component {
     this.setState({pageNumber: this.state.pageNumber + 1})
   }
 
-  visitedHome = (args) => {
-    console.log('********');
-    //axios.post(`http://localhost:8080/applyForAttending/`, user )
-    axios.get(`http://localhost:8080/site_visited/`)
+  visitedHome = (args) => 
+  {
+    axios.get(`https://cognitivee.herokuapp.com/site_visited/`)
       .then(res => {
         const persons = res.data;
         if(res.data.situation === 1)
