@@ -27,8 +27,8 @@ import DilemmaExceptional from './components/DilemmaExceptional';
 class PageManager extends React.Component {
   
   state = {
-    auth: false,
-    pageNumber: 0,
+    auth: true,
+    pageNumber: 23,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
     token: "111111",
@@ -310,8 +310,8 @@ class PageManager extends React.Component {
     }
     else if(this.state.pageNumber === 5)
     {
-      screen = <div className="StroopTask"><h1 bold>Biliş Dikkat Testi</h1><StroopTask className="stroop" submited={this.submited}  token={this.state.token}></StroopTask></div>;
-     movement = null;
+      screen = <div className="StroopTask"><h1>Biliş Dikkat Testi</h1><StroopTask className="stroop" submited={this.submited}  token={this.state.token}></StroopTask></div>;
+      //movement = null;
     }
     else if(this.state.pageNumber === 6 && this.state.musictype === 1)
     {

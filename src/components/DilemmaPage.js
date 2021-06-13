@@ -113,7 +113,8 @@ class DilemmaPage extends Component{
     control_filled = (args) => {
         if(this.state.situation[0] || this.state.situation[1] || this.state.situation[2] || this.state.situation[3] || this.state.situation[4] || this.state.situation[5] || this.state.situation[6])
         {
-            if(this.state.answer1 != ""){
+            if(this.state.answer1 != "")
+            {
                 const data = {
                   token: this.state.token,
                   dilemma: this.state.situation,
@@ -122,8 +123,9 @@ class DilemmaPage extends Component{
                   time: this.state.seconds
                 };
                 
-                //axios.post(`http://localhost:8080/sendDilemma/`, data )
-                axios.post(`https://cognitivee.herokuapp.com/sendDilemma/`, data )
+                console.log(data);
+                axios.post(`http://localhost:8080/sendDilemma/`, data )
+                //axios.post(`https://cognitivee.herokuapp.com/sendDilemma/`, data )
                 .then(res => {
           
                   console.log(res.data.situation);

@@ -110,25 +110,54 @@ class DilemmaExceptional extends Component{
       clearInterval(this.timer);
     }
 
-    control_filled = (args) => {
-        if(this.state.answer1 != ""){
-            const data = {
-                token: this.state.token,
-                situation1: this.state.situation,
-                situation2: this.state.situation2,
-                dilemmaText: this.state.answer1,
-                time: this.state.seconds
-            };
-            console.log(data);
-            //axios.post(`http://localhost:8080/sendDillemmaExceptional/`, data )
-            //axios.post(`http://localhost:8080/sendExp/`, data )
-            axios.post(`https://cognitivee.herokuapp.com/sendExp/`, data )
-            .then(res => {
-                console.log(res.data.situation);
-            })
-            this.props.submited(args);
+    control_filled = (args) => 
+    {
+      if(this.state.situation[0] || this.state.situation[1] || this.state.situation[2] || this.state.situation[3] || this.state.situation[4] || this.state.situation[5] || this.state.situation[6])
+      {
+        if(this.state.situation2[0] || this.state.situation2[1] || this.state.situation2[2] || this.state.situation2[3] || this.state.situation2[4] || this.state.situation2[5] || this.state.situation2[6])
+        {
+          var i;
+          var option1 = "";
+          var option2 = "";
+          for (i = 0; i < this.state.situation.length; i++) 
+          {
+            if(this.state.situation[i] === true)
+            {
+              option1 = (i + 1);
+              break;
+            }
+          }
+
+          for (i = 0; i < this.state.situation2.length; i++) 
+          {
+            if(this.state.situation2[i] === true)
+            {
+              option2 = (i + 1);
+              break;
+            }
+          }
+        
+          if(this.state.answer1 != "")
+          {
+              const data = {
+                  token: this.state.token,
+                  option1: option1,
+                  option2: option2,
+                  dilemmaText: this.state.answer1,
+                  time: this.state.seconds
+              };
+              console.log(data);
+              //axios.post(`http://localhost:8080/sendDillemmaExceptional/`, data )
+              axios.post(`http://localhost:8080/sendExp/`, data )
+              //axios.post(`https://cognitivee.herokuapp.com/sendExp/`, data )
+              .then(res => {
+                  console.log(res.data.situation);
+              })
+              this.props.submited(args);
         }
+      }
     }
+  }
     
     render(){
         const { answer1 } = this.state;

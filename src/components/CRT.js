@@ -45,14 +45,14 @@ class CRT extends Component{
             answer1: this.state.answer1,
             answer2: this.state.answer2,
             answer3: this.state.answer3,
-            time: this.state.seconds
+            crtTime: this.state.seconds
           };
 
           clearInterval(this.timer);
                      
           //axios.post(`http://localhost:8080/sendCRT/`, data )
-          //axios.post(`http://localhost:8080/sendCRT/`, data )
-          axios.post(`https://cognitivee.herokuapp.com/sendCRT/`, data )
+          axios.post(`http://localhost:8080/sendCRT/`, data )
+          //axios.post(`https://cognitivee.herokuapp.com/sendCRT/`, data )
           .then(res => {
 
             if(res.data.situation === 1){
