@@ -142,7 +142,7 @@ class DilemmaPage extends Component{
       {
         if(this.props.number === 3)
         {
-          return <div className="dilemmaContainer"><h1> {this.props.number}. Hikaye </h1>
+          return <div className="dilemmaContainer"><h1> Soru {this.props.number}. {this.props.header} </h1>
           <p>{this.props.dilemma} </p>
           <p>{this.props.dilemma2} </p>
           <p>{this.props.dilemma3} </p>
@@ -171,7 +171,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 6)
         {
-          return <div className="dilemmaContainer"><h1> {this.props.number}. Trolley- Otobüs şoförü (Personal, Accidential) </h1>
+          return <div className="dilemmaContainer"><h1> Soru {this.props.number}. {this.props.header} </h1>
           <p>{this.props.dilemma} </p>
           <p>{this.props.dilemma2} </p>
           <p>{this.props.dilemma3} </p>
@@ -196,7 +196,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 11)
         {
-          return <div className="dilemmaContainer"><h1> {this.props.number}. Ebola </h1>
+          return <div className="dilemmaContainer"><h1> Soru {this.props.number}. {this.props.header} </h1>
           <p>{this.props.dilemma} </p>
           <p>{this.props.dilemma2} </p>
           <p>{this.props.dilemma3} </p>
@@ -224,7 +224,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 15)
         {
-          return<div className="dilemmaContainer"><h1> {this.props.number}. Köpek Balığı </h1>
+          return<div className="dilemmaContainer"><h1> Soru {this.props.number}. {this.props.header} </h1>
         <p>{this.props.dilemma} </p>
         <p>{this.props.dilemma2} </p>
         <p>{this.props.dilemma3} </p>
@@ -251,7 +251,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 16)
         {
-          return<div className="dilemmaContainer"><h1> {this.props.number}. Şizofreni </h1>
+          return<div className="dilemmaContainer"><h1> Soru {this.props.number}. {this.props.header} </h1>
         <p>{this.props.dilemma} </p>
         <p>{this.props.dilemma2} </p>
         <p>{this.props.dilemma3} </p>
@@ -278,7 +278,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 4)
         {
-          return<div className="dilemmaContainer"><h1> {this.props.number}. Ağlayan Bebek </h1>
+          return<div className="dilemmaContainer"><h1> Soru {this.props.number}. {this.props.header} </h1>
         <p>{this.props.dilemma} </p>
         <p>{this.props.dilemma2} </p>
         <p>{this.props.dilemma3} </p>
@@ -304,7 +304,7 @@ class DilemmaPage extends Component{
         </div></div>;
         }
       }else{
-        return <div className="dilemmaContainer"><h1> {this.props.number}. Hikaye </h1>
+        return <div className="dilemmaContainer"><h1> Soru {this.props.number}. {this.props.header} </h1>
         <p>{this.props.dilemma} </p>
         <p>{this.props.dilemma2} </p>
         <p>{this.props.dilemma3} </p>

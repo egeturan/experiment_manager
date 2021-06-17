@@ -30,7 +30,7 @@ class PageManager extends React.Component {
     pageNumber: 0,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
-    token: "111111",
+    token: "",
     musictype: 1,
     dilemmaCounter: 0,
     dilemma: ["Zeynep 5 yıldır Kadri ile beraberdir. Her ilişki gibi onlarınki de zaman zaman zorlaşmaktadır. Zeynep bu ilişkide olmaktan genel olarak mutludur ve bu ilişkiyi sürdürmek istemektedir. Kadri de Zeynep’i sevmektedir ve onunla evlenmek istemektedir.",
@@ -117,6 +117,25 @@ class PageManager extends React.Component {
       "Büşra yarışma stresini üzerinden atmak için rahatlamak zorunda hisseder ve bunun yolu da tuvaletini yapmaktan geçmektedir. Büşra bu yarışı kaçırmamak için havuzun kenarına oturur ve devridaim giderinin tam üzerine tuvaletini yapar. Böylelikle havuzu kirletmeden işin içinden çıkabileceğini düşünür.",
       "",
       "Büşra’nın yaptığı spor nedir?"
+    ],
+    header: [
+      "Sevgili (Relationship)",
+      "İşsiz Adam (Unemployed)",
+      "Alaska",
+      "Ağlayan Bebek (Crying Baby)",
+      "Tatil (Vacation)",
+      "Otobüs (The Bus)",
+      "Kardeşler (Brothers)",
+      "Kuzenler (Cousin)",
+      "Bayrak (Flag)",
+      "Söz (Promise)",
+      "Ebola",
+      "Köpek (Dog)",
+      "Chicken (Tavuk)",
+      "Yemek (Food)",
+      "Köpek Balığı Saldırısı (Shark Attack)",
+      "Şizofreni (Schizophrenia)",
+      "Yüzücü (Swimmer)"
     ]
   }
 
@@ -337,17 +356,17 @@ class PageManager extends React.Component {
     {
       if(this.state.pageNumber === 23)
       {
-        screen = <div><DilemmaExceptional number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaExceptional></div>;
+        screen = <div><DilemmaExceptional header={this.state.header[(this.state.pageNumber - 8)]} number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaExceptional></div>;
         dilemma = null;
       }
       else
       {
         if(this.state.pageNumber % 2 === 0){
-          screen = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
+          screen = <div><DilemmaPage header={this.state.header[(this.state.pageNumber - 8)]} number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
           dilemma = null;
         }else{
           screen = null;
-          dilemma = <div><DilemmaPage number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
+          dilemma = <div><DilemmaPage header={this.state.header[(this.state.pageNumber - 8)]} number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
         }
       }
 

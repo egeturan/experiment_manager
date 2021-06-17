@@ -164,7 +164,7 @@ class DilemmaExceptional extends Component{
 
         return(
             <div className="DillemPage">
-              <div><h1> {this.props.number}. Şizofreni </h1>
+              <div><h1> Soru {this.props.number}. {this.props.header} </h1>
                 <p className="defaultText">{this.props.dilemma} </p>
                 <p className="defaultText">{this.props.dilemma2} </p>
                 <p className="defaultText">{this.props.dilemma3} </p>
