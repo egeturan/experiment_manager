@@ -267,27 +267,28 @@ class PageManager extends React.Component {
        Teşekkürler.
        </p>
      {/*<Timer val="ege" timeUpdate={this.updateTime}></Timer>{<h1>Time: h: {this.state.timer.h} m: {this.state.timer.m} s: {this.state.timer.s}*/}
+         {movement}
          </div>;
     }
     if(this.state.pageNumber === 1)
     {
         screen = <UserInfo submited={this.submited} token={this.state.token}></UserInfo>;
-        //movement = null;
+        movement = null;
     }
     else if(this.state.pageNumber === 2)
     {
       screen = <div><Panas submited={this.submited} token={this.state.token}></Panas>
       </div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 3 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound submited={this.submited}></PlayElectronicSound></div>;
-      //movement = null;
+      movement = null;
     }else if(this.state.pageNumber === 3 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound submited={this.submited}></PlayClassicSound></div>;
-     // movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 4)
     {
@@ -319,21 +320,21 @@ class PageManager extends React.Component {
             <Button variant="success" className="button12" onClick={this.nextPage}>Testi Başlat</Button>
             </div>;
       </div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 5)
     {
       screen = <div className="StroopTask"><h1>Biliş Dikkat Testi</h1><StroopTask className="stroop" submited={this.submited}  token={this.state.token}></StroopTask></div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 6 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound2 submited={this.submited}></PlayElectronicSound2></div>;
-      //movement = null;
+      movement = null;
     }else if(this.state.pageNumber === 6 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound2 submited={this.submited}></PlayClassicSound2></div>;
-      //movement = null;
+      movement = null;
     }
     else if(this.state.pageNumber === 7)
     {
@@ -350,7 +351,7 @@ class PageManager extends React.Component {
             <ListGroup.Item>Hazır olduğunuzda "Devam" butonuna basınız. </ListGroup.Item>
             </ListGroup>
       </div>;
-      //movement = <Button variant="success" className="button12" onClick={this.nextPage}><p className="p2">Devam</p></Button>
+      movement = <Button variant="success" className="button12" onClick={this.nextPage}><p className="p2">Devam</p></Button>
     }
     else if(this.state.pageNumber >= 8 && this.state.pageNumber <= 24)
     {
@@ -370,7 +371,7 @@ class PageManager extends React.Component {
         }
       }
 
-     //movement = null;
+     movement = null;
     }else if(this.state.pageNumber === 25)
     {
       dilemma = null;
@@ -380,12 +381,12 @@ class PageManager extends React.Component {
     }else if(this.state.pageNumber === 26)
     {
       screen = <CRT submited={this.submited} token={this.state.token}></CRT>;
-      //movement = null;
+      movement = null;
     }else if(this.state.pageNumber === 27)
     {
       screen = <div className="endmessage"><h1>Deneyimiz bitmiştir. Katılımınız için teşekkür ederiz.</h1> <p>Aklınıza takılan herhangi bir soru için tereddüt etmeden deneyi yürüten Irmak Oltay’ a mail atabilirsiniz. 
       </p> <p>Mail: oltayyirmak@gmail.com</p></div>;
-      //movement = null;
+      movement = null;
     }
 
     if(this.state.auth === true)
@@ -394,7 +395,6 @@ class PageManager extends React.Component {
         <div className="PageManager">
         {screen}
         {dilemma}
-        {movement}
         </div>;
         
     }else if(this.state.auth === false)
