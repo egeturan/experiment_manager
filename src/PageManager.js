@@ -26,8 +26,8 @@ import DilemmaExceptional from './components/DilemmaExceptional';
 class PageManager extends React.Component {
   
   state = {
-    auth: true,
-    pageNumber: 8,
+    auth: false,
+    pageNumber: 0,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
     token: "111111",
