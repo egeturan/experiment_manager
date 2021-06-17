@@ -267,7 +267,6 @@ class PageManager extends React.Component {
        Teşekkürler.
        </p>
      {/*<Timer val="ege" timeUpdate={this.updateTime}></Timer>{<h1>Time: h: {this.state.timer.h} m: {this.state.timer.m} s: {this.state.timer.s}*/}
-         {movement}
          </div>;
     }
     if(this.state.pageNumber === 1)
@@ -370,7 +369,6 @@ class PageManager extends React.Component {
           dilemma = <div><DilemmaPage header={this.state.header[(this.state.pageNumber - 8)]} number={this.state.pageNumber - 7} submited={this.submited} dilemma={this.state.dilemma[(this.state.pageNumber - 8) * 4]} dilemma2={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 1]} dilemma3={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 2]} dilemma4={this.state.dilemma[(this.state.pageNumber - 8) * 4 + 3]} token={this.state.token}></DilemmaPage></div>;
         }
       }
-
      movement = null;
     }else if(this.state.pageNumber === 25)
     {
@@ -395,6 +393,7 @@ class PageManager extends React.Component {
         <div className="PageManager">
         {screen}
         {dilemma}
+        {movement}
         </div>;
         
     }else if(this.state.auth === false)
