@@ -41,7 +41,7 @@ class DilemmaPage extends Component{
       }
     
       startTimer = () => {
-        if (this.timer == 0 && this.state.seconds >= 0) {
+        if (this.timer === 0 && this.state.seconds >= 0) {
           this.timer = setInterval(this.countUp, 1000);
         }
       }
@@ -101,7 +101,7 @@ class DilemmaPage extends Component{
         }else{
           this.setState({ time: 0, token: this.props.token });
         }
-        if (this.timer == 0 && this.state.seconds >= 0) {
+        if (this.timer === 0 && this.state.seconds >= 0) {
             this.timer = setInterval(this.countUp, 1000);
         }
     }
@@ -113,7 +113,7 @@ class DilemmaPage extends Component{
     control_filled = (args) => {
         if(this.state.situation[0] || this.state.situation[1] || this.state.situation[2] || this.state.situation[3] || this.state.situation[4] || this.state.situation[5] || this.state.situation[6])
         {
-            if(this.state.answer1 != "")
+            if(this.state.answer1 !== "")
             {
                 const data = {
                   token: this.state.token,
@@ -142,7 +142,7 @@ class DilemmaPage extends Component{
       {
         if(this.props.number === 3)
         {
-          return <div><h1> {this.props.number}. Hikaye </h1>
+          return <div className="dilemmaContainer"><h1> {this.props.number}. Hikaye </h1>
           <p>{this.props.dilemma} </p>
           <p>{this.props.dilemma2} </p>
           <p>{this.props.dilemma3} </p>
@@ -171,7 +171,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 6)
         {
-          return <div><h1> {this.props.number}. Trolley- Otobüs şoförü (Personal, Accidential) </h1>
+          return <div className="dilemmaContainer"><h1> {this.props.number}. Trolley- Otobüs şoförü (Personal, Accidential) </h1>
           <p>{this.props.dilemma} </p>
           <p>{this.props.dilemma2} </p>
           <p>{this.props.dilemma3} </p>
@@ -196,7 +196,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 11)
         {
-          return <div><h1> {this.props.number}. Ebola </h1>
+          return <div className="dilemmaContainer"><h1> {this.props.number}. Ebola </h1>
           <p>{this.props.dilemma} </p>
           <p>{this.props.dilemma2} </p>
           <p>{this.props.dilemma3} </p>
@@ -224,7 +224,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 15)
         {
-          return<div><h1> {this.props.number}. Köpek Balığı </h1>
+          return<div className="dilemmaContainer"><h1> {this.props.number}. Köpek Balığı </h1>
         <p>{this.props.dilemma} </p>
         <p>{this.props.dilemma2} </p>
         <p>{this.props.dilemma3} </p>
@@ -251,7 +251,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 16)
         {
-          return<div><h1> {this.props.number}. Şizofreni </h1>
+          return<div className="dilemmaContainer"><h1> {this.props.number}. Şizofreni </h1>
         <p>{this.props.dilemma} </p>
         <p>{this.props.dilemma2} </p>
         <p>{this.props.dilemma3} </p>
@@ -278,7 +278,7 @@ class DilemmaPage extends Component{
         }
         if(this.props.number === 4)
         {
-          return<div><h1> {this.props.number}. Ağlayan Bebek </h1>
+          return<div className="dilemmaContainer"><h1> {this.props.number}. Ağlayan Bebek </h1>
         <p>{this.props.dilemma} </p>
         <p>{this.props.dilemma2} </p>
         <p>{this.props.dilemma3} </p>
@@ -304,7 +304,7 @@ class DilemmaPage extends Component{
         </div></div>;
         }
       }else{
-        return <div><h1> {this.props.number}. Hikaye </h1>
+        return <div className="dilemmaContainer"><h1> {this.props.number}. Hikaye </h1>
         <p>{this.props.dilemma} </p>
         <p>{this.props.dilemma2} </p>
         <p>{this.props.dilemma3} </p>
@@ -338,13 +338,9 @@ class DilemmaPage extends Component{
 
     
     render(){
-        const { answer1 } = this.state;
-
         return(
             <div className="DillemPage">
-              {this.decide()}
-                
-                
+              {this.decide()}               
             </div>
         );
     }

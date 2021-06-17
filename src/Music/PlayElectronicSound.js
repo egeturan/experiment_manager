@@ -44,7 +44,7 @@ class PlayElectronicSound extends Component{
   }
 
   startTimer = () => {
-    if (this.timer == 0 && this.state.seconds >= 0) {
+    if (this.timer === 0 && this.state.seconds >= 0) {
       this.timer = setInterval(this.countUp, 1000);
     }
   }
@@ -60,7 +60,7 @@ class PlayElectronicSound extends Component{
     if(this.state.seconds === 10){
         this.start();
     }
-    console.log(this.state.seconds)
+    //console.log(this.state.seconds)
 
     if(this.state.seconds === 447){
       this.stop();

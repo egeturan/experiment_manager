@@ -9,9 +9,7 @@ import {
   Form,
   Segment,
   Button,
-  Header,
-  Message,
-  Icon
+  Header
 } from "semantic-ui-react";
 import { Container } from "react-bootstrap";
 
@@ -90,7 +88,7 @@ class UserInfo extends React.Component {
   };
 
   render() {
-    const { age, sex, education, musicType, belief, medical, errors, loading } = this.state;
+    const { age, sex, education, musicType, belief, medical, loading } = this.state;
 
     return (
       <Container className="Container">
@@ -296,7 +294,6 @@ class UserInfo extends React.Component {
                 className={loading ? "loading" : ""}
                 color="green"
                 size="large"
-                className="button"
                 style={{marginTop: "1px"}}              >
                 Tamamla
               </Button>

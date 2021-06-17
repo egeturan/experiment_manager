@@ -17,7 +17,6 @@ import ButtonImage from'./assets/buttons.png';
 import Sample1 from'./assets/sampl1.jpg';
 import Sample2 from'./assets/sample1.jpg';
 import Bilkent from'./assets/bilkent.png';
-import GeoLocation from './GeoLocation';
 import axios from 'axios';
 
 //CSS
@@ -27,8 +26,8 @@ import DilemmaExceptional from './components/DilemmaExceptional';
 class PageManager extends React.Component {
   
   state = {
-    auth: false,
-    pageNumber: 0,
+    auth: true,
+    pageNumber: 8,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
     token: "111111",
@@ -163,7 +162,7 @@ class PageManager extends React.Component {
 
   componentDidMount() {
     console.log("Uploading");
-    if(this.props.history.location.state != undefined)
+    if(this.props.history.location.state !== undefined)
     {
         this.setState(this.props.history.location.state)
     }
@@ -203,7 +202,6 @@ class PageManager extends React.Component {
   {
     axios.get(`https://cognitivee.herokuapp.com/site_visited/`)
       .then(res => {
-        const persons = res.data;
         if(res.data.situation === 1)
         {
             console.log(res.data.visited);
@@ -212,7 +210,6 @@ class PageManager extends React.Component {
         {
             alert('error');
         }
-        
       })
   }
 
@@ -224,8 +221,6 @@ class PageManager extends React.Component {
     let movement = <div className="buttons">
     <Button variant="success" className="button2" onClick={this.nextPage}><p className="p2">Deneye Başla</p></Button>
     </div>;
-
-
     if(this.state.pageNumber === 0){
       screen = <div><h2>Giriş: Duygu, Biliş ve Ahlaki Karar Üzerine Bilişsel Yaklaşım Deneyine Hoşgeldiniz.  </h2>
       <p className="Intro">
@@ -258,18 +253,18 @@ class PageManager extends React.Component {
     if(this.state.pageNumber === 1)
     {
         screen = <UserInfo submited={this.submited} token={this.state.token}></UserInfo>;
-        movement = null;
+        //movement = null;
     }
     else if(this.state.pageNumber === 2)
     {
       screen = <div><Panas submited={this.submited} token={this.state.token}></Panas>
       </div>;
-      movement = null;
+      //movement = null;
     }
     else if(this.state.pageNumber === 3 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound submited={this.submited}></PlayElectronicSound></div>;
-      movement = null;
+      //movement = null;
     }else if(this.state.pageNumber === 3 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound submited={this.submited}></PlayClassicSound></div>;
@@ -293,19 +288,19 @@ class PageManager extends React.Component {
             <Row className="row">
               <Col>
               <h2>Doğru cevap: Sarı	</h2>
-              <img  src={Sample1} alt="image"/>
+              <img  src={Sample1} alt="yellow"/>
               </Col>
 
               <Col>
               <h2>Doğru cevap: Turuncu</h2>
-              <img  src={Sample2} alt="image"/>
+              <img  src={Sample2} alt="orange"/>
               </Col>
             </Row>
             </ListGroup>
             <Button variant="success" className="button12" onClick={this.nextPage}>Testi Başlat</Button>
             </div>;
       </div>;
-     movement = null;
+      //movement = null;
     }
     else if(this.state.pageNumber === 5)
     {
@@ -315,11 +310,11 @@ class PageManager extends React.Component {
     else if(this.state.pageNumber === 6 && this.state.musictype === 1)
     {
       screen = <div><PlayElectronicSound2 submited={this.submited}></PlayElectronicSound2></div>;
-      movement = null;
+      //movement = null;
     }else if(this.state.pageNumber === 6 && this.state.musictype === 2)
     {
       screen = <div><PlayClassicSound2 submited={this.submited}></PlayClassicSound2></div>;
-     movement = null;
+      //movement = null;
     }
     else if(this.state.pageNumber === 7)
     {
@@ -356,7 +351,7 @@ class PageManager extends React.Component {
         }
       }
 
-     movement = null;
+     //movement = null;
     }else if(this.state.pageNumber === 25)
     {
       dilemma = null;
@@ -366,12 +361,12 @@ class PageManager extends React.Component {
     }else if(this.state.pageNumber === 26)
     {
       screen = <CRT submited={this.submited} token={this.state.token}></CRT>;
-      movement = null;
+      //movement = null;
     }else if(this.state.pageNumber === 27)
     {
       screen = <div className="endmessage"><h1>Deneyimiz bitmiştir. Katılımınız için teşekkür ederiz.</h1> <p>Aklınıza takılan herhangi bir soru için tereddüt etmeden deneyi yürüten Irmak Oltay’ a mail atabilirsiniz. 
       </p> <p>Mail: oltayyirmak@gmail.com</p></div>;
-      movement = null;
+      //movement = null;
     }
 
     if(this.state.auth === true)
@@ -404,7 +399,7 @@ class PageManager extends React.Component {
       </p>
       </Col>
       <Col xs={3}>
-      <img  src={Bilkent} width="40%" alt="image"/>
+      <img  src={Bilkent} width="40%" alt="bilkent"/>
       <br/>
       <Button variant="success" className="buttonLogin" onClick={this.login}>Giriş Yap</Button>
       <p className="p3">
