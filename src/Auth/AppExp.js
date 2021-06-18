@@ -61,7 +61,7 @@ class AppExp extends React.Component {
   }
 
   onCatchaChange(value) {
-    console.log("Captcha value:", value);
+    //console.log("Captcha value:", value);
     this.setState({pg : 2});
   }
 
@@ -72,13 +72,13 @@ class AppExp extends React.Component {
         username: "new_user"
       };
 
-      //console.log(user);
+      ////console.log(user);
 
       //axios.post(`https://congnitivee.herokuapp.com/applyForAttending/`, user )
       //axios.post(`http://localhost:8080/applyForAttending/`, user )
       axios.post(`https://cognitivee.herokuapp.com/applyForAttending/`, user )
       .then(res => {
-        console.log(res.data);
+        //console.log(res.data);
        if(res.data.situation === 1){
            this.setState({ received: true, password: res.data.key, errors: [], loading: false });     
       }else{
@@ -108,7 +108,7 @@ class AppExp extends React.Component {
     } = this.state;
 
     let view = null;
-    console.log(this.state.pg)
+    //console.log(this.state.pg)
     if(this.state.received){
         view = <div>
               <Modal.Dialog>

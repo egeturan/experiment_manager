@@ -180,7 +180,7 @@ class PageManager extends React.Component {
   
 
   componentDidMount() {
-    console.log("Uploading");
+    //console.log("Uploading");
     if(this.props.history.location.state !== undefined)
     {
         this.setState(this.props.history.location.state)
@@ -194,7 +194,7 @@ class PageManager extends React.Component {
     {
       this.setState({pageNumber: this.state.pageNumber + 1})
     }else{
-      console.log("This is last page");
+      //console.log("This is last page");
     }
   }
 
@@ -209,7 +209,7 @@ class PageManager extends React.Component {
     {
       this.setState({pageNumber: this.state.pageNumber - 1})
     }else{
-      console.log("This is first page");
+      //console.log("This is first page");
     }
   }
 
@@ -223,7 +223,7 @@ class PageManager extends React.Component {
       .then(res => {
         if(res.data.situation === 1)
         {
-            console.log(res.data.visited);
+            //console.log(res.data.visited);
         }
         else
         {
@@ -395,7 +395,6 @@ class PageManager extends React.Component {
         {dilemma}
         {movement}
         </div>;
-        
     }else if(this.state.auth === false)
     {
       inside =

@@ -20,7 +20,7 @@ const ModalCreatorEnhanced = (props) => {
   const [modalShow, setModalShow] = React.useState(true);
 
   const handleChange = event => {setGreeting(event.target.checked);
-    //console.log(event);
+    ////console.log(event);
   };
 
   const handleAcceptDone = args => {

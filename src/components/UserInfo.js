@@ -53,7 +53,7 @@ class UserInfo extends React.Component {
         medical: this.state.medical,
       };
 
-      //console.log(user);
+      ////console.log(user);
 
       
       //axios.post(`http://localhost:8080/userInfo/`, dataI )
@@ -62,13 +62,13 @@ class UserInfo extends React.Component {
       .then(res => {
         if(res.data.situation === 0)
         {
-          console.log('Error');
+          //console.log('Error');
         }
-        console.log(res.data.details);
+        //console.log(res.data.details);
       
       })
       
-      console.log(dataI);
+      //console.log(dataI);
       this.props.submited("fasda");
     }else{
         alert("Tüm alanları doldurunuz.");

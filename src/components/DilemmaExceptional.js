@@ -40,10 +40,12 @@ class DilemmaExceptional extends Component{
       }
     
       startTimer = () => {
-        if (this.timer == 0 && this.state.seconds >= 0) {
+        if (this.timer === 0 && this.state.seconds >= 0) {
           this.timer = setInterval(this.countUp, 1000);
         }
       }
+
+
     
       countUp() {
         // Remove one second, set state so a re-render happens.
@@ -86,24 +88,25 @@ class DilemmaExceptional extends Component{
     };
     
     changeInValue = (args) => {
-        console.log(args + 1);
+        //console.log(args + 1);
         let situation2 = [false, false, false, false, false, false, false];
         situation2[args] = true;
         this.setState({situation: situation2})
-        //console.log(this.state.situation);
+        ////console.log(this.state.situation);
     }
 
     changeInValue2 = (args) => {
-        console.log(args + 1);
+        //console.log(args + 1);
         let situation4 = [false, false, false, false, false, false, false];
         situation4[args] = true;
         this.setState({situation2: situation4})
     }
 
     componentDidMount(){
-        if (this.timer == 0 && this.state.seconds >= 0) {
+        if (this.timer === 0 && this.state.seconds >= 0) {
             this.timer = setInterval(this.countUp, 1000);
         }
+        this.setState({token: this.props.token});
     }
 
     componentWillUnmount(){
@@ -137,7 +140,7 @@ class DilemmaExceptional extends Component{
             }
           }
         
-          if(this.state.answer1 != "")
+          if(this.state.answer1 !== "")
           {
               const data = {
                   token: this.state.token,
@@ -146,12 +149,12 @@ class DilemmaExceptional extends Component{
                   dilemmaText: this.state.answer1,
                   time: this.state.seconds
               };
-              console.log(data);
+              //console.log(data);
               //axios.post(`http://localhost:8080/sendDillemmaExceptional/`, data )
               //axios.post(`http://localhost:8080/sendExp/`, data )
               axios.post(`https://cognitivee.herokuapp.com/sendExp/`, data )
               .then(res => {
-                  console.log(res.data.situation);
+                  //console.log(res.data);
               })
               this.props.submited(args);
         }

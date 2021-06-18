@@ -9,7 +9,7 @@ class ReactCopy extends React.Component {
   };
 
   componentDidMount(){
-      console.log(this.props)
+      //console.log(this.props)
       this.setState({value: this.props.key})
   }
 

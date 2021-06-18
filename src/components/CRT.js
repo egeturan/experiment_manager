@@ -34,10 +34,6 @@ class CRT extends Component{
         event.preventDefault();
     }
 
-    componentDidMount(){
-        this.setState({token: this.props.token });
-    }
-
     componentWillUnmount(){
 
         const data = {
@@ -59,7 +55,7 @@ class CRT extends Component{
                 alert("Deney Başarılı Şekilde Tamamlandı. Araştırma Süreci sonunda bilgilendirme maili alacaksınız.")
             }
             
-            console.log("Result is:" + res.data.situation);
+            //console.log("Result is:" + res.data.situation);
           
           })
 
@@ -84,7 +80,7 @@ class CRT extends Component{
       }
     
       startTimer = () => {
-        if (this.timer == 0 && this.state.seconds >= 0) {
+        if (this.timer === 0 && this.state.seconds >= 0) {
           this.timer = setInterval(this.countUp, 1000);
         }
       }
@@ -96,7 +92,7 @@ class CRT extends Component{
           time: this.secondsToTime(seconds),
           seconds: seconds,
         });
-        console.log(seconds);
+        //console.log(seconds);
       }
   
       finishTimer() {
@@ -111,9 +107,10 @@ class CRT extends Component{
 
       componentDidMount(){
         this.setState({ time: 0, token: this.props.token });
-        if (this.timer == 0 && this.state.seconds >= 0) {
+        if (this.timer === 0 && this.state.seconds >= 0) {
             this.timer = setInterval(this.countUp, 1000);
         }
+        this.setState({token: this.props.token });
     }
 
     handleInputError = (errors, inputName) => {

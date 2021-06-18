@@ -39,7 +39,7 @@ class RemoveUser extends React.Component {
 
   componentDidMount() {
     //let timeLeftVar = this.secondsToTime(this.state.seconds);
-    console.log("Ege");
+    //console.log("Ege");
   }
 
   displayErrors = errors =>
@@ -65,12 +65,12 @@ class RemoveUser extends React.Component {
         password: this.state.password
       };
 
-      //console.log(user);
+      ////console.log(user);
 
       //axios.post(`http://localhost:8080/remove_user/`, user )
       axios.post(`https://cognitivee.herokuapp.com/remove_user/`, user )
       .then(res => {
-        //console.log(res);
+        ////console.log(res);
        if(res.data.situation === 1){
            this.setState({ errors: [], loading: false });     
            alert("Removed");

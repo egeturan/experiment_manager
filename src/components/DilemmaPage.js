@@ -87,11 +87,11 @@ class DilemmaPage extends Component{
     };
     
     changeInValue = (args) => {
-        console.log(args + 1);
+        //console.log(args + 1);
         let situation2 = [false, false, false, false, false, false, false];
         situation2[args] = true;
         this.setState({situation: situation2})
-        console.log(this.state.situation);
+        //console.log(this.state.situation);
     }
 
     componentDidMount(){
@@ -123,12 +123,12 @@ class DilemmaPage extends Component{
                   time: this.state.seconds
                 };
                 
-                console.log(data);
+                //console.log(data);
                 //axios.post(`http://localhost:8080/sendDilemma/`, data )
                 axios.post(`https://cognitivee.herokuapp.com/sendDilemma/`, data )
                 .then(res => {
           
-                  console.log(res.data.situation);
+                  //console.log(res.data.situation);
 
                 })
                 this.props.submited(args);

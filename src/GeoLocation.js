@@ -2,11 +2,6 @@ import React, { useEffect, useState } from "react";
 
 const GeoLocation = () => {
     const [details, setDetails] = useState("176.42.16.170");
-    const [metadata, setMetadata] = useState(null);
-
-    const getUserGeolocationDetails = () => {
-        
-    };
 
     useEffect(() => {
         fetch(
@@ -15,16 +10,6 @@ const GeoLocation = () => {
             .then(response => response.json())
             .then(data => setDetails(data));
     });
-
-    useEffect(() => {
-        fetch(
-            "https://tools.keycdn.com/geo.json?host={" + details.IPv4 + "}"
-        ).then(response => response.json())
-        .then(data => setMetadata(data));
-
-        setMetadata(metadata);
-      });
-
 
     return (
         <>

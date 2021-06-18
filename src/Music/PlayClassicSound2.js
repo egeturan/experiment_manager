@@ -60,7 +60,7 @@ class PlayClassicSound2 extends Component{
     if(this.state.seconds === 10){
       this.start();
   }
-  //console.log(this.state.seconds)
+  ////console.log(this.state.seconds)
 
     if(this.state.seconds === 447){
       this.stop();
@@ -92,7 +92,7 @@ class PlayClassicSound2 extends Component{
         playPromise.then(function() {
           // Automatic playback started!
         }).catch(function(error) {
-          console.log(error);
+          //console.log(error);
           // Automatic playback failed.
           // Show a UI element to let the user manually start playback.
         });
@@ -103,13 +103,13 @@ class PlayClassicSound2 extends Component{
     let audio = this.state.play_audio;
     if(audio != null)
     {
-      console.log(this.state.play_audio);
+      //console.log(this.state.play_audio);
       let audio = this.state.play_audio;
       audio.pause();
       this.setState({play_audio: null})
     }
     else{
-      console.log("No audio is selected");
+      //console.log("No audio is selected");
     }
   }
 

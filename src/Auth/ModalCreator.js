@@ -8,7 +8,7 @@ const ModalCreator = (props) => {
     'Hello Function Component!'
   );
 
-  console.log(greeting);
+  //console.log(greeting);
 
   const [modalShow, setModalShow] = React.useState(false);
   const handleChange = event => setGreeting(event.target.value);
@@ -45,7 +45,7 @@ const VerticallyCenteredModal = (props) => {
     false
   );
 
-  console.log("greeting :" + greeting)
+  //console.log("greeting :" + greeting)
   const handleChange = event => setGreeting(event.target.checked);
 
     return (

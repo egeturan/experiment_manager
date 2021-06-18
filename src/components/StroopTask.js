@@ -6,8 +6,6 @@ import axios from 'axios';
 // CSS
 import '../style/Stroop.css';
 
-const timing = 1.5;
-
 let stroopS = null;
 
 class StroopTask extends React.Component {
@@ -53,22 +51,22 @@ class StroopTask extends React.Component {
   }
 
   startTimer = () => {
-    //console.log("Timer Started")
-    if (this.timer == 0 && this.state.seconds >= 0) {
+    ////console.log("Timer Started")
+    if (this.timer === 0 && this.state.seconds >= 0) {
       this.timer = setInterval(this.countUp, 750);
     }
   }
 
   startTimer2 = () => {
     if (this.state.seconds >= 0) {
-      //console.log("Timer Started")
+      ////console.log("Timer Started")
       this.timer2 = setInterval(this.countUp2, 500);
     }
   }
 
   startTimer3 = () => {
     if (this.state.seconds2 >= 0) {
-      //console.log("Timer 3 Started")
+      ////console.log("Timer 3 Started")
       this.timer3 = setInterval(this.countUp3, 10);
     }
   }
@@ -77,7 +75,7 @@ class StroopTask extends React.Component {
     // Remove one second, set state so a re-render happens.
     let seconds = this.state.seconds + 1;
     
-    //console.log("Stroop Count " + stroopC)
+    ////console.log("Stroop Count " + stroopC)
     this.setState({
       time: this.secondsToTime(seconds),
       seconds: seconds
@@ -98,11 +96,11 @@ class StroopTask extends React.Component {
       stroopS = this.lookTime();
     }
     
-    //console.log(seconds);
+    ////console.log(seconds);
   }
 
   countUp2() {
-    //console.log("Timer 2")
+    ////console.log("Timer 2")
     let congProb = this.getconGProb();
     this.showStroop(congProb);
     stroopS = this.lookTime();
@@ -113,10 +111,10 @@ class StroopTask extends React.Component {
   }
 
   countUp3() {
-    //console.log("Timer 3")
+    ////console.log("Timer 3")
     let seconds = this.state.seconds2 + 10;
     
-    //console.log("Stroop Count " + stroopC)
+    ////console.log("Stroop Count " + stroopC)
     this.setState({
       seconds2: seconds
     });
@@ -135,13 +133,13 @@ class StroopTask extends React.Component {
         numberOfStroop: this.state.results.length
       };
         
-      console.log(data);
+      //console.log(data);
 
       //axios.post(`http://localhost:8080/sendStroop/`, data )
       axios.post(`https://cognitivee.herokuapp.com/sendStroop/`, data )
       .then(res => {
   
-        console.log(res.data);
+        //console.log(res.data);
                     
       })
 
@@ -160,7 +158,7 @@ class StroopTask extends React.Component {
   getconGProb() {
     let possibiltyCong = Math.floor(Math.random() * 4);
     let stroop = null;
-    if(possibiltyCong == 0){
+    if(possibiltyCong === 0){
       stroop = "incong";
     }else{
       stroop = "cong";
@@ -174,10 +172,10 @@ class StroopTask extends React.Component {
     if(this.state.seconds >= 15 && this.state.busy === false)
     {
       this.setState({busy: true});
-      if(args == 'left')
+      if(args === 'left')
       {
-        //console.log(args);
-        if(this.state.mainColor == this.state.left){
+        ////console.log(args);
+        if(this.state.mainColor === this.state.left){
           arr = this.state.results;
           arr.push([this.state.cong, 'T', this.state.seconds2 + ""])
         }else{
@@ -185,10 +183,10 @@ class StroopTask extends React.Component {
           arr.push([this.state.cong, 'F', this.state.seconds2 + ""])
         }
       }
-      else if(args == 'right')
+      else if(args === 'right')
       {
-        //console.log(args);
-        if(this.state.mainColor == this.state.right){
+        ////console.log(args);
+        if(this.state.mainColor === this.state.right){
           arr = this.state.results;
           arr.push([this.state.cong, 'T', this.state.seconds2 + ""])
         }else{
@@ -196,14 +194,14 @@ class StroopTask extends React.Component {
           arr.push([this.state.cong, 'F', this.state.seconds2 + ""])
         }
       }else{
-        console.log("error");
+        //console.log("error");
       }
       
       clearInterval(this.timer3);
       stroopS = null;
 
       this.setState({results: arr, seconds2: 0});
-      //console.log(arr)
+      ////console.log(arr)
       this.startTimer2();
       this.startTimer3();
 
@@ -266,10 +264,10 @@ class StroopTask extends React.Component {
 
     let possibblilityColor = Math.floor(Math.random() * 6); // 7 possibility
     let firstColor = this.state.colors[possibblilityColor];
-    //console.log(firstColor);
+    ////console.log(firstColor);
     let otherColors = [];
     for(let i = 0; i < this.state.colors.length; i++){
-      if(possibblilityColor != i){
+      if(possibblilityColor !== i){
         otherColors.push(this.state.colors[i]);
       }
     }
@@ -277,13 +275,13 @@ class StroopTask extends React.Component {
     let secondColorPossbility = Math.floor(Math.random() * 5);
     let secondColor = otherColors[secondColorPossbility];
 
-    if(congProb == "incong"){
-      //console.log("incog first: " + firstColor + " second " + secondColor);
+    if(congProb === "incong"){
+      ////console.log("incog first: " + firstColor + " second " + secondColor);
       let leftRight = [firstColor, secondColor];
       let leftRightPossibility = Math.floor(Math.random() * 2);
       let leftColor = leftRight[leftRightPossibility];
       let rightColor = null;
-      if(leftRightPossibility == 0){
+      if(leftRightPossibility === 0){
           rightColor = leftRight[1];
       }else{
           rightColor = leftRight[0];
@@ -301,13 +299,13 @@ class StroopTask extends React.Component {
         mainColorO: this.state.mainColor
       });
 
-    }else if(congProb == "cong"){
-      //console.log("cong first: " + firstColor + " second " + secondColor);
+    }else if(congProb === "cong"){
+      ////console.log("cong first: " + firstColor + " second " + secondColor);
       let leftRight = [firstColor, secondColor];
       let leftRightPossibility = Math.floor(Math.random() * 2);
       let leftColor = leftRight[leftRightPossibility];
       let rightColor = null;
-      if(leftRightPossibility == 0){
+      if(leftRightPossibility === 0){
           rightColor = leftRight[1];
       }else{
           rightColor = leftRight[0];

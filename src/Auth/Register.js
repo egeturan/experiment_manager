@@ -85,15 +85,15 @@ class Register extends React.Component {
         password: this.state.password
       };
 
-      //console.log(user);
+      ////console.log(user);
 
       
       //axios.post(`http://localhost:8080/register_user/`, user )
       axios.post(`https://cognitivee.herokuapp.com/register_user/`, user )
       .then(res => {
-        //console.log(res);
+        ////console.log(res);
        if(res.data.situation === 1){
-           console.log("Registered");
+           //console.log("Registered");
            this.setState({ errors: [], loading: false });     
            alert("Registered");
 

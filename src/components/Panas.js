@@ -59,8 +59,8 @@ class Panas extends Component{
     }
 
     handleClick = (args) => {
-        //console.log(args.row);
-        //console.log(args.column);
+        ////console.log(args.row);
+        ////console.log(args.column);
         //clicked to row args[0] and answer args[2];
         let current_situation = this.state.situation;
         let line = [];
@@ -77,7 +77,7 @@ class Panas extends Component{
             }
         }
         current_situation[args.row] = line; 
-        //console.log(current_situation);
+        ////console.log(current_situation);
         this.setState({situation: current_situation});
     }
 
@@ -92,7 +92,7 @@ class Panas extends Component{
             for(let j = 0; j < 5; j++)
             {
                 let element = this.state.situation[i][j];
-                //console.log("element is: " + element);
+                ////console.log("element is: " + element);
                 if(element == false)
                 {
                     total++;
@@ -106,13 +106,13 @@ class Panas extends Component{
                 situation: this.state.situation
               };
     
-              console.log(data);        
+              //console.log(data);        
               
               //axios.post(`http://localhost:8080/sendPanas/`, data )
               axios.post(`https://cognitivee.herokuapp.com/sendPanas/`, data )
               .then(res => {
         
-                console.log(res.data);
+                //console.log(res.data);
 
               })
             let answer1 = "";
@@ -120,7 +120,7 @@ class Panas extends Component{
         }else{
             
         }
-        //console.log(total);
+        ////console.log(total);
 
     }
 

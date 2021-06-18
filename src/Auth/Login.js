@@ -66,7 +66,7 @@ class Login extends React.Component {
               password: this.state.password
             };
 
-            //console.log(user);
+            ////console.log(user);
 
             //axios.post(`http://localhost:8080/login/`, user )
             axios.post(`https://cognitivee.herokuapp.com/login/`, user )
@@ -76,8 +76,8 @@ class Login extends React.Component {
               if(res.data.situation == 1)
               {
                 
-                console.log("LoggedIn");
-                //console.log("Token:"  + res.data.key);
+                //console.log("LoggedIn");
+                ////console.log("Token:"  + res.data.key);
                 //this.props.history.push('/register');
 
                 this.props.history.push({
