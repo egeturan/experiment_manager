@@ -78,11 +78,10 @@ class AppExp extends React.Component {
       //axios.post(`http://localhost:8080/applyForAttending/`, user )
       axios.post(`https://aegeanriver.herokuapp.com/applyForAttending/`, user )
       .then(res => {
-        //console.log(res.data);
+        console.log(res.data);
        if(res.data.situation === 1){
            this.setState({ received: true, password: res.data.key, errors: [], loading: false });     
       }else{
-        alert("Not removed");   
         this.setState({ errors: [], loading: false });         
       }
         
