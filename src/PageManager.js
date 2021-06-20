@@ -51,7 +51,7 @@ class PageManager extends React.Component {
       "Düşman askerleri köyünüzü ele geçirdi. Tüm yetişkinleri hayatta bırakıp tüm çocukları öldürme emri aldılar. Kalabalık bir çocuk grubuyla birlikte büyük bir evin bodrumuna sığındınız. Dışardan, değerli eşya arayışında eve yaklaşan askerlerin sesini duyuyorsunuz. Çocuklardan biri, öksüz bir bebek, yüksek sesle ağlamaya başlıyor. Sesi kesmek için ağzını kapatıyorsun. Eğer elini elini bebeğin ağzından çekersen bebeğin ağlaması askerlerin dikkatini çekecek ve tüm çocukları öldürecekler fakat seni hayatta bırakacaklar. Diğer çocukları kurtarmak için öksüz çocuğu boğman gerekecek. ",
       "",
       "",
-      "",
+      "Grup nereye saklanmıştır?",
       
       "Barış bir haftalık İstanbul seyahati için AirBnB uygulamasından bir daire kiralar. AirBnB uygulaması ile insanlar kendi evlerini içindeki eşyalarla birlikte başkalarına kiraya verebilirler. Ev sahipleri ayrıca, kiracının eşyaları için de uygun alan yaratırlar.",
       "Barış kiraladığı eve giriş yaptıktan sonra, dairenin sahibinin nasıl biri olduğunu merak eder. Etrafı biraz gezince, gizemli bir sandık bulur. Üzerindeki örtüyü kaldırınca, sandığın kilitli olduğunu görür. Sandığı açmaması gerektiğini anlar, bu sırada mutfakta bu kilide uyabilecek bir anahtar gördüğünü anımsar. Kilidi o anahtarla açmayı dener ve kilit açılır. Sandığın içinden sadece eski kitaplar çıkar.",
