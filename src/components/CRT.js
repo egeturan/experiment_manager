@@ -48,7 +48,7 @@ class CRT extends Component{
                      
           //axios.post(`http://localhost:8080/sendCRT/`, data )
           //axios.post(`http://localhost:8080/sendCRT/`, data )
-          axios.post(`https://aegeanriver.herokuapp.com/sendCRT/`, data )
+          axios.post(`https://riveraegean.herokuapp.com/sendCRT/`, data )
           .then(res => {
 
             if(res.data.situation === 1){

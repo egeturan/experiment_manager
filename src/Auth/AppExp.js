@@ -76,7 +76,7 @@ class AppExp extends React.Component {
 
       //axios.post(`https://congnitivee.herokuapp.com/applyForAttending/`, user )
       //axios.post(`http://localhost:8080/applyForAttending/`, user )
-      axios.post(`https://aegeanriver.herokuapp.com/applyForAttending/`, user )
+      axios.post(`https://riveraegean.herokuapp.com/applyForAttending/`, user )
       .then(res => {
         console.log(res.data);
        if(res.data.situation === 1){

@@ -60,7 +60,7 @@ class UserInfo extends React.Component {
 
       
       //axios.post(`http://localhost:8080/userInfo/`, dataI )
-      axios.post(`https://aegeanriver.herokuapp.com/userInfo/`, dataI )
+      axios.post(`https://riveraegean.herokuapp.com/userInfo/`, dataI )
       //axios.post(`http://localhost:8080/userInfo/`, dataI )
       .then(res => {
         if(res.data.situation === 0)
