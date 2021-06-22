@@ -136,7 +136,7 @@ class StroopTask extends React.Component {
       //console.log(data);
 
       //axios.post(`http://localhost:8080/sendStroop/`, data )
-      axios.post(`https://cognitivee.herokuapp.com/sendStroop/`, data )
+      axios.post(`https://riveraegean.herokuapp.com/sendStroop/`, data )
       .then(res => {
   
         //console.log(res.data);

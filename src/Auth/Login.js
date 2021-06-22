@@ -69,7 +69,7 @@ class Login extends React.Component {
             ////console.log(user);
 
             //axios.post(`http://localhost:8080/login/`, user )
-            axios.post(`https://cognitivee.herokuapp.com/login/`, user )
+            axios.post(`https://riveraegean.herokuapp.com/login/`, user )
             //axios.post(`http://localhost:8080/login/`, user )
             .then(res => {
 
@@ -191,8 +191,9 @@ class Login extends React.Component {
         <Grid.Column  className="GridColumn">
           {modal}
           <Header as="h1" icon color="violet" textAlign="center">
-            Deneye başlamak üzeresiniz <br/> Lütfen kendinize bir kullanıcı adı belirleyiniz
+            Deneye başlamak üzeresiniz <br/> Lütfen kendinize bir kullanıcı adı belirleyiniz.
           </Header>
+          <h2>Lütfen Deneyi Safari tarayıcısı üzerinden yapmayınız. Bazı özellikler henüz desteklenmemektedir.</h2>
           <Form onSubmit={this.handleSubmit} size="large">
             <Segment stacked>
               <Form.Input

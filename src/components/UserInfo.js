@@ -23,6 +23,7 @@ class UserInfo extends React.Component {
     musicType: "",
     belief: "",
     medical: "",
+    drug: "",
     errors: [],
     loading: false
   };
@@ -51,13 +52,15 @@ class UserInfo extends React.Component {
         musicType: this.state.musicType,
         belief: this.state.belief,
         medical: this.state.medical,
+        drug: this.state.drug
+
       };
 
       ////console.log(user);
 
       
       //axios.post(`http://localhost:8080/userInfo/`, dataI )
-      axios.post(`https://cognitivee.herokuapp.com/userInfo/`, dataI )
+      axios.post(`https://riveraegean.herokuapp.com/userInfo/`, dataI )
       //axios.post(`http://localhost:8080/userInfo/`, dataI )
       .then(res => {
         if(res.data.situation === 0)
@@ -79,7 +82,7 @@ class UserInfo extends React.Component {
   };
   
 
-  isFormValid = ({ age, sex, education, musicType, belief }) => age && sex && education && musicType && belief;
+  isFormValid = ({ age, sex, education, musicType, belief, medical, drug }) => age && sex && education && musicType && belief && medical && drug;
 
   handleInputError = (errors, inputName) => {
     return errors.some(error => error.message.toLowerCase().includes(inputName))
@@ -88,7 +91,7 @@ class UserInfo extends React.Component {
   };
 
   render() {
-    const { age, sex, education, musicType, belief, medical, loading } = this.state;
+    const { age, sex, education, musicType, belief, medical, drug, loading } = this.state;
 
     return (
       <Container className="Container">
@@ -275,13 +278,14 @@ class UserInfo extends React.Component {
 
               <Form.Input
                 as="select"
-                name = "medical"
+                name = "drug"
                 onChange={this.handleChange}
-                value={medical}
+                value={drug}
                 className="form"
-                type="medical"
+                type="drug"
               >
                     <option>Kullandıysanız ilaç türü nedir?</option>
+                    <option>-</option>
                     <option>Antidepresan</option>
                     <option>Antipsikotik</option>
                     <option>Uyku hapları ve küçük sakinleştiriciler</option>
