@@ -26,7 +26,7 @@ import DilemmaExceptional from './components/DilemmaExceptional';
 class PageManager extends React.Component {
   
   state = {
-    auth: false,
+    auth: true,
     pageNumber: 0,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
@@ -177,15 +177,27 @@ class PageManager extends React.Component {
     return obj;
   }
 
-  
-
   componentDidMount() {
     //console.log("Uploading");
+    console.log(this.props.history.location.state)
     if(this.props.history.location.state !== undefined)
     {
         this.setState(this.props.history.location.state)
     }
-    
+  }
+
+  refresher()
+  {
+    window.onbeforeunload = function() {
+      this.props.history.push({
+        pathname: '/',
+        state: {
+          auth: false
+        }
+      })
+      this.onUnload();
+      return "";
+    }.bind(this);
   }
 
 
@@ -398,6 +410,7 @@ class PageManager extends React.Component {
         {screen}
         {dilemma}
         {movement}
+        {this.refresher()}
         </div>;
     }else if(this.state.auth === false)
     {

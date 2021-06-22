@@ -193,7 +193,8 @@ class Login extends React.Component {
           <Header as="h1" icon color="violet" textAlign="center">
             Deneye başlamak üzeresiniz <br/> Lütfen kendinize bir kullanıcı adı belirleyiniz.
           </Header>
-          <h2>Lütfen Deneyi Safari tarayıcısı üzerinden yapmayınız. Bazı özellikler henüz desteklenmemektedir.</h2>
+          <p className="browserAttention">Lütfen Deneyi Safari tarayıcısı üzerinden yapmayınız. Bazı özellikler henüz desteklenmemektedir.</p>
+          <p className="browserAttention2">Deney Sırasında sayfayı yenilemeniz, yenilemeniz durumunda tekrar giriş yapıp baştan başlamanız gerekecektir. </p>
           <Form onSubmit={this.handleSubmit} size="large">
             <Segment stacked>
               <Form.Input
