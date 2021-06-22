@@ -55,6 +55,9 @@ class CRT extends Component{
             alert("Deney Başarılı Şekilde Tamamlandı. Araştırma Süreci sonunda websitende bilgilendirme yayını yapılacaktır.")
                 this.props.finish("finish");
               }
+              else{
+                alert("Veri kaydında hata oldu. Lütfen yetkili ile iletişime geçiniz");
+              }
           })
 
           clearInterval(this.timer);
