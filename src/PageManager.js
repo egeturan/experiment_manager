@@ -26,8 +26,8 @@ import DilemmaExceptional from './components/DilemmaExceptional';
 class PageManager extends React.Component {
   
   state = {
-    auth: false,
-    pageNumber: 0,
+    auth: true,
+    pageNumber: 26,
     timer: {h: 0, m: 0, s: 0},
     userName: "default",
     token: "",
@@ -217,6 +217,10 @@ class PageManager extends React.Component {
     this.setState({pageNumber: this.state.pageNumber + 1})
   }
 
+  finish = (args) => {
+    this.setState({auth: false})
+  }
+
   visitedHome = (args) => 
   {
     axios.get(`https://cognitivee.herokuapp.com/site_visited/`)
@@ -378,7 +382,7 @@ class PageManager extends React.Component {
       </div>;
     }else if(this.state.pageNumber === 26)
     {
-      screen = <CRT submited={this.submited} token={this.state.token}></CRT>;
+      screen = <CRT submited={this.submited} finish={this.finish} token={this.state.token}></CRT>;
       movement = null;
     }else if(this.state.pageNumber === 27)
     {
