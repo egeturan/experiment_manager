@@ -185,7 +185,7 @@ class Panas extends Component{
             <h1>1. Bölüm: Genel Duygulanım Derecelendirmesi  </h1>
             <p>Lütfen bir sonraki sayfadaki tabloda yazan her duyguyu bu haftaki hissetme yoğunluğunuza ve oranınıza göre doldurunuz. </p>
             <ListGroup>
-            <ListGroup.Item>1: Gerçekten çok az yada hiç hissetmedim.</ListGroup.Item>
+            <ListGroup.Item>1: Gerçekten çok az ya da hiç hissetmedim.</ListGroup.Item>
             <ListGroup.Item>2: Çok az hissettim.</ListGroup.Item>
             <ListGroup.Item>3: Ortalama hissettim.</ListGroup.Item>
             <ListGroup.Item>4: Biraz fazla hissettim.</ListGroup.Item>
