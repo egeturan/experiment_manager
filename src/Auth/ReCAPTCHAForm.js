@@ -11,7 +11,7 @@ const ReCAPTCHAForm = (props) => {
  
   return (
       <ReCAPTCHA
-        sitekey="6LdRCuUaAAAAACTH-85xRAH0bkvG_20ae5G8ZJkV"
+        sitekey="6LfqLMcbAAAAAMXIL1eKxzegSH-EnkwZDRnq_arU"
         onChange={onChange}
       />
   )
