@@ -235,7 +235,7 @@ class PageManager extends React.Component {
 
   visitedHome = (args) => 
   {
-    axios.get(`https://riveraegean.herokuapp.com/site_visited/`)
+    axios.get(`https://riverend.herokuapp.com/site_visited/`)
       .then(res => {
         if(res.data.situation === 1)
         {
